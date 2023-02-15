@@ -5,7 +5,7 @@ export const SITE = {
   author: "huiruh",
   desc: "huiru blog.",
   title: "HuiruBlog",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "",
   lightAndDarkMode: true,
   postPerPage: 3,
 };
@@ -38,7 +38,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "LinkedIn",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://www.linkedin.com/in/%E8%8D%9F%E5%84%92-%E7%8E%8B-357957250/",
     linkTitle: `${SITE.title} on LinkedIn`,
     active: true,
   },

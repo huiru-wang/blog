@@ -27,7 +27,7 @@ description:
    | -- server1.conf
    | -- server2.conf
 
-# 相对路径引入
+# 全局配置中加入相对路径引入
 include server1.conf;
 ```
 
