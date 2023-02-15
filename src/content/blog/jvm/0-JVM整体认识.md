@@ -18,7 +18,7 @@ Java虚拟机使用的是HotSpot虚拟机；18年oracle公开了GraalVM
 
 # JVM整体结构
 
-![](/src/assets/images/Snipaste_2023-02-12_15-22-14.png)
+![](/images/Snipaste_2023-02-12_15-22-14.png)
 
 栈代表了处理逻辑，而堆代表了数据
 
@@ -65,7 +65,7 @@ Java虚拟机使用的是HotSpot虚拟机；18年oracle公开了GraalVM
 
 # Heap
 
-![](/src/assets/images/heap.png)
+![](/images/heap.png)
 
 ## 年轻代
 

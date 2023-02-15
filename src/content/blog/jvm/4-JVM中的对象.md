@@ -51,7 +51,7 @@ description:
 
 参考：[Java虚拟机中对象探秘--对象头创建、对象头、对象锁、synchoronized底层实现](https://blog.csdn.net/smileiam/article/details/80364641)
 
-![](/src/assets/images/suo.png)
+![](/images/suo.png)
 HotSpot虚拟机的对象的内存分布主要分为三个部分：
 
 - 对象头（分为两部分）

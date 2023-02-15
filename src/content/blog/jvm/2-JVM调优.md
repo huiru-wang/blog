@@ -11,7 +11,7 @@ ogImage: ""
 description: JVM参数/调优相关/MinorGC/FullGC/GC/jmap
 ---
 
-![](/src/assets/images/heap.png?msec=1676139896889)
+![](/images/heap.png?msec=1676139896889)
 
 > JVM 调优主要调整 Heap 区域的参数配置
 
