@@ -1,5 +1,7 @@
 # blog 📄
 
+**访问地址**：[blog.haiah.life](blog.haiah.life)
+
 ## 安装部署
 ```shell
 npm install
