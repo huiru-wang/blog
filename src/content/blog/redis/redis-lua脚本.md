@@ -1,15 +1,15 @@
 ---
 author: huiru
 pubDatetime: 2022-02-22T13:39:00Z
-title: redis-lua脚本
-postSlug: redis-lua脚本
+title: Redis-lua脚本
+postSlug: Redis-lua脚本
 featured: true
 draft: false
 tags:
  - redis
 ogImage: ""
 description:
- redis-lua脚本
+ redis lua脚本
 ---
 
 # 加锁
