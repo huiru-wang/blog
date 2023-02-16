@@ -12,7 +12,7 @@ npm run dev
 npm run build
 ```
 
-## nginx
+## 简单配置nginx
 ```conf
 #user  nobody;
 worker_processes  1;
@@ -33,7 +33,7 @@ http {
         access_log /etc/nginx/logs/access.log;
 
         location / {
-            root C:\Users\haiah\Desktop\blog\dist;
+            root /opt/blog/dist;
             index index.html index.htm;
             add_header Access-Control-Allow-Origin *;
         }
