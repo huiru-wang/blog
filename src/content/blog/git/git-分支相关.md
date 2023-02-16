@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-11T08:39:00Z
-title: git-分支相关
-postSlug: git-分支相关
+title: Git-分支相关
+postSlug: Git-分支相关
 featured: true
 draft: false
 tags:
