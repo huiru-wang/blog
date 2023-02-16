@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-02-12T07:39:00Z
 title: Redis-大key
 postSlug: Redis-大key
-featured: true
+featured: false
 draft: false
+category: DataBase
 tags:
  - redis
 ogImage: ""

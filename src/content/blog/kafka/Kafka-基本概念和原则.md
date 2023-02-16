@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-25T15:22:30Z
 title: Kafka-基本概念
 postSlug: Kafka-基本概念
-featured: true
+featured: false
 draft: false
+category: MessageQueue
 tags:
   - kafka
 ogImage: ""

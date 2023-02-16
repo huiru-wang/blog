@@ -1,10 +1,11 @@
 ---
 author: huiru
 pubDatetime: 2022-01-06T08:36:00Z
-title: cache-浏览器缓存
-postSlug: cache-浏览器缓存
-featured: true
+title: Cache-浏览器缓存
+postSlug: Cache-浏览器缓存
+featured: false
 draft: false
+category: Service
 tags:
  - cache
 ogImage: ""
@@ -12,18 +13,18 @@ description:
  浏览器缓存/强制缓存/协商缓存/Cache-control/Expires/
 ---
 
-# 浏览器端缓存
+## 浏览器端缓存
 - 强制缓存
 - 协商缓存
 
-## 强制缓存
+### 强制缓存
 执行流程：
 在浏览器发送请求之前，会先查询缓存；
 - 如果缓存标识有效，则不发送请求，直接使用缓存；
 - 如果缓存标识()有效，缓存结果不存在，发送请求；
 - 如果缓存标识无效，发送请求；
 
-### 缓存标识：Cache-control
+#### 缓存标识：Cache-control
 Expires、Cache-control两个都是控制浏览器强缓存的；
 
 Expires/Pragma：:x:
@@ -41,7 +42,7 @@ Cache-control：:heavy_check_mark:
 - `Cache-Control: public`：标识缓存为共享缓存；
 - `Cache-Control: private`：标识缓存为私有缓存；如果缓存用户级别的信息，需要使用此标识，否则可能信息泄露；
 
-### 缓存存储
+#### 缓存存储
 - memory cache：JS文件、图片一般直接存入内存中；(进程关闭清空)
 - disk cache：css文件一般存放在磁盘(用户目录下)；
 
@@ -50,7 +51,7 @@ Cache-control：:heavy_check_mark:
 
 参考：[Mdn Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
 
-## 协商缓存
+### 协商缓存
 目的：当强制缓存失效，或缓存需要重新验证，则执行协商缓存流程，来验证缓存是否可用；
 
 协商缓存也有HTTP/1.0和1.1两个版本：

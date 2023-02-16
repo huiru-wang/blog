@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-1-1T10:54:19Z
 title: JVM-Java对象
 postSlug: JVM-Java对象
-featured: true
+featured: false
 draft: false
+category: Java
 tags:
   - jvm
 ogImage: ""

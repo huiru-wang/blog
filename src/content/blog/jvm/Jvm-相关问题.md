@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-2-1T10:54:19Z
 title: JVM-相关问题
 postSlug: JVM-相关问题
-featured: true
+featured: false
 draft: false
+category: Java
 tags:
   - jvm
 ogImage: ""

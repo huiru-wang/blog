@@ -1,10 +1,11 @@
 ---
 author: huiru
-pubDatetime: 2021-12-21T013:39:00Z
+pubDatetime: 2021-12-21T13:39:00Z
 title: MySQL-数据类型
 postSlug: MySQL-数据类型
-featured: true
+featured: false
 draft: false
+category: DataBase
 tags:
  - mysql
 ogImage: ""

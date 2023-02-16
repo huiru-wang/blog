@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-02-12T08:39:00Z
 title: Git-仓库相关
 postSlug: Git-仓库相关
-featured: true
+featured: false
 draft: false
+category: DevTools
 tags:
  - git
 ogImage: ""

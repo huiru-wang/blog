@@ -3,16 +3,15 @@ author: huiru
 pubDatetime: 2022-03-16T08:36:00Z
 title: Java-线程
 postSlug: Java-线程
-featured: true
+featured: false
 draft: false
+category: Java
 tags:
- - linux
+ - java
 ogImage: ""
 description:
  Java/线程/中断线程
 ---
-
-:large_orange_diamond:-----------------------------------------------------------------------------------------------------------------------------------------------------:large_orange_diamond:
 
 # 如何中断线程
 1、暴力中断：stop():x:禁止使用

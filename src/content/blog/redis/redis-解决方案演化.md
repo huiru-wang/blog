@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-02-11T08:39:00Z
 title: Redis-解决方案演化
 postSlug: Redis-解决方案演化
-featured: true
+featured: false
 draft: false
+category: DataBase
 tags:
  - redis
 ogImage: ""

@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-29T16:54:19Z
 title: JVM-参数调优相关
 postSlug: JVM-参数调优相关
-featured: true
+featured: false
 draft: false
+category: Java
 tags:
   - jvm
 ogImage: ""

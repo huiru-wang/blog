@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-29T16:54:19Z
 title: JVM-类加载
 postSlug: JVM-类加载
-featured: true
+featured: false
 draft: false
+category: Java
 tags:
   - jvm
 ogImage: ""

@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-25T19:22:30Z
 title: Kafka-生产者相关
 postSlug: Kafka-生产者相关
-featured: true
+featured: false
 draft: false
+category: MessageQueue
 tags:
   - kafka
 ogImage: ""

@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-25T16:22:30Z
 title: Kafka-消息投递语义
 postSlug: Kafka-消息投递语义
-featured: true
+featured: false
 draft: false
+category: MessageQueue
 tags:
   - kafka
 ogImage: ""

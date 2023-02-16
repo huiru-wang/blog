@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-01-06T08:36:00Z
 title: Linux命令-top htop
 postSlug: Linux命令-top htop
-featured: true
+featured: false
 draft: false
+category: Linux
 tags:
   - linux
 ogImage: ""

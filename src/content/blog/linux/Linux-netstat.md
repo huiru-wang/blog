@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-01-06T08:36:00Z
 title: Linux命令-netstat
 postSlug: Linux命令-netstat
-featured: true
+featured: false
 draft: false
+category: Linux
 tags:
   - linux
 ogImage: ""

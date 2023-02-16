@@ -3,7 +3,7 @@ author: huiru
 pubDatetime: 2022-06-03T09:22:53Z
 title: Nginx-安装部署及命令
 postSlug: Nginx
-featured: true
+featured: false
 draft: false
 tags:
   - nginx

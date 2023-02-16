@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-02-12T11:39:00Z
 title: Git-rebase
 postSlug: Git-rebase
-featured: true
+featured: false
 draft: false
+category: DevTools
 tags:
  - git
 ogImage: ""

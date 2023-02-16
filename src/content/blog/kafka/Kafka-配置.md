@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-24T15:22:30Z
 title: Kafka-配置
 postSlug: Kafka-配置
-featured: true
+featured: false
 draft: false
+category: MessageQueue
 tags:
   - kafka
 ogImage: ""

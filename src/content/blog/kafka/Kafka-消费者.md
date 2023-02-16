@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-25T21:22:30Z
 title: Kafka-消费者相关
 postSlug: Kafka-消费者相关
-featured: true
+featured: false
 draft: false
+category: MessageQueue
 tags:
   - kafka
 ogImage: ""

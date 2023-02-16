@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-04-11T08:26:00Z
 title: Cache-全链路缓存
 postSlug: Cache-全链路缓存
-featured: true
+featured: false
 draft: false
+category: Service
 tags:
  - linux
 ogImage: ""
@@ -12,14 +13,14 @@ description:
  cache/全链路缓存/浏览器缓存/客户端缓存/CDN缓存/代理服务器缓存/http缓存/本地存储/localStorage/cookie/sessionStorage/cache-control/nginx缓存
 ---
 
-# 缓存的目的和副作用
+## 缓存的目的和副作用
 
 **目的**：尽可能缩短网络请求的链路；降低响应时延；减轻服务压力；
 
 **副作用**：需要额外处理缓存一致性问题；
 
 
-# 客户端/浏览器缓存
+## 客户端/浏览器缓存
 
 场景：
 
@@ -35,9 +36,9 @@ description:
 
 2、降低资源请求的带宽损耗；
 
-# CDN缓存
+## CDN缓存
 
-# nginx缓存
+## nginx缓存
 
 开启nginx缓存后，请求过的数据如果尚未过期，则立即返回；
 
@@ -45,7 +46,7 @@ description:
 
 2、缩短请求链路，降低时延，增加访问速度；
 
-# 进程内缓存
+## 进程内缓存
 
 进程内缓存，是一个服务进程可以使用的<mark>最快的缓存</mark>，特点：
 
@@ -77,11 +78,11 @@ description:
 
 - 二级缓存：默认关闭；存在问题；
 
-# 数据库缓存
+## 数据库缓存
 
 
 
-# 分布式缓存
+## 分布式缓存
 
 优势：
 

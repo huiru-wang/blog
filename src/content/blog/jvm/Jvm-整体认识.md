@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2021-12-29T15:22:00Z
 title: JVM-整体结构
 postSlug: JVM-整体结构
-featured: true
+featured: false
 draft: false
+category: Java
 tags:
   - jvm
 ogImage: ""

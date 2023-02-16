@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-03-11T05:36:00Z
 title: Java-运算
 postSlug: Java-运算
-featured: true
+featured: false
 draft: false
+category: Java
 tags:
  - java
 ogImage: ""

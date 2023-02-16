@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-02-22T13:39:00Z
 title: Redis-lua脚本
 postSlug: Redis-lua脚本
-featured: true
+featured: false
 draft: false
+category: DataBase
 tags:
  - redis
 ogImage: ""

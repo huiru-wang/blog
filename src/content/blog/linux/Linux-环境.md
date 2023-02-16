@@ -3,8 +3,9 @@ author: huiru
 pubDatetime: 2022-02-16T09:36:00Z
 title: Linux环境相关
 postSlug: Linux环境相关
-featured: true
+featured: false
 draft: false
+category: Linux
 tags:
   - linux
 ogImage: ""
