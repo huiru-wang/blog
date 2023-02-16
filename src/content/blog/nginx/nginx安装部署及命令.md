@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-06-03T09:22:53Z
-title: nginx-安装部署及命令
-postSlug: nginx
+title: Nginx-安装部署及命令
+postSlug: Nginx
 featured: true
 draft: false
 tags:
