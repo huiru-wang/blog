@@ -24,16 +24,13 @@ http {
     
     server {
         
-        listen       80;		# 绑定的端口号
-        # 绑定的域名,可配置多个域名 空格分隔，可用正则，最前加上~
+        listen       80;
         server_name  localhost;
 
         access_log /etc/nginx/logs/access.log;
 
         location / {
-            
             root C:\Users\haiah\Desktop\blog\dist;
-            
             index index.html index.htm;
             add_header Access-Control-Allow-Origin *;
         }
@@ -42,7 +39,7 @@ http {
 ```
 
 ## 定时任务
-创建脚本：
+创建脚本：/opt/bin/schedule_task.sh
 ```shell
 #/bin/bash
 
@@ -58,6 +55,6 @@ npm run build
 ```shell
 vim /etc/crontab
 ----------------------
-
-
+# 新增
+* 3 * * * * root /opt/bin/schedule_task.sh
 ```
