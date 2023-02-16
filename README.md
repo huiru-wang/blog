@@ -3,6 +3,9 @@
 **访问地址**：[blog.haiah.life](blog.haiah.life)
 
 ## 安装部署
+
+使用模板：[astro-paper](https://github.com/satnaing/astro-paper)
+
 ```shell
 npm install
 npm run dev
