@@ -15,6 +15,7 @@ description:
 # 字符串类型
 参考：[MySQL8.0-The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/8.0/en/char.html)
 
+## char/varchar
 char(n) / varchar(n)：n为声明的最大字符数，非字节；
 
 char和varchar存储对比：
@@ -30,7 +31,7 @@ char和varchar存储对比：
   - 当n<=255，额外占用1byte；
   - 当n>255，额外占用2byte；
 
-# Text
+## Text
 不占用MySQL行的字节大小；
 
 
