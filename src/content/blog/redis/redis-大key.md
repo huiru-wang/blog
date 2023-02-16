@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-12T07:39:00Z
-title: redis-大key
-postSlug: redis-大key
+title: Redis-大key
+postSlug: Redis-大key
 featured: true
 draft: false
 tags:
