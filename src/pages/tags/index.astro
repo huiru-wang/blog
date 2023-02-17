@@ -4,20 +4,32 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
-import Tag from "@components/Tag.astro";
-import getUniqueTags from "@utils/getUniqueTags";
 import { SITE } from "@config";
+import TagsCard from "@components/TagsCard.astro";
+import getTagsByCategory from "@utils/getTagsByCategory";
+import getCategory from "@utils/getCategory";
 
 const posts = await getCollection("blog");
 
-let tags = getUniqueTags(posts);
+//let tags = getUniqueTags(posts);
+let categories: string[] = getCategory(posts);
+let tagsMap: Map<string, string[]> = new Map();
+categories.forEach(
+  category =>
+    (tagsMap = tagsMap.set(category, getTagsByCategory(category, posts)))
+);
+console.log(tagsMap);
 ---
 
 <Layout title={`Tags | ${SITE.title}`}>
   <Header activeNav="tags" />
   <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
     <ul>
-      {tags.map(tag => <Tag name={tag} size="lg" />)}
+      {
+        categories.map(category => {
+          return <TagsCard category={category} tags={tagsMap.get(category)} />;
+        })
+      }
     </ul>
   </Main>
   <Footer />

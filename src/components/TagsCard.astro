@@ -1,0 +1,52 @@
+---
+import Tag from "@components/Tag.astro";
+export interface Props {
+  category: string;
+  tags: string[] | undefined;
+}
+
+const { category, tags } = Astro.props;
+---
+
+<div class="tags-card">
+  <div class="category-card">{category}</div>
+  <div class="tag-card">
+    {tags.map(tag => <Tag name={tag} size="lg" />)}
+  </div>
+</div>
+<style>
+  .category-card {
+    width: 200px;
+    flex-grow: 1;
+  }
+  .tag-card {
+    width: 200px;
+    flex-grow: 5;
+  }
+  .tags-card {
+    box-sizing: border-box;
+    margin: 1em;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(110, 75, 114, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    user-select: none;
+    font-weight: bolder;
+  }
+
+  .tags-card:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+  }
+
+  .tags-card:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+</style>

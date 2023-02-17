@@ -1,4 +1,3 @@
-import { slugifyStr } from "./slugify";
 import type { CollectionEntry } from "astro:content";
 
 const getCategory = (posts: CollectionEntry<"blog">[]) => {
@@ -7,7 +6,8 @@ const getCategory = (posts: CollectionEntry<"blog">[]) => {
     filteredPosts.forEach(post => {
         category.push(post.data.category);
     });
-    return category;
+
+    return [...new Set(category)];
 };
 
 export default getCategory;
