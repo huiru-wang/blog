@@ -5,7 +5,7 @@ title: Service-流量控制
 postSlug: Service-流量控制.
 featured: false
 draft: false
-category: Service
+category: Server
 tags:
  - service
 ogImage: ""

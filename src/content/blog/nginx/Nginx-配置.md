@@ -5,6 +5,7 @@ title: Nginx-配置
 postSlug: Nginx
 featured: false
 draft: false
+category: Server
 tags:
   - nginx
 ogImage: ""
