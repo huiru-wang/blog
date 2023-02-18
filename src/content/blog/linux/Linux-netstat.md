@@ -5,7 +5,7 @@ title: Linux命令-netstat
 postSlug: Linux命令-netstat
 featured: false
 draft: false
-category: Linux
+category: DevTools
 tags:
   - linux
 ogImage: ""
