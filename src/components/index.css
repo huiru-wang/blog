@@ -4,3 +4,15 @@
  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
  background: linear-gradient(293deg, rgb(185, 185, 255) 0%, rgb(72, 225, 255) 100%);
 }
+.search-input {
+  /* text-align: center; */
+  border-radius: 5px;
+  /* box-shadow: 1px 1px 1px rgb(82, 119, 189); */
+}
+
+.search-input:focus {
+  outline-color: rgb(139, 76, 175);
+  box-shadow: 3px 3px 15px rgb(82, 72, 167);
+  transition: .1s;
+  transition-property: box-shadow;
+}
