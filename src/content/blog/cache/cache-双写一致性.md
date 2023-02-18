@@ -5,7 +5,7 @@ title: Cache-双写一致性
 postSlug: Cache-双写一致性
 featured: false
 draft: false
-category: Service
+category: WebServer
 tags:
  - cache
 ogImage: ""
