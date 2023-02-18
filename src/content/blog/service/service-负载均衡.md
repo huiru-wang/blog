@@ -5,7 +5,7 @@ title: Service-负载均衡.
 postSlug: Service-负载均衡.
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
  - service
 ogImage: ""
