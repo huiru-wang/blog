@@ -5,7 +5,7 @@ title: Cache-全链路缓存
 postSlug: Cache-全链路缓存
 featured: false
 draft: false
-category: Service
+category: WebServer
 tags:
  - linux
 ogImage: ""
