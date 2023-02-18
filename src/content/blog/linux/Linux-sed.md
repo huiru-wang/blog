@@ -5,7 +5,7 @@ title: Linux命令-sed
 postSlug: Linux命令-sed
 featured: false
 draft: true
-category: Linux
+category: DevTools
 tags:
   - linux
 ogImage: ""
