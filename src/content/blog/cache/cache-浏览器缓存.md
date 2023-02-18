@@ -5,7 +5,7 @@ title: Cache-浏览器缓存
 postSlug: Cache-浏览器缓存
 featured: false
 draft: false
-category: Service
+category: WebServer
 tags:
  - cache
 ogImage: ""
