@@ -29,15 +29,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <div style="text-align: center;">
         we live ourselves into new ways of thinking
       </div>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
     </section>
 
     <Hr />
