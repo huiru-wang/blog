@@ -5,7 +5,7 @@ title: Linux环境相关
 postSlug: Linux环境相关
 featured: false
 draft: false
-category: Linux
+category: DevTools
 tags:
   - linux
 ogImage: ""
