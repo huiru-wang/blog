@@ -3,22 +3,13 @@ author: huiru
 pubDatetime: 2022-03-28T16:39:00Z
 title: Hutool-常用工具
 postSlug: Hutool-常用工具
-featured: true
+featured: false
 draft: false
 category: DevTools
 tags:
  - Hutool
 ogImage: ""
 description:
-  hutool字符串/集合/Map/URLEncode/数组/
+  字符串工具/集合工具/唯一ID/加解密
 ---
-
-## StrUtil
-
-
-## MapUtil
-
-## ArrayUtil
-
-
-## URLEncodeUtil
+[Hutool Doc](https://hutool.cn/docs/#/)
