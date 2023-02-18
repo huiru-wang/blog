@@ -5,7 +5,7 @@ title: Linux命令-top htop
 postSlug: Linux命令-top htop
 featured: false
 draft: false
-category: Linux
+category: DevTools
 tags:
   - linux
 ogImage: ""
