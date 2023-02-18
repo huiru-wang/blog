@@ -5,9 +5,9 @@ title: Spring-事务
 postSlug: Spring-事务
 featured: false
 draft: false
-category: Spring
+category: Framework
 tags:
- - Framework
+ - Spring
 ogImage: ""
 description:
  Spring事务

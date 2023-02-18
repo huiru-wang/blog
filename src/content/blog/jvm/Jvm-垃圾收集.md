@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2021-12-29T16:22:10Z
-title: JVM-垃圾收集
-postSlug: JVM-垃圾收集
+title: jvm-垃圾收集
+postSlug: Jvm-垃圾收集
 featured: false
 draft: false
 category: Java

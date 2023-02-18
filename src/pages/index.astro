@@ -92,6 +92,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   #hero {
     @apply pt-8 pb-6;
   }
+  #hero:where(.astro-J7PV25F6) {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
   #hero h1 {
     @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
   }
@@ -112,9 +116,15 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
+  #featured {
+    padding-top: 1rem;
+  }
   #recent-posts {
     @apply pt-12 pb-6;
+  }
+  #recent-posts:where(.astro-J7PV25F6) {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
   }
   #featured h2,
   #recent-posts h2 {

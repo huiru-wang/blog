@@ -18,7 +18,6 @@ categories.forEach(
   category =>
     (tagsMap = tagsMap.set(category, getTagsByCategory(category, posts)))
 );
-console.log(tagsMap);
 ---
 
 <Layout title={`Tags | ${SITE.title}`}>

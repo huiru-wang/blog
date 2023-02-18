@@ -1,13 +1,13 @@
 ---
 author: huiru
 pubDatetime: 2022-02-13T08:39:00Z
-title: Jvm-内存管理方式
+title: jvm-内存管理方式
 postSlug: Jvm-内存管理方式
 featured: false
 draft: false
-category: Jvm
+category: Java
 tags:
- - 
+ - jvm
 ogImage: ""
 description: Jvm内存管理
 ---

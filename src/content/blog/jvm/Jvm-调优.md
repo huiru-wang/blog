@@ -1,15 +1,15 @@
 ---
 author: huiru
 pubDatetime: 2021-12-29T16:54:19Z
-title: JVM-参数调优相关
-postSlug: JVM-参数调优相关
+title: jvm-参数调优相关
+postSlug: Jvm-参数调优相关
 featured: false
 draft: false
 category: Java
 tags:
   - jvm
 ogImage: ""
-description: JVM参数/调优相关/MinorGC/FullGC/GC/jmap
+description: Jvm参数/调优相关/MinorGC/FullGC/GC/jmap
 ---
 
 ![](/images/heap.png?msec=1676139896889)

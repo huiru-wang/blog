@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
-import Catalog from "@layouts/Catalog.astro";
+import Catalog from "@components/Catalog.tsx";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
@@ -41,7 +41,7 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.svg`, Astro.url.origin)
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
-    <Catalog />
+    <!-- <Catalog headings={headings}/> -->
     <ul class="tags-container">
       {tags.map(tag => <Tag name={tag} />)}
     </ul>
