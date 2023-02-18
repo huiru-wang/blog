@@ -5,7 +5,7 @@ title: Linux命令-ps
 postSlug: Linux命令-ps
 featured: false
 draft: false
-category: Linux
+category: DevTools
 tags:
   - linux
 ogImage: ""
