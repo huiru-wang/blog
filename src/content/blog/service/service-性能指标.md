@@ -7,11 +7,12 @@ featured: false
 draft: false
 category: WebServer
 tags:
-  - service
+ - service
 ogImage: ""
 description:
   服务器性能指标/QPS/TPS/RT/时延/并发量/PV/UV/DAU/并发计算/可用性/可扩展性
 ---
+
 # 性能指标
 
 **QPS**：单台服务器每秒能够响应的查询数；
@@ -66,5 +67,6 @@ DAU(1000w) + 用户平均在线时长(1h) 求出：服务端所需并发量：
   - 无状态水平扩容，有状态路由扩容
 
 ---
+
 参考：
 https://cloud.tencent.com/developer/article/1653881

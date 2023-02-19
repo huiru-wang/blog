@@ -1,9 +1,9 @@
 ---
 author: huiru
-pubDatetime: 2022-06-07T09:22:53Z
+pubDatetime: 2021-12-07T09:22:53Z
 title: Nginx-安装SSL证书
 postSlug: Nginx-安装SSL证书
-featured: false
+featured: true
 draft: false
 category: Server
 tags:
@@ -13,5 +13,5 @@ description: nginx SSL证书安装
 ---
 
 # http_ssl_module
-Nginx开启SSL，需要http_ssl_module模块；
 
+Nginx开启SSL，需要http_ssl_module模块；

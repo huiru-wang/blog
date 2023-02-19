@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2022-06-03T09:22:53Z
+pubDatetime: 2021-12-03T09:22:53Z
 title: Nginx-安装部署及命令
 postSlug: Nginx
 featured: false
@@ -26,7 +26,6 @@ service nginx start/restart/stop
 3、docker 启动：
 
 ```conf
-
 docker pull nginx:latest
 # 简单启动
 docker run -d --name nginx -p 80:80 nginx:latest

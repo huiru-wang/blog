@@ -1,8 +1,8 @@
 ---
 author: huiru
-pubDatetime: 2021-12-21T13:39:00Z
-title: MySQL-数据类型
-postSlug: MySQL-数据类型
+pubDatetime: 2021-12-01T13:39:00Z
+title: MySQL-数据结构
+postSlug: MySQL-数据结构
 featured: false
 draft: false
 category: DataBase
@@ -10,7 +10,7 @@ tags:
  - mysql
 ogImage: ""
 description:
- MySQL数据类型/varchar
+ MySQL数据类型/varchar/char
 ---
 
 # 字符串类型
@@ -26,7 +26,7 @@ char和varchar存储对比：
 | `'ab'`       | `'ab  '`  | 4 bytes          | `'ab'`       | 3 bytes          |
 | `'abcd'`     | `'abcd'`  | 4 bytes          | `'abcd'`     | 5 bytes          |
 | `'abcdefgh'` | `'abcd'`  | 4 bytes          | `'abcd'`     | 5 bytes          |
-- char长度固定(0-255)，varchar在最大长度内动态扩容(0-65535)
+- char长度固定(0-255)，varchar无限制，但MySQL有每行数据65535字节的硬性限制；
 - 两者都不可超过最大字符数；
 - varchar使用`1byte`的额外存储，用来表示长度
   - 当n<=255，额外占用1byte；

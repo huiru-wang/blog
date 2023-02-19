@@ -16,6 +16,7 @@ description:
 # JVM相关问题
 
 ## 堆相关
+
 1、JVM的内存结构划分
 
 按照线程是否共享进行分别描述；
@@ -32,12 +33,13 @@ description:
 4、什么情况会堆内存溢出
 
 5、什么情况下对象会进入老年代
+
 - `-XX:MaxTenuringThreshold`：超出配置的GC年龄阈值；
 - `-XX:TargetSurvivorRatio=50`：超出Survivor区内存大小
 - `-XX:PretenureSizeThreshold=3145728`：设置了大对象直接进入老年代
 
-
 ## GC相关
+
 1、MinorGC何时触发
 
 - Eden满
@@ -68,6 +70,7 @@ description:
 4、方法中的局部变量是否线程安全？
 
 ## 元空间
+
 1、介绍下元空间
 
 JDK8之前叫永久代，JDK8之后叫做元空间，两者都是方法区的实现；
@@ -77,26 +80,31 @@ JDK8之前叫永久代，JDK8之后叫做元空间，两者都是方法区的实
 元空间是FullGC回收的区域；通常回收不再使用的类的元数据，即如果对应的类加载器已死，其管辖的类的元数据就会被回收；
 
 ## 实操相关
+
 1、如何配置JVM参数？
 
 - 首先要确定线上机器的配置：CPU核数、内存大小；
+
 - 根据CPU核数，配置合适的线程池；根据-Xss计算出线程可能占用的内存大小；
   
   比如300线程，默认栈内存1Mb，则需要300Mb
-- 根据机器内存大小，配置堆区大小，一般配置机器内存的一半；
 
+- 根据机器内存大小，配置堆区大小，一般配置机器内存的一半；
+  
   `-Xms=4096`、`-Xmx=4096`一般设置一样大；
+
 - 元空间一般512Mb，够用了；
   
   `-XX:MetaspaceSize=512M -XX:MaxMetaspaceSize=512M`
+
 - 根据机器配置、业务场景，选择合适的垃圾收集器；
   
   内存小于8G，使用CMS：`-XX:+UseConcMarkSweepGC -XX:+UseParNewGC`
   
   大于8G可以考虑G1：`-XX:+UseG1GC`
 
-
 ## 对象相关
+
 1、对象的存储结构/布局
 
 2、JVM如何判断是否已死
@@ -104,6 +112,7 @@ JDK8之前叫永久代，JDK8之后叫做元空间，两者都是方法区的实
 可达性算法
 
 ## 类加载相关
+
 1、类在什么时候触发加载？
 
 HotSpot虚拟机是按需加载，用到此类的时候，才会加载；
@@ -117,38 +126,43 @@ HotSpot虚拟机是按需加载，用到此类的时候，才会加载；
 5、简述双亲委派模型，为什么需要双亲委派模型？
 
 6、`Class.forName()`和`getClassLoader().loadClass()`区别
+
 - `Class.forName()`：触发初始化
+
 - `getClassLoader().loadClass()`：不会触发类的初始化；
-```java
-public class ClassLoaderTest {
+  
+  ```java
+  public class ClassLoaderTest {
     public static void main(String[] args) throws ClassNotFoundException {
         //Class<?> class1 = Class.forName("org.snippet.classLoader.ClassLoaderTest$Father");
         Class<?> class2 = Father.class.getClassLoader().loadClass("org.snippet.classLoader.ClassLoaderTest$Father");
     }
-
+  
     static class Father{
         public static int num = 1;
         public String name = "Father";
-
+  
         static {
             System.out.println("Father Static Field: " + num);
             System.out.println("Father static init block");
         }
-
+  
         {
             System.out.println("Father field: " + name);
             System.out.println("Father init block");
         }
-
+  
         public Father(){
             System.out.println("Father constructor");
         }
     }
-}
-```
-7、继承关系中父子类的初始化顺序
+  }
+  ```
+  
+  7、继承关系中父子类的初始化顺序
 
 父静态变量/静态代码块 -> 子静态变量/静态代码块 -> 父成员变量/初始化块/构造器 -> 子成员变量/初始化块/构造器
+
 ```java
 public class ClassLoaderTest {
     public static void main(String[] args) {
@@ -211,4 +225,3 @@ Son constructor
 ```
 
 8、Tomcat为什么破坏双亲委派模型
-
