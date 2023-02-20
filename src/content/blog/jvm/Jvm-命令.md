@@ -12,3 +12,6 @@ ogImage: ""
 description: jvm命令
 ---
 
+**查看java进程**：`jps`
+
+**JVM启动参数查看**：`jmap -heap [pid]`
