@@ -143,14 +143,14 @@ padding填充看对象是否是8的整数倍；
 一个对象内存占用实例：
 ```shell
 org.example.OrderModel object internals:
- OFFSET  SIZE                    TYPE DESCRIPTION                               VALUE
-      0     4                         (object header)                           05 00 00 00 (00000101 00000000 00000000 00000000) (5)
-      4     4                         (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)
-      8     4                         (object header)                           42 c1 00 f8 (01000010 11000001 00000000 11111000) (-134168254)
-     12     4   org.example.UserModel OrderModel.userInfo                       (object)
-     16     8                    long OrderModel.orderId                        123456456789
-     24     4        java.lang.String OrderModel.orderInfo                      (object)
-     28     4                         (loss due to the next object alignment)
+ OFFSET  SIZE                    TYPE DESCRIPTION                     VALUE
+      0     4                         (object header)                 05 00 00 00 (00000101 00000000 00000000 00000000) (5)
+      4     4                         (object header)                 00 00 00 00 (00000000 00000000 00000000 00000000) (0)
+      8     4                         (object header)                 42 c1 00 f8 (01000010 11000001 00000000 11111000) (-134168254)
+     12     4   org.example.UserModel OrderModel.userInfo             (object)
+     16     8                    long OrderModel.orderId              123456456789
+     24     4        java.lang.String OrderModel.orderInfo            (object)
+     28     4        (loss due to the next object alignment)
 Instance size: 32 bytes
 Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 ```
