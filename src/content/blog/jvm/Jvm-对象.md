@@ -118,6 +118,8 @@ Epoch：偏向时间戳
 
 # 对象内存占用
 
+https://www.cnblogs.com/rickiyang/p/14206724.html
+
 Java对象内存数据包含：对象头 + 实例数据 + padding填充字节
 
 对象头比较固定：12字节 = 4 + 4 （+ 4）
