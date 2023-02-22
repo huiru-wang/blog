@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2021-12-24T15:22:00Z
+pubDatetime: 2021-12-11T12:22:00Z
 title: Kafka-简单部署和命令行
 postSlug: Kafka-简单部署和命令行
 featured: false
