@@ -5,7 +5,7 @@ title: jvm-命令
 postSlug: jvm-命令
 featured: false
 draft: false
-category: 
+category: java
 tags:
  - jvm
 ogImage: ""
