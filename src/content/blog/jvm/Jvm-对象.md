@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2021-1-1T10:54:19Z
+pubDatetime: 2022-01-05T15:11:00Z
 title: jvm-Java对象
 postSlug: Jvm-Java对象
 featured: false
@@ -130,15 +130,15 @@ padding填充看对象是否是8的整数倍；
 - 基本数据类型
 
 | 类型    | 占用空间(byte) |
-| ------- | ---------- |
-| boolean | 1          |
-| byte    | 1          |
-| short   | 2          |
-| char    | 2          |
-| int     | 4          |
-| float   | 4          |
-| long    | 8          |
-| double  | 8          |
+| ------- | -------------- |
+| boolean | 1              |
+| byte    | 1              |
+| short   | 2              |
+| char    | 2              |
+| int     | 4              |
+| float   | 4              |
+| long    | 8              |
+| double  | 8              |
 
 - 引用类型：32位系统上占用 4 byte，64位系统上占用 8 byte(未压缩的情况下)
 
