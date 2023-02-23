@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2021-2-1T10:54:19Z
+pubDatetime: 2022-01-07T05:11:00Z
 title: jvm-相关问题
 postSlug: Jvm-相关问题
 featured: false
@@ -9,8 +9,7 @@ category: Java
 tags:
   - jvm
 ogImage: ""
-description:
-  Jvm相关问题/面试
+description: Jvm相关问题/面试
 ---
 
 # JVM相关问题
@@ -56,6 +55,8 @@ description:
 3、介绍常用的垃圾收集算法
 
 4、介绍常用的垃圾收集器
+
+5、CMS、G1工作机制
 
 重点CMS、G1
 

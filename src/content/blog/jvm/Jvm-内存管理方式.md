@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2022-02-13T08:39:00Z
+pubDatetime: 2022-01-05T13:11:00Z
 title: jvm-内存管理方式
 postSlug: Jvm-内存管理方式
 featured: false
