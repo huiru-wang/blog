@@ -5,12 +5,9 @@
  background: linear-gradient(293deg, rgb(185, 185, 255) 0%, rgb(72, 225, 255) 100%);
 }
 .search-input {
-  /* text-align: center; */
   border-radius: 3px;
-  /* box-shadow: 1px 1px 1px rgb(82, 119, 189); */
 }
 
 .search-input:focus {
   box-shadow: 3px 3px 15px rgb(82, 72, 167);
-  transition: .1s;
 }
