@@ -3,7 +3,7 @@ author: huiru
 pubDatetime: 2021-12-07T09:22:53Z
 title: Nginx-安装SSL证书
 postSlug: Nginx-安装SSL证书
-featured: true
+featured: false
 draft: false
 category: Server
 tags:

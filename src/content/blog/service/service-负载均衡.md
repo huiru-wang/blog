@@ -1,8 +1,8 @@
 ---
 author: huiru
-pubDatetime: 2022-04-16T13:39:00Z
-title: Service-负载均衡.
-postSlug: Service-负载均衡.
+pubDatetime: 2022-06-16T13:39:00Z
+title: Service-负载均衡
+postSlug: Service-负载均衡
 featured: false
 draft: false
 category: WebServer
