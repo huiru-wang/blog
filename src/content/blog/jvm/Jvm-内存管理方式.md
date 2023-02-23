@@ -5,7 +5,7 @@ title: jvm-内存管理方式
 postSlug: Jvm-内存管理方式
 featured: false
 draft: false
-category: Java
+category: java
 tags:
  - jvm
 ogImage: ""

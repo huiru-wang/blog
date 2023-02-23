@@ -5,7 +5,7 @@ title: Java-线程
 postSlug: Java-线程
 featured: false
 draft: false
-category: Java
+category: java
 tags:
  - java
 ogImage: ""

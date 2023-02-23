@@ -5,7 +5,7 @@ title: jvm-类加载
 postSlug: Jvm-类加载
 featured: false
 draft: false
-category: Java
+category: java
 tags:
   - jvm
 ogImage: ""

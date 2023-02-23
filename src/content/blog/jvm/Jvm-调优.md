@@ -5,7 +5,7 @@ title: jvm-参数调优相关
 postSlug: Jvm-参数调优相关
 featured: false
 draft: false
-category: Java
+category: java
 tags:
   - jvm
 ogImage: ""

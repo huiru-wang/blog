@@ -5,7 +5,7 @@ title: Java-ThreadLocal
 postSlug: Java-ThreadLocal
 featured: false
 draft: false
-category: Java
+category: java
 tags:
  - java
 ogImage: ""

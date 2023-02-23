@@ -5,7 +5,7 @@ title: jvm-Java对象
 postSlug: Jvm-Java对象
 featured: false
 draft: false
-category: Java
+category: java
 tags:
   - jvm
 ogImage: ""

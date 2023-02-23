@@ -5,7 +5,7 @@ title: Java-函数式接口
 postSlug: Java-函数式接口
 featured: false
 draft: false
-category: Java
+category: java
 tags:
  - Java
 ogImage: ""

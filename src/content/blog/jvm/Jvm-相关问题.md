@@ -5,7 +5,7 @@ title: jvm-相关问题
 postSlug: Jvm-相关问题
 featured: false
 draft: false
-category: Java
+category: java
 tags:
   - jvm
 ogImage: ""

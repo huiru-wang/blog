@@ -5,7 +5,7 @@ title: Java-线程池
 postSlug: Java-线程池
 featured: false
 draft: false
-category: Java
+category: java
 tags:
   - java
 ogImage: ""

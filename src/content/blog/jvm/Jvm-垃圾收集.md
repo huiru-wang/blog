@@ -5,7 +5,7 @@ title: jvm-垃圾收集
 postSlug: Jvm-垃圾收集
 featured: false
 draft: false
-category: Java
+category: java
 tags:
   - jvm
 ogImage: ""

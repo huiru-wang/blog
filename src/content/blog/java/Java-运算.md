@@ -5,7 +5,7 @@ title: Java-运算
 postSlug: Java-运算
 featured: false
 draft: false
-category: Java
+category: java
 tags:
  - java
 ogImage: ""

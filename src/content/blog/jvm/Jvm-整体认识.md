@@ -5,7 +5,7 @@ title: jvm-整体结构
 postSlug: Jvm-整体结构
 featured: false
 draft: false
-category: Java
+category: java
 tags:
   - jvm
 ogImage: ""
