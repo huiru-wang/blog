@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2022-05-12T11:39:00Z
+pubDatetime: 2022-12-25T11:39:00Z
 title: FlinkSQL-时间处理
 postSlug: FlinkSQL-时间处理
 featured: false
@@ -11,6 +11,39 @@ tags:
 ogImage: ""
 description: flink/flinkSql时间处理/自定义时间函数
 ---
+
+## Flink时间语义
+1、事件时间：数据携带的时间或发生的时间；
+
+3、处理时间：Flink读取到数据的当前时间；
+
+## Watermark
+
+如果想向数据流插入一条水位线，
+
+Flink不依赖系统时间，每个并行子任务都会基于数据自带的时间戳去定义了一个时钟，以此驱动每个子任务的作业进展；
+
+- 水位线主要的内容是一个时间戳；插入到流中作为标记；
+- 水位线的时间戳必须单调递增，确保任务向前推进；
+- 水位线基于事件时间生成；
+- 水位线通过设置延迟，来保证正确处理乱序数据；
+- 要创建watermark，就要告知flink事件时间，基于事件时间生成watermark；
+- 两个watermark间的数据是左闭右开 [8:00,9:00)
+
+### 内置水位线生成器
+本质上有两种生成方式：
+- 周期性生成：
+- 断点式生成：
+
+根据流的事件时间特点，选择生成策略：
+1、有序流：时间单调递增，不会出现迟到数据；(理想状态，很少用)
+  - `WatermarkStrategy.forMonotonousTimestamps()`
+
+2、乱序流：时间可能乱序，就必须设置一个固定量的延迟时间；(延迟：一般指数据发生时间到flink处理时间差)
+  - `WatermarkStrategy.forBoundedOutOfOrderness(Duration.ofSeconds(5))`
+3、自定义生成策略
+
+
 
 ## Flink中的时间类型
 两个时间类型：
