@@ -11,7 +11,7 @@ tags:
 ogImage: ""
 description: Watermark/水印/水位线
 ---
-[Flink-watermarks](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/event-time/generating_watermarks/)
+[Flink-watermarks官方](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/event-time/generating_watermarks/)
 
 ## Flink时间语义
 1、事件时间：数据携带的时间或发生的时间；

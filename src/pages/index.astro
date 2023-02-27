@@ -22,15 +22,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <Layout>
   <Header />
   <main id="main-content">
+    <br />
     <section id="hero">
-      <div style="text-align: center;">
-        we don't think ourselves into new ways of living
-      </div>
-      <div style="text-align: center;">
-        we live ourselves into new ways of thinking
-      </div>
+      <div class="slogan">we don't think ourselves into new ways of living</div>
+      <br />
+      <div class="slogan">we live ourselves into new ways of thinking</div>
     </section>
-
+    <br />
     <Hr />
     {
       featuredPosts.length > 0 && (
@@ -84,6 +82,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 </Layout>
 
 <style>
+  .slogan {
+    text-align: center;
+    font-size: larger !important;
+  }
   /* ===== Hero Section ===== */
   #hero {
     @apply pt-8 pb-6;
