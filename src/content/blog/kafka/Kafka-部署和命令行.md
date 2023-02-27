@@ -122,19 +122,13 @@ snippet  0        1            1              0  consumer-1-a875811d-aece-4200-8
 snippet  1        2            2              0  consumer-1-a875811d-aece-4200-8948-a9d8164a90be   /127.0.0.1   consumer-1
 snippet  2        2            2              0  consumer-1-a875811d-aece-4200-8948-a9d8164a90be   /127.0.0.1   consumer-1
 ```
-
-- PARTITION：分区Id
-
+- Topic：当前消费者组关联的Topic
+- PARTITION：当前消费者组关联的所有分区Id
 - CURRENT-OFFSET：已消费消息数
-
 - LOG-END-OFFSET：消息总数
-
 - LAG：未消费消息数
-
 - CONSUMER-ID：消费者ID
-
 - HOST
-
 - CLIENT-ID：客户端Id
 
 ---
