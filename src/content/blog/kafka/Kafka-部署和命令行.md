@@ -13,15 +13,6 @@ description:
   Kafka部署/Kafka命令/Kafka伪分布式/
 ---
 
-
-0.10.0.x之后，kafka具备分布式流处理能力；
-
-- 发布订阅消息平台；
-
-- 消息流存储平台；
-
-- 流处理平台；
-
 0.11.x之后，offset不再存储zk，zk不适合高并发读写
 
 # 伪分布式
@@ -59,8 +50,8 @@ log.dirs=/tmp/kafka-logs-0
 
 # shell命令
 
+## topic相关
 创建topic
-
 ```shell
 ./kafka-topics.sh \
 --zookeeper localhost:2181 \ # zk
@@ -84,6 +75,7 @@ Topic: snippet  Partition: 2    Leader: 2       Replicas: 2,0   Isr: 2,0
 
 - 每个分区，2个副本
 
+## 命令行开启生产者消费者
 开启消费者
 
 ```shell
@@ -100,6 +92,7 @@ Topic: snippet  Partition: 2    Leader: 2       Replicas: 2,0   Isr: 2,0
 --topic snippet
 ```
 
+## 消费端相关
 查看指定节点所有消费者组
 
 ```shell
@@ -107,6 +100,12 @@ Topic: snippet  Partition: 2    Leader: 2       Replicas: 2,0   Isr: 2,0
 --------------------------------
 console-consumer-98720
 console-consumer-27709
+```
+
+查看消费组的状态
+```shell
+
+
 ```
 
 查看指定topic，指定消费者组的消费情况
