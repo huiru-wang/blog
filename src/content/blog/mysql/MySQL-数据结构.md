@@ -36,4 +36,10 @@ char和varchar存储对比：
 不占用MySQL行的字节大小；
 
 
+## Int
+int(11)类型中的数字含义：https://www.cnblogs.com/polk6/p/11595107.html
+
+
+
+
 
