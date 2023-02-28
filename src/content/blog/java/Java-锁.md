@@ -9,7 +9,7 @@ category: java
 tags:
   - java
 ogImage: ""
-description: Java锁/可重入锁/AQS/Lock/ReenTrantLock/acquire
+description: Java锁/可重入锁/AQS/Lock/ReenTrantLock/acquire/Synchronized
 ---
 
 # Lock接口
@@ -94,3 +94,5 @@ synchronized和Lock都是通过计数器实现的可重入锁；
 1、避免死锁，同一个线程多次进入临界区，重入锁可以防止死锁；但是每次获取锁，只要判断是否为当前线程即可，也同样不会死锁，可以直接重入，可以不需要计数器；
 
 2、解锁时就需要计数器了，根据记录次数进行解锁，如果不记录重入次数，可能发生锁提前释放；
+
+# Synchronized
