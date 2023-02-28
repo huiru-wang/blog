@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2022-02-3T19:01:53Z
+pubDatetime: 2022-02-18T19:01:53Z
 title: Java-线程池
 postSlug: Java-线程池
 featured: false
@@ -12,23 +12,19 @@ ogImage: ""
 description:
   Java/线程池
 ---
-**为什么要线程池：**
+## 为什么要线程池：
 
-1. 创建线程和销毁线程的花销是比较大的；
+1、创建线程和销毁线程的花销是比较大的；使用线程池提前创建线程，直接用即可，提高运行时效率
   
-  使用线程池，可能进行线程的重复利用，不需要一直创建新的线程；
+  - 使用线程池，可能进行线程的重复利用，不需要一直创建新的线程；
   
-2. 线程不进行管理，设计不当，有可能无休止占用资源；
+2、线程不进行管理，设计不当，有可能无休止占用资源；使用线程池方便管理，避免无休止的创建线程，占用系统资源；
   
+3、不建议使用`Executors`创建线程池，应该使用`ThreadPoolExecutor`创建
+- Executors线程池参数被隐藏，不可控；
+- 如：`SingleThreadExecutor`、`newFixedThreadExecutor`都会使用无界队列，存在内存安全问题；
 
-**线程池作用：**
-
-1. 提高效率，线程会有提前创建好的，直接用即可；
-2. 方便管理，避免无休止的创建线程，占用系统资源；
-
-# ThreadPoolExecutor
-
-## 线程池参数
+## ThreadPoolExecutor线程池参数
 
 ```java
 // 最多的七参构造器，前五个参数必须
@@ -83,7 +79,7 @@ public ThreadPoolExecutor(int corePoolSize,
   ```
   
 
-# 执行流程
+## 执行流程
 
 **提交优先级**：核心 > 队列 > 非核心
 
@@ -104,7 +100,16 @@ public ThreadPoolExecutor(int corePoolSize,
 3、最后从队列中获取任务
 
 ##  线程池状态
-![image](https://user-images.githubusercontent.com/103855390/218386720-710008b9-c494-4dc2-9c65-7a878990f641.png)
+![线程池状态](/images/ThreadPoolStatus.png)
+**Running**：正常运行状态；
+
+**ShutDown**：调用`shutdown()`，进入Shutdown状态，线程池进入关闭状态，不再接受任务，继续执行正在执行的任务和队列任务
+
+**Stop**：调用`shutdownnow()`，进入Stop状态，线程池处于停止状态，不再接受新的任务，不处理队列任务，中断正在运行的任务；
+
+**Tidying**：当线程池的任务都结束(执行完或被中断)，进入整理状态，线程池会自动调用`terminated()`方法，进入终止状态；
+
+**Terminated**：线程池完全停止状态；
 
 ## 线程池核心方法
 1、`submit()`：返回值为Future，可以get运行结果或异常，如果不get，则不会感知异常；
@@ -116,6 +121,8 @@ public ThreadPoolExecutor(int corePoolSize,
 4、`shutdownNow()`：在shutdown的基础上，尝试中断运行中的线程，并清空队列，状态变为：stop；返回未完成的任务；
 
 5、`awaitTermination(long timeout,TimeUnit unit)`：阻塞等待线程池终止，或事件结束，返回线程池状态是否为terminate；
+
+6、`terminated()`：是一个空方法，预留扩展；执行完此方法，线程池终止；可以实现一些回调、钩子，线程池结束时调用；
 
 6、状态判断：
 - `isShutdown()`：线程池是否被shutdown，正在停止/或已经停止都算shutdown

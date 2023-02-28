@@ -12,8 +12,24 @@ ogImage: ""
 description:
  Java/线程/中断线程
 ---
+## 创建线程
+本质都是实现Runnable接口，实现run方法，来创建线程任务；
 
-# 如何中断线程
+1、继承Thread
+- 缺点：Java只有单继承，占用了继承的位置；
+
+2、实现Runnable
+- 无返回值的线程任务；
+- 创建Thread，传入Runnable接口，也可以实现线程；
+
+3、实现Callable
+- 有返回值的线程任务：Future<T>
+
+4、利用线程池
+- 向线程池提交Runnable、Callable任务；
+
+
+## 如何中断线程
 1、暴力中断：stop():x:禁止使用
 ```java
 @Test
