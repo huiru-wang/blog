@@ -7,10 +7,9 @@ featured: false
 draft: false
 category: java
 tags:
- - java
+ - concurrency
 ogImage: ""
-description:
- Java/线程/中断线程
+description: 创建线程/中断线程/
 ---
 ## 创建线程
 本质都是实现Runnable接口，实现run方法，来创建线程任务；
