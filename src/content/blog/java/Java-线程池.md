@@ -7,10 +7,9 @@ featured: false
 draft: false
 category: java
 tags:
-  - java
+  - concurrency
 ogImage: ""
-description:
-  Java/线程池
+description: Java/线程池参数状态方法/ThreadPoolExecutor
 ---
 ## 为什么要线程池：
 
@@ -49,19 +48,20 @@ public ThreadPoolExecutor(int corePoolSize,
     
   - 冗余思想设计：核心线程数代表任务执行常态需要的数量，但是对于不好把控的业务，需要设计成冗余的，如果任务过多，需要增加额外的线程；
     
-- keepAliveTime：表示线程没有任务执行时最多保持多久时间会被销毁
+- **keepAliveTime：表示线程没有任务执行时最多保持多久时间会被销毁**
   
-  - **默认：只有线程池内线程数大于corePoolSize的线程，keepAliveTime才会对其计时**
+  - 默认：只有线程池内线程数大于corePoolSize的线程，keepAliveTime才会对其计时
   - 当一个线程的空闲时间大于keepAliveTime，则会被终止
   - 如果调用了allowCoreThreadTimeOut(boolean)，线程池内线程数小于corePoolSize，keepAliveTime也会起作用
   - 如果任务的执行时间 > 线程的存活时间，线程则不会被复用；
 - unit：参数keepAliveTime的时间单位（七种单位）
   
-- workQueue：选择一个阻塞队列
+- **workQueue：选择一个阻塞队列**
   
-- threadFactory：线程工厂，主要用来创建线程。如果不传此参数，默认：Executors.defaultThreadFactory()
+- **threadFactory：线程工厂，主要用来创建线程**。如果不传此参数
+  - 默认：`Executors.defaultThreadFactory()`
   
-- handler：表示当拒绝处理任务时的策略（线程池无法再容纳的线程）
+- **handler：表示当拒绝处理任务时的策略（线程池无法再容纳的线程）**
   
   如果不传此参数，默认：ThreadPoolExecutor.AbortPolicy
   
@@ -121,8 +121,6 @@ public ThreadPoolExecutor(int corePoolSize,
 4、`shutdownNow()`：在shutdown的基础上，尝试中断运行中的线程，并清空队列，状态变为：stop；返回未完成的任务；
 
 5、`awaitTermination(long timeout,TimeUnit unit)`：阻塞等待线程池终止，或事件结束，返回线程池状态是否为terminate；
-
-6、`terminated()`：是一个空方法，预留扩展；执行完此方法，线程池终止；可以实现一些回调、钩子，线程池结束时调用；
 
 6、状态判断：
 - `isShutdown()`：线程池是否被shutdown，正在停止/或已经停止都算shutdown
