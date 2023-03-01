@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
- - concurrency
+ - 并发
 ogImage: ""
 description: 内存模型
 ---

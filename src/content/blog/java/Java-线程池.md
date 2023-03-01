@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
-  - concurrency
+  - 并发
 ogImage: ""
 description: Java/线程池参数状态方法/ThreadPoolExecutor
 ---

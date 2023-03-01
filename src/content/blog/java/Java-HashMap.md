@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
- - Collection
+ - 集合
 ogImage: ""
 description: HashMap 
 ---

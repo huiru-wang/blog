@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
-  - concurrency
+  - 并发
 ogImage: ""
 description: Java锁/可重入锁/AQS/Lock/ReenTrantLock/acquire/Synchronized
 ---

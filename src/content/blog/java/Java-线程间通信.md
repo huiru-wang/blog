@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
- - concurrency
+ - 并发
 ogImage: ""
 description: 线程间通信/wait/notify/Condition/volatile/CountDownLatch
 ---

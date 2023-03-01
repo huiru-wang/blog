@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
- - concurrency
+ - 并发
 ogImage: ""
 description: 创建线程/中断线程/同步异步线程/
 ---
