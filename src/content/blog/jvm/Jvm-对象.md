@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-01-05T15:11:00Z
-title: jvm-Java对象
-postSlug: Jvm-Java对象
+title: jvm-java对象
+postSlug: Jvm-java对象
 featured: false
 draft: false
 category: java
@@ -51,9 +51,15 @@ HotSpot虚拟机的对象的内存分布主要分为三个部分：
 
 **对象头**
   
-1、第一部分用于存储对象自身的运行时数据，如哈希吗，GC分代年龄（又称为Mark Word）
+1、第一部分为：**Mark Word** 用于存储对象自身的运行时数据，如哈希吗、GC分代年龄、锁标记位；64位操作系统下占 8 字节，32位操作系统下占 4 字节；
+
+- hash: 对象的哈希码
+- age: 对象的分代年龄
+- biased_lock: 偏向锁标识位
+- lock: 锁状态标识位
+- JavaThread: 持有偏向锁的线程 ID
+- epoch: 偏向时间戳
   
-- 64位操作系统下占 8 字节，32位操作系统下占 4 字节；
 2、第二部分用于存储指向方法区对象类型数据的指针。即是对象指向它的类的元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。如果对象是一个Java数组，那在对象头中还必须有一块用于记录数组长度的数据。
      
 - 在开启指针压缩的状况下占 4 字节，未开启状况下占 8 字节；

@@ -37,17 +37,46 @@ Lock的实现类，JDK层面的锁；
 - NonfairSync（继承Sync）：非公平锁抽象；
 - FairSync（继承Sync）：公平锁抽象；
 
-通过构造器，创建不同的锁：
+可实现的锁类型：
+1、非公平锁：
 ```java
 // 默认：非公平锁，比较高效
 public ReentrantLock() {
     sync = new NonfairSync();
 }
+```
+2、公平锁：
+```java
 // 公平锁
 public ReentrantLock(boolean fair) {
     sync = fair ? new FairSync() : new NonfairSync();
 }
 ```
+3、可中断锁：等待锁的过程中可以响应中断；
+```java
+try{
+  lock.lockInterruptibly()
+}catch(InterruptedException e){
+  // ...
+}
+```
+4、tryLock设置等待时间，超时后返回false，执行其他操作；
+```java
+tryLock()
+tryLock(long time, TimeUnit unit)
+```
+## ReentrantReadWriteLock
+增加ReadLock读写、WriteLock写锁，是在ReentrantLock基础上实现的；
+
+读写状态通过一个32位int值来维护：
+
+`0000 0000 0000 0100 | 0000 0000 0000 0001`
+- 高16位记录读状态；
+- 低16位记录写状态；
+
+通过位移操作读写改变：
+- 获取读状态：将`c`右移16位；
+- 获取写状态：和`0000 0000 0000 0000 1111 1111 1111 1111`相与获得
 
 # AQS
 线程同步器：一个双端队列；
@@ -75,11 +104,19 @@ public ReentrantLock(boolean fair) {
   - 入队之后如果发现，前驱节点为Head头节点，说明此时位置处于第二个线程，则进入循环不断尝试获取锁：`for (;;)`
 - **tryRelease**：释放锁，每次state-1，直到为0，锁被释放；
 
-# AQS中如何实现公平锁/非公平锁
+## AQS中如何实现公平锁/非公平锁
 
 1、在尝试获取锁的时候，需要先执行：`hasQueuedPredecessors()`，查看队列中是否有其他线程
 - FairSync公平锁抽象实现了此方法，则此方法会执行；
 - NonfairSync非公平锁抽象，没有实现此方法，为空方法，即不会关注队列是否有线程，会直接尝试获取锁；
+
+## AQS为什么用双向链表
+当线程一开始没有竞争到锁，加入队列中时需要做一些操作：
+1、需要判断前置节点是否为头节点，如果是需要自选不断尝试获取锁；
+
+2、线程加入队列中时，需要查看前置节点线程的状态，如果是被中断(`lock.lockInterruptibly()`)或CANCELLED，则需要移除不竞争锁的线程；
+
+
 
 
 # 可重入锁
@@ -96,3 +133,64 @@ synchronized和Lock都是通过计数器实现的可重入锁；
 2、解锁时就需要计数器了，根据记录次数进行解锁，如果不记录重入次数，可能发生锁提前释放；
 
 # Synchronized
+synchronized关键字加锁是**JVM级别**的**非公平锁**，**自动加锁自动释放**；
+
+1、对象锁：每个对象实例都有一把自己的锁，不同对象间锁不同；
+
+2、类锁：用于static方法，则所有对象共用一把锁；
+
+3、正常执行完毕、抛出异常，都会释放锁；
+
+## Synchronized执行过程
+
+主要借助于：对象头 + Monitor监视器
+
+对象头的Mark Word记录的信息有：
+- hash: 对象的哈希码
+- age: 对象的分代年龄
+- biased_lock: 偏向锁标识位
+- lock: 锁状态标识位
+- JavaThread: 持有偏向锁的线程ID
+- epoch: 偏向时间戳
+
+通过组合**偏向锁标志位** + **锁标志位** 可以表达**锁的不同状态**：
+
+| 锁状态   | 偏向锁标志位 | 锁标志位 |
+| -------- | ------------ | -------- |
+| 无锁     | 0            | 01       |
+| 偏向锁   | 1            | 01       |
+| 轻量级锁 | 无           | 00       |
+| 重量级锁 | 无           | 10       |
+
+
+详见：[Jvm-对象](/posts/jvm-java对象)
+
+1、方法级别的Synchronized
+
+```java
+public synchronized void test(){
+  // ...
+}
+```
+在常量池中生成一个`ACC_SYNCHRONIZED`标识符
+
+当线程尝试调用此方法，会在此标志位设置值，如果设置成功，则此线程获取`monitor`监视器
+
+2、Synchronized同步代码块
+```java
+public void test(){
+    // ...
+    synchronized(this){
+      // ...
+    }
+}
+```
+在同步代码块的入口，执行指令：`monitorenter`监视器入口，线程尝试获取锁对象
+- 获取成功，计数器加+1；
+- 获取不成功，根据当前锁级别，自旋或者阻塞；
+  
+执行同步代码，结束时，会调用指令`monitorexit`释放锁；
+- 计数器减一；当计数器为0，才会释放锁；即可重入；
+
+## Synchronized锁优化
+偏向锁 —> 轻量级锁 —> 重量级锁

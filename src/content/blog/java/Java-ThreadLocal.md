@@ -9,7 +9,8 @@ category: java
 tags:
  - java
 ogImage: ""
-description:
-  ThreadLocal
+description: ThreadLocal
 ---
+
+
 

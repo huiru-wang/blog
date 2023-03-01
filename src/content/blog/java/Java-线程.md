@@ -9,7 +9,7 @@ category: java
 tags:
  - concurrency
 ogImage: ""
-description: 创建线程/中断线程/
+description: 创建线程/中断线程/同步异步线程/
 ---
 ## 创建线程
 本质都是实现Runnable接口，实现run方法，来创建线程任务；
@@ -27,6 +27,16 @@ description: 创建线程/中断线程/
 4、利用线程池
 - 向线程池提交Runnable、Callable任务；
 
+## 线程状态
+![线程状态](/images/duoxian.png)
+
+1、new
+
+2、Runnable
+
+3、Running
+
+4、Blocked
 
 ## 如何中断线程
 1、暴力中断：stop():x:禁止使用
@@ -85,3 +95,28 @@ class CustomThread extends Thread {
     }
 }
 ```
+
+## 异步线程
+
+主业务中某些不影响主业务，且耗时的操作可以使用异步的方式执行；
+
+异步执行的方式：
+1、创建一个线程执行；
+
+2、提交到线程池；
+
+3、如果需要获取执行结果，使用
+- Future：通过`get()`阻塞等待结果
+- CompletableFuture：通过回调的方式处理结果；
+
+### 异步线程的回滚
+1、手动回滚
+```java
+CompletableFuture.supplyAsync(()->{
+    // 异步任务
+}).exceptionally(throwable -> {
+    // 这里异步回调，拿到异常，手动回滚；
+}
+```
+2、
+
