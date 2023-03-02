@@ -22,7 +22,7 @@ description: Windows/时间窗口
 
 ## 窗口分类
 
-## 窗口的触发
+## keyed streams窗口
 窗口5个触发器：
 - onElement()：每个元素被添加到窗口时调用
 - onEventTime()：当一个已注册的事件时间计时器启动时调用
@@ -36,16 +36,20 @@ description: Windows/时间窗口
 - PURGE：清除窗口中的数据
 - FIRE_AND_PURGE：触发计算并清除窗口中的数据
 
-### 事件时间窗口的默认触发
-触发条件：当**onElement()**执行时，满足：**窗口内有存量数据 && watermark >= window.maxTimestamp**，则触发*FIRE**
+### 事件时间窗口的触发
+默认触发条件：当**onElement()**执行时，满足：**窗口内有存量数据 && watermark >= window.maxTimestamp**，则触发*FIRE**
 
 前提是onElement()被执行，即要有数据到来；如果前两个条件满足，但是迟迟没有新的数据到来，是不会触发事件窗口的；
 
-### 处理时间窗口的默认触发
+### 处理时间窗口的触发
 
 
 ### 自定义窗口触发
 自定义：重写Trigger，实现触发器方法，并返回对应的触发动作；
+
+## Non-keyed stream窗口
+多用于对多个窗口进行聚合操作
+
 
 
 
