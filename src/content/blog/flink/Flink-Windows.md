@@ -12,7 +12,7 @@ ogImage: ""
 description: Windows/时间窗口
 ---
 
-[Flink-windows官方](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)
+[Flink - windows 官方文档](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)
 
 ![window](/images/watermark-broadcast.png)
 
