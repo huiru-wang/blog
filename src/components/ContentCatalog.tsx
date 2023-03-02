@@ -10,7 +10,7 @@ export type Heading = {
     text: string;
 };
 
-export default function Catalog({ headings }: Headings) {
+export default function ContentCatalog({ headings }: Headings) {
     <div className="catalog-card">
         <ul>
             {
