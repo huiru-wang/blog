@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
- - Java
+ - 基础
 ogImage: ""
 description:
   函数式接口/Consumer/Supplier/BiConsumer/Function

@@ -7,7 +7,7 @@ featured: false
 draft: false
 category: java
 tags:
-  - java
+  - 基础
 ogImage: ""
 description:
   java内存泄露/内存溢出/OOM/SOF
