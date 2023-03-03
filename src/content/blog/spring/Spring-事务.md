@@ -49,9 +49,6 @@ public interface PlatformTransactionManager extends TransactionManager {
 
 **事务的传播行为：当前的事务下的子事务，是否共用一个事务**
 
-- **调用本类的方法，不能开启新事务！！！！！！**
-- **如果要调用本类的方法，并使用事务传播，需要代理对象！！！！！！**
-
 `@Transactional(propagation = Propagation.REQUIRED)`
 
 常用的就前面几个；
@@ -64,8 +61,18 @@ public interface PlatformTransactionManager extends TransactionManager {
 - **PROPAGATION_NEVER**：不使用事务，如果存在父事务，就抛出异常
 - **PROPAGATION_NESTED**：不使用事务，如果存在嵌套事务，就抛出异常
 
-# 长事务超时
-长/大事务：
+# 长/大事务
+长/大事务：事务从开始到结束时间很长；
+- 时间长，时延就大；
+- 长时间占用数据库连接；
+- 事务涉及的数据库资源范围大，数据被锁，可能阻塞其他线程；
+- 如果回滚了，也会需要很长时间；
+
+可能的原因：
+- 事务内耗时任务：远程调用、耗时计算等；
+- 并发量大，事务执行过程中需要竞争锁；
+
+
 
 Spring中配置超时时间
 
