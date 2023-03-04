@@ -9,8 +9,15 @@ category: java
 tags:
   - 并发
 ogImage: ""
-description: Java/线程池参数状态方法/ThreadPoolExecutor
+description: 线程池参数状态方法/ThreadPoolExecutor/线程池执行流程/实现线程池/为什么需要线程池
 ---
+
+**实现线程池**：[Github: custom pool](https://github.com/huiru-wang/JavaCodeSnippet/tree/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/custompool)
+
+
+**可视化线程池执行流程**：[Github: ThreadPoolWorkFlowTest](https://github.com/huiru-wang/JavaCodeSnippet/blob/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/ThreadPoolWorkFlowTest.java)
+
+
 ## 为什么要线程池：
 
 1、创建线程和销毁线程的花销是比较大的；使用线程池提前创建线程，直接用即可，提高运行时效率
@@ -80,6 +87,8 @@ public ThreadPoolExecutor(int corePoolSize,
   
 
 ## 执行流程
+
+**可视化线程池执行流程**：[Github: ThreadPoolWorkFlowTest](https://github.com/huiru-wang/JavaCodeSnippet/blob/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/ThreadPoolWorkFlowTest.java)
 
 **提交优先级**：核心 > 队列 > 非核心
 

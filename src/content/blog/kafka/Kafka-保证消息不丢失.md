@@ -5,7 +5,7 @@ title: Kafka-保证消息不丢失
 postSlug: Kafka-保证消息不丢失
 featured: false
 draft: false
-category: MessageQueue
+category: bigData
 tags:
   - kafka
 ogImage: ""

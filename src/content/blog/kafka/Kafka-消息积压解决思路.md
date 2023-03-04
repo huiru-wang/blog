@@ -5,7 +5,7 @@ title: Kafka-消息积压解决思路
 postSlug: Kafka-消息积压解决思路
 featured: false
 draft: false
-category: MessageQueue
+category: bigData
 tags:
   - kafka
 ogImage: ""

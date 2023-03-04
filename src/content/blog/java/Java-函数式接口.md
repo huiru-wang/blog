@@ -1,6 +1,6 @@
 ---
 author: huiru
-pubDatetime: 2022-02-11T08:39:00Z
+pubDatetime: 2022-02-15T08:39:00Z
 title: Java-函数式接口
 postSlug: Java-函数式接口
 featured: false

@@ -5,7 +5,7 @@ title: Kafka-基本概念
 postSlug: Kafka-基本概念
 featured: false
 draft: false
-category: MessageQueue
+category: bigData
 tags:
   - kafka
 ogImage: ""

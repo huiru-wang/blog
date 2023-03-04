@@ -5,7 +5,7 @@ title: Kafka-简单部署和命令行
 postSlug: Kafka-简单部署和命令行
 featured: false
 draft: false
-category: MessageQueue
+category: bigData
 tags:
   - kafka
 ogImage: ""

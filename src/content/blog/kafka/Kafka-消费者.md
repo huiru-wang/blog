@@ -5,7 +5,7 @@ title: Kafka-消费者相关
 postSlug: Kafka-消费者相关
 featured: false
 draft: false
-category: MessageQueue
+category: bigData
 tags:
   - kafka
 ogImage: ""

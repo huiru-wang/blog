@@ -5,7 +5,7 @@ title: Kafka-配置
 postSlug: Kafka-配置
 featured: false
 draft: false
-category: MessageQueue
+category: bigData
 tags:
   - kafka
 ogImage: ""

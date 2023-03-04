@@ -5,7 +5,7 @@ title: Kafka-消息投递语义
 postSlug: Kafka-消息投递语义
 featured: false
 draft: false
-category: MessageQueue
+category: bigData
 tags:
   - kafka
 ogImage: ""
