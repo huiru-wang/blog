@@ -10,10 +10,9 @@ tags:
   - jvm
 ogImage: ""
 description:
-  Jvm类加载机制/双亲委派/类加载器/类加载过程
+  Jvm类加载机制/双亲委派/类加载器/SPI/JDBC
 ---
-# 类加载机制
-## 类加载过程
+# 类加载过程
 
 类加载分为三个部分：加载，连接，初始化；
 
@@ -79,12 +78,12 @@ description:
 4. 初始化一个类，发现其父类还没有初始化，那么会初始化其父类；
 5. 虚拟机启动，需要指定主类，那么这个主类，会被首先初始化；
 
-## 类的生命周期
+# 类的生命周期
 
 字节码->类加载->链接->初始化->使用->卸载
 
 
-## 类加载器
+# 类加载器
 
 目的：通过类的全限定名获取该类的二进制字节流，加载进内存；
 
@@ -136,7 +135,7 @@ description:
   
   - 覆盖`findClass`方法，不可覆盖loadClass方法；
 
-## 核心类加载方法
+# 核心类加载方法
 
 loadClass、findClass、defineClass
 
@@ -146,7 +145,7 @@ loadClass、findClass、defineClass
 
 3. 如果加载的方式是通过读取文件字节流，则需要使用defineClass；根据字节流转化为Class对象；
 
-### 自定义类加载器
+## 自定义类加载器
 1、继承`ClassLoader`
 
 2、覆盖`findClass`方法
@@ -185,24 +184,29 @@ public class MyClassLoader  extends  ClassLoader{
 }
 ```
 
-## 双亲委派机制
+# 双亲委派机制
 简述：
 针对一个类进行加载时，从最底层的类加载器开始：
 - 自底向上委派，直到顶层类加载器，检查是否能够加载；
 - 自顶向下尝试加载，直到加载成功，都不能加载则抛出异常；
 ---
 
-### 为什么需要双亲委派
+## 为什么需要双亲委派
 
 1. 避免类的重复加载；(不会加载自己写的java.lang.String类)
 2. 保证Java核心类库的安全性，不会被修改；
 
-### 打破双亲委派
+## 打破双亲委派
 双亲委派是由loadClass方法实现的；不断通过parent父加载器尝试加载，直到顶层加载器，如果无法加载，则尝试自行加载；
 
 因此如果要打破双亲委派，就要重写loadClas方法，不使用原生的loadClass；
 
-# JDBC类加载
+## SPI机制打破双亲委派
+
+SPI：JDK提供的一种帮第三方实现者加载服务的便捷方式；
+
+
+## JDBC打破双亲委派
 
 Java提供了JDBC标准接口：java.sql.Driver
 
@@ -217,3 +221,4 @@ ServiceLoader<Driver> loadedDrivers = ServiceLoader.load(Driver.class);
 ```
 
 SPI的load方法则是通过当前线程的线程上下文类加载器，来加载JDBC驱动的类库；
+
