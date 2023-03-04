@@ -45,9 +45,12 @@ description:
 
 - `git switch -c [new branch] [commit id]`
 
-创建远程分支（本地push）
+基于本地分支创建远程分支（本地push）
 
-- `git push origin [branch]`：创建远程分支；
+- `git push origin [local_branch]:[branch]`：创建远程分支；
+```shell
+git push origin master:master_new
+```
 
 # 切换分支
 
