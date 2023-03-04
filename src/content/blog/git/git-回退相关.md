@@ -13,7 +13,7 @@ description:
  回退文件/回退提交/git revert/git reset/git restore/暂存区
 ---
 
-1、回退提交
+# 1、回退提交
 
 ## git revert
 
