@@ -22,6 +22,7 @@ rank: 55
 # Heap 相关参数
 
 ## stack
+
 1、栈内存大小：
 
 - `-Xss`：默认 1MB,决定了栈的调用深度；
@@ -36,6 +37,20 @@ rank: 55
 默认：新生代：老年代 = 1：2
 
 默认：Eden：From：To = 8：1：1
+
+| 参数                               | 作用                                         |
+| ---------------------------------- | -------------------------------------------- |
+| -Xms600m                           | 堆的起始内存                                 |
+| -Xmx600m                           | 堆的最大内存                                 |
+| -Xmn200m                           | 新生代大小                                   |
+| -XX:SurvivorRation=8               | Eden占新生代的8/10，剩余2/10,From/To 平分    |
+| -XX:NewRation=2                    | 老年代/新生代比例大小                        |
+| -XX:+UseAdaptiveSizePolicy         | 动态调整 JVM 各区大小以及 gc 年龄阈值        |
+| -XX:MaxTenuringThreshold=15        | 晋升阈值：默认15，超出此阈值，对象移入老年代 |
+| -XX:TargetSurvivorRatio=90         | Survivor 区占用达到 90%，再将对象移入老年代  |
+| -XX:PretenureSizeThreshold=3145728 | 如果对象大小超过这个值，将直接分配在老年代   |
+| -XX:+PrintGCDetails                | GC详情                                       |
+| -XX:+ScavengeBeforeFullGC          | FullGC前执行一次MinorGC                      |
 
 1、Heap 大小：
 - `-Xms600m`：堆的起始内存
@@ -58,7 +73,9 @@ rank: 55
 
 4、新生代内分区比例：
 
-- `-XX:SurvivorRation=8`：Eden 占新生代的比例，剩余 From/To 平分
+- `-XX:SurvivorRation=8`：Eden占新生代的比例，剩余 From/To 平分
+- `-XX:InitialSurvivorRatio=8 -XX:+UseAdaptiveSizePolocy`： 初始化比例为8，并动态调整新生代比例
+  - 一些垃圾收集器，直接默认动态调整；
 
 5、控制对象进入老年代的参数：
 
@@ -77,6 +94,18 @@ rank: 55
 - -XX:MaxMetaspaceSize：默认-1，无限大；
 
 ## Collector
+
+
+## G1
+| 参数                       | 作用                                      |
+| -------------------------- | ----------------------------------------- |
+| -XX:+UseG1GC               | 使用G1垃圾收集器                          |
+| -XX:G1HeapRegionSize=1m    | G1中Region大小                            |
+| -XX:G1NewSizePercent       | G1中新生代初始占比                        |
+| -XX:G1MaxNewSizePercent    | G1中新生代最大占比                        |
+| -XX:MaxGCPauseMillis=200ms | 默认200ms，GC触发的停顿大小               |
+| -XX:SurvivorRation=8       | Eden占新生代的8/10，剩余2/10,From/To 平分 |
+
 1、G1 收集器 MixedGC 参数：
 
 - -XX:InitiatingHeapOccupancyPercent：触发 MixedGC 的内存阈值；
