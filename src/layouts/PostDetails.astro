@@ -41,17 +41,26 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.svg`, Astro.url.origin)
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
+    <!-- TODO -->
     <!-- <Catalog headings={headings}/> -->
     <ul class="tags-container">
       {tags.map(tag => <Tag name={tag} />)}
     </ul>
   </main>
+  <!-- <div class="tags-link">card</div> -->
   <Footer />
 </Layout>
 
 <style>
   main {
     @apply mx-auto w-full max-w-3xl px-4 pb-12;
+  }
+  .tags-link {
+    width: 190px;
+    height: 254px;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
   }
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;
