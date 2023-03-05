@@ -3,4 +3,4 @@ layout: ../layouts/AboutLayout.astro
 title: "About me"
 ---
 
-![wind](/materials/wind.png)
+![wind](/materials/us.jpg)
