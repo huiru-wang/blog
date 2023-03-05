@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-19T11:01:53Z
-title: Lock/Synchronized
-postSlug: Lock/Synchronized
+title: Lock和Synchronized
+postSlug: Lock和Synchronized
 featured: false
 draft: false
 category: java
