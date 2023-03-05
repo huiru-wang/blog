@@ -9,7 +9,7 @@ category: java
 tags:
   - jvm
 ogImage: ""
-description: Jvm/内存/结构/虚拟机栈/堆/年轻代/老年代/本地方法栈/元空间/JIT
+description: 虚拟机栈Stack/堆Heap/年轻代/老年代/本地方法栈/元空间
 rank: 1
 ---
 
@@ -53,13 +53,6 @@ Java虚拟机使用的是HotSpot虚拟机；18年oracle公开了GraalVM
   
   - 如Unsafe类，用于与操作系统交互；
   - Object下的`wait()`、`notify()`、`notifyAll()`都是Native方法；
-
-## 栈内存可能的问题
-1、栈内存溢出StackOverflow
-
-- 栈帧过多：递归调用，栈帧不断扩展，无法申请到更多的内存容纳栈帧，导致栈内存溢出；
-- 栈帧过大；
-- `-Xss`过小；
 
 
 # 线程共享区
@@ -145,67 +138,12 @@ MinorGC触发时，会检测：
 
 如果大于，则正常执行MinorGC，如果小于，则执行FullGC
 
-## 共享内存相关问题
-1、`java.lang.OutOfMemoryError: Java heap space`
-
-2、`java.lang.OutOfMemoryError: MetaSpace`
-
 
 # 运行时常量池
 见：[Jvm运行时常量池](/posts/jvm运行时常量池)
 
-# MetaSpace
-
-# GarbageCollect
-
-一共四种GC分类：MinorGC、MajorGC、FullGC、MixedGC
-
-- **MinorGC**：年轻代GC，Eden区满触发、FullGC会同时触发MinorGC；
-
-- **MajorGC**：单独的老年代GC，仅CMS收集器有；
-
-- **FullGC**：针对年轻代、老年代、元空间，导致系统卡顿；
-
-- **MixedGC**：G1收集器特有，一旦老年代内存到达45%触发MixedGC。对年轻代、老年代进行垃圾回收；
-  
-  (-XX:InitiatingHeapOccupancyPercent配置)
-
-# JIT
-
-## 逃逸分析
-
-目的：通过算法，减少Java程序中内存分配到堆上；
-
-判断是否逃逸：
-
-- 当一个对象在方法内定义，且只在方法内部使用，此时对象没有逃逸；
-
-- 当一个对象在方法内定义，又被外部方法引用，则认为发生逃逸，
-
-JIT通过逃逸分析，优化代码：
-
-1、当对象没有逃逸：JIT编译器就可能将其分配在栈上，而不是堆上；线程结束，栈内存回收，则回收此类对象；(栈内存速度更快，降低堆内存压力)
-
-2、同步省略：当对象没有逃逸，只会被当前线程访问，那么在并发场景下，就会取消对此对象的同步，也叫锁消除；
-
-举例：
-
-```java
-// StringBuffer对象逃逸，分配到堆区
-public static StringBuffer getStringBuffer(String s1, String s2) {
-   StringBuffer sb = new StringBuffer();
-   sb.append(s1);
-   sb.append(s2);
-   return sb;
-}
-// 不会发生逃逸，直接使用String的字面量，不分配内存到堆区；
-public static String getString(String s1, String s2) {
-   StringBuffer sb = new StringBuffer();
-   sb.append(s1);
-   sb.append(s2);
-   return sb.toString();
-}
-```
+# 直接内存
+见：[Jvm直接内存](/posts/jvm直接内存)
 
 # 问题
 

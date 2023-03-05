@@ -10,7 +10,7 @@ tags:
   - jvm
 ogImage: ""
 description: Jvm运行时常量池
-rank: 2
+rank: 4
 ---
 
 # 反编译看常量池
@@ -55,7 +55,7 @@ Constant pool:
 
 # StringTable
 
-串池：存放字符串对象；
+字符串常量池：在**堆空间**存放字符串对象的一张字符串表；
 
 ## 创建字符串到常量池
 延迟加载，只有加载到创建字符串对象时，才会把字符串放入串池；
@@ -65,13 +65,16 @@ String s0 = "a";   // StringTable: ["a"]
 String s1 = "b";   // StringTable: ["a", "b"]
 String s2 = "ab";  // StringTable: ["a", "b", "ab"]
 String s = "a";    // StringTable: ["a", "b", "ab"]
+
+String str = "d" + "c";  // 堆中创建str
+str.intern();       // 将堆中的str的字面量，放入串池
 ```
 
 ## 拼接字符串
 
 编译器优化，编译期间已经确定了s3的结果，直接从常量池获取了
 ```java
-String s3 = "a" + "b";
+String s3 = "a" + "b";  // s3从常量池获取ab
 System.out.println(s2 == s3);
 -----------------------------------------------------
 8: astore_3
@@ -97,4 +100,19 @@ System.out.println(s2 == s3); // false
 20: aload_2            // s1
 21: invokevirtual #7   // Method java/lang/StringBuilder.append
 24: invokevirtual #8   // Method java/lang/StringBuilder.toString
+```
+
+# 相关JVM参数：
+
+- `-XX:+PrintStringTableStatistics`：打印常量池信息；
+- `-XX:StringTableSize=60009`：限制StringTable的bucket个数，99.9不需要此参数，设置太大太小，都会影响性能；
+
+# 优化点
+善用`intern()`，将字符串放入堆中，相当于给字符串去重，不重复创建同样的字符串到堆中；
+
+```java
+String s = "ab" + "cd" + "ef"; // 每一次，堆都会创建了s对象
+------------------------------------------------------
+String s = "ab" + "cd" + "ef";
+s.intern()  // 放入常量池
 ```
