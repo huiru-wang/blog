@@ -9,7 +9,7 @@ category: java
 tags:
  - 基础
 ogImage: ""
-description: ""
+description: ThreadLocal
 rank: 4
 ---
 

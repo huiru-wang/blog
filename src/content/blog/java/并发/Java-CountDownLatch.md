@@ -9,7 +9,7 @@ category: java
 tags:
   - 并发
 ogImage: ""
-description: ""
+description: CountDownLatch
 rank: 20
 ---
 示例：[Github: CountDownLatchTest](https://github.com/huiru-wang/JavaCodeSnippet/blob/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/CountDownLatchTest.java)

@@ -9,7 +9,7 @@ category: java
 tags:
   - 并发
 ogImage: ""
-description: ""
+description: Semaphore
 rank: 30
 ---
 示例：[Github: SemaphoreTest](https://github.com/huiru-wang/JavaCodeSnippet/blob/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/SemaphoreTest.java)
