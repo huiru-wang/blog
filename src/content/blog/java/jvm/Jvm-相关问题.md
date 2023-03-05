@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-01-07T05:11:00Z
-title: jvm-相关问题
-postSlug: Jvm-相关问题
+title: Jvm相关问题
+postSlug: Jvm相关问题
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
   - jvm
 ogImage: ""
 description: Jvm相关问题/面试
+rank: 60
 ---
 
 # JVM相关问题

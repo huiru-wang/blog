@@ -10,6 +10,7 @@ tags:
  - Spring
 ogImage: ""
 description: Spring事务/事务超时
+rank: 20
 ---
 
 [实际使用：Spring-Transaction-demo](https://github.com/huiru-wang/JavaCodeSnippet/tree/main/SpringTransaction)

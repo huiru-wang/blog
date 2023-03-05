@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-16T08:36:00Z
-title: Java-线程
-postSlug: Java-线程
+title: 线程
+postSlug: 线程
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
  - 并发
 ogImage: ""
 description: 创建线程/中断线程/同步异步线程/
+rank: 4
 ---
 ## 创建线程
 本质都是实现Runnable接口，实现run方法，来创建线程任务；

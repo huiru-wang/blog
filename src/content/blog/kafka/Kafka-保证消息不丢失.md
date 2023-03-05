@@ -10,6 +10,7 @@ tags:
   - kafka
 ogImage: ""
 description: Kafka保证消息不丢失
+rank: 50
 ---
 
 从消息的整条链路上分步考虑：

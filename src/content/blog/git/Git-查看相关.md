@@ -9,8 +9,8 @@ category: DevTools
 tags:
  - git
 ogImage: ""
-description:
- git查看文件修改历史/git查看commit/git查看commit提交记录/git查看日志
+description: git查看文件修改历史/git查看commit/git查看commit提交记录/git查看日志
+rank: 1
 ---
 
 ## 查看日志

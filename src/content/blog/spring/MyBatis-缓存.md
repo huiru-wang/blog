@@ -10,6 +10,7 @@ tags:
  - MyBatis
 ogImage: ""
 description: MyBatis缓存
+rank: 45
 ---
 
 

@@ -9,8 +9,8 @@ category: bigData
 tags:
   - kafka
 ogImage: ""
-description:
-  Kafka部署/Kafka命令/Kafka伪分布式/
+description: Kafka部署/Kafka命令/Kafka伪分布式/
+rank: 20
 ---
 
 0.11.x之后，offset不再存储zk，zk不适合高并发读写

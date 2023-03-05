@@ -9,8 +9,8 @@ category: bigData
 tags:
   - kafka
 ogImage: ""
-description:
-  Kafka消息投递语义
+description: Kafka消息投递语义
+rank: 15
 ---
 # 消息投递语义
 

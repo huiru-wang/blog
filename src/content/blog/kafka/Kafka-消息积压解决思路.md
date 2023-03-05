@@ -10,6 +10,7 @@ tags:
   - kafka
 ogImage: ""
 description: Kafka消息积压
+rank: 55
 ---
 
 ## 事前处理方式

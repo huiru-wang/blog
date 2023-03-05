@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-11T08:39:00Z
-title: Redis-内存淘汰机制
-postSlug: Redis-内存淘汰机制
+title: 内存淘汰机制
+postSlug: 内存淘汰机制
 featured: false
 draft: false
 category: DataBase
 tags:
  - redis
 ogImage: ""
-description:
- redis内存淘汰机制/redis过期策略
+description: redis内存淘汰机制/redis过期策略
+rank: 10
 ---
 
 # 过期策略

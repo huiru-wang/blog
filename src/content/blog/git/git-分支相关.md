@@ -9,8 +9,8 @@ category: DevTools
 tags:
  - git
 ogImage: ""
-description:
- git分支相关/本地分支/远程分支/切换分支/创建分支/删除分支
+description: git分支相关/本地分支/远程分支/切换分支/创建分支/删除分支
+rank: 7
 ---
 
 # 查看分支

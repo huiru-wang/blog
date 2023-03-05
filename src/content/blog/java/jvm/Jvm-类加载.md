@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-01-05T12:11:00Z
-title: jvm-类加载
-postSlug: Jvm-类加载
+title: 类加载
+postSlug: 类加载
 featured: false
 draft: false
 category: java
 tags:
   - jvm
 ogImage: ""
-description:
-  Jvm类加载机制/双亲委派/类加载器/SPI/JDBC
+description: Jvm类加载机制/双亲委派/类加载器/SPI/JDBC
+rank: 30
 ---
 # 类加载过程
 

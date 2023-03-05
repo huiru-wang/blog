@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-01-03T10:22:00Z
-title: jvm-整体结构
-postSlug: Jvm-整体结构
+title: Jvm整体结构
+postSlug: Jvm整体结构
 featured: false
 draft: false
 category: java
 tags:
   - jvm
 ogImage: ""
-description:
-  Jvm/内存/结构/虚拟机栈/堆/年轻代/老年代/本地方法栈/元空间/JIT
+description: Jvm/内存/结构/虚拟机栈/堆/年轻代/老年代/本地方法栈/元空间/JIT
+rank: 1
 ---
 
 执行一个Java进程对应启动一个JVM进程；

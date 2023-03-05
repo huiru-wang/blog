@@ -9,8 +9,8 @@ category: DevTools
 tags:
   - linux
 ogImage: ""
-description:
-  Linux/sed
+description: Linux/sed
+rank: 70
 ---
 
 sed命令：用于对文件进行增删改查；

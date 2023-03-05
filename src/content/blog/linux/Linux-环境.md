@@ -9,8 +9,8 @@ category: DevTools
 tags:
   - linux
 ogImage: ""
-description:
-  Linux环境相关
+description: Linux环境相关
+rank: 10
 ---
 
 # 编译依赖

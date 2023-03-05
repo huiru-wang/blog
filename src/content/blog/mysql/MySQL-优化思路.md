@@ -9,8 +9,8 @@ category: DataBase
 tags:
  - mysql
 ogImage: ""
-description:
- MySQL/InnoDB
+description: MySQL/InnoDB
+rank: 40
 ---
 
 ## 硬件级别

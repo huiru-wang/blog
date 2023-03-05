@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-12T07:39:00Z
-title: Redis-大key
-postSlug: Redis-大key
+title: 大key
+postSlug: 大key
 featured: false
 draft: false
 category: DataBase
 tags:
  - redis
 ogImage: ""
-description:
- redis大key
+description: redis大key
+rank: 25
 ---
 
 多大算Redis的大Key，根据机器配置、业务决定；

@@ -1,15 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-19T14:01:53Z
-title: Java-CountDownLatch
-postSlug: Java-CountDownLatch
+title: CountDownLatch
+postSlug: CountDownLatch
 featured: false
 draft: false
 category: java
 tags:
   - 并发
 ogImage: ""
-description: CountDownLatch
+description: ""
+rank: 20
 ---
 示例：[Github: CountDownLatchTest](https://github.com/huiru-wang/JavaCodeSnippet/blob/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/CountDownLatchTest.java)
 

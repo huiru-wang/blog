@@ -10,6 +10,7 @@ tags:
  - mysql
 ogImage: ""
 description: MySQL-事务
+rank: 25
 ---
 
 # ACID

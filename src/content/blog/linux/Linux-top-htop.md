@@ -10,6 +10,7 @@ tags:
   - linux
 ogImage: ""
 description: Linux/top/htop/CPU/进程/
+rank: 40
 ---
 
 # top

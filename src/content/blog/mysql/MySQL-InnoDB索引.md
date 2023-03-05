@@ -9,8 +9,8 @@ category: DataBase
 tags:
  - mysql
 ogImage: ""
-description:
- MySQL/InnoDB
+description: MySQL/InnoDB
+rank: 15
 ---
 ## Indexes
 InnoDB的索引是InnoDB提供的一种B+数数据结构；

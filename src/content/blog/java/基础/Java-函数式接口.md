@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-15T08:39:00Z
-title: Java-函数式接口
-postSlug: Java-函数式接口
+title: 函数式接口
+postSlug: 函数式接口
 featured: false
 draft: false
 category: java
 tags:
  - 基础
 ogImage: ""
-description:
-  函数式接口/Consumer/Supplier/BiConsumer/Function
+description: 函数式接口/Consumer/Supplier/BiConsumer/Function
+rank: 40
 ---
 
 以BiConsumer为例，此函数，输入为2个参数，没有输出；实现一个CallBack

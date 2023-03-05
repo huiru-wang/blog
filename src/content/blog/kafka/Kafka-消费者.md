@@ -9,8 +9,8 @@ category: bigData
 tags:
   - kafka
 ogImage: ""
-description:
-  Kafka消费者/不丢失消息/消费幂等/消费顺序/Kafka事务
+description: Kafka消费者/不丢失消息/消费幂等/消费顺序/Kafka事务
+rank: 45
 ---
 # 消费方式
 

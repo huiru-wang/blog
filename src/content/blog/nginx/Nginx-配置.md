@@ -9,8 +9,8 @@ category: Server
 tags:
   - nginx
 ogImage: ""
-description:
-  nginx配置/转发/二级域名/多实例/负载均衡
+description: nginx配置/转发/二级域名/多实例/负载均衡
+rank: 5
 ---
 
 ## 配置结构

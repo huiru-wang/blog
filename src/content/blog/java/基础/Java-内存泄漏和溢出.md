@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-02T09:22:53Z
-title: Java-内存泄露和内存溢出
-postSlug: Java-内存泄露和内存溢出
+title: 内存泄露和内存溢出
+postSlug: 内存泄露和内存溢出
 featured: false
 draft: false
 category: java
 tags:
   - 基础
 ogImage: ""
-description:
-  java内存泄露/内存溢出/OOM/SOF
+description: java内存泄露/内存溢出/OOM/SOF
+rank: 30
 ---
 # 内存泄漏
 

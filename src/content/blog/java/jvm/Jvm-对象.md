@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-01-05T15:11:00Z
-title: jvm-java对象
-postSlug: Jvm-java对象
+title: Java对象
+postSlug: Java对象
 featured: false
 draft: false
 category: java
 tags:
   - jvm
 ogImage: ""
-description:
-  Jvm中对象/对象头/Jvm内存分配/引用计数/可达性算法/引用类型
+description: Jvm中对象/对象头/Jvm内存分配/引用计数/可达性算法/引用类型
+rank: 50
 ---
 # 对象创建的过程
 

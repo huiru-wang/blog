@@ -10,6 +10,7 @@ tags:
  - mysql
 ogImage: ""
 description: EXPLAIN
+rank: 45
 ---
 
 [了解查询执行计划](https://dev.mysql.com/doc/refman/8.0/en/execution-plan-information.html)

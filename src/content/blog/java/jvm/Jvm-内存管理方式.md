@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-01-05T13:11:00Z
-title: jvm-内存管理方式
-postSlug: Jvm-内存管理方式
+title: 内存管理方式
+postSlug: 内存管理方式
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
  - jvm
 ogImage: ""
 description: Jvm内存管理
+rank: 45
 ---
 
 https://www.zhihu.com/question/476948066/answer/2036463259
@@ -21,14 +22,14 @@ https://www.zhihu.com/question/476948066/answer/2036463259
 在不规整的剩余空间中分配内存。如果剩余内存是不规整的，就需要用一个列表记录下哪些内存块是可用的，当需要分配内存的时候就需要在这个列表中查找，找到一个足够大的空间进行分配，然后在更新这个列表。
 
 - CMS垃圾收集器采用这种管理方式，不需要整理内存，
-- 
+  
 ## 指针碰撞：（堆内存规整的方法）
 
 在连续剩余空间中分配内存。用一个指针指向内存已用区和空闲区的分界点，需要分配新的内存时候，只需要将指针向空闲区移动相应的距离即可。
 
 - 是一种线性分配方式；
 - 在分配对象时，计算出对象大小，再使用CAS轻量锁保证多线程下的内存安全(多个线程同时创建对象)；
-- 
+  
 
 ## TLAB
 Thread Local Allocation Buffer：线程本地分配缓存区

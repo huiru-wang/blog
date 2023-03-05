@@ -9,8 +9,8 @@ category: DevTools
 tags:
  - git
 ogImage: ""
-description:
- origin/upstream/git remote/本地仓库/远程仓库/git fetch/远端仓库/更新代码
+description: origin/upstream/git remote/本地仓库/远程仓库/git fetch/远端仓库/更新代码
+rank: 2
 ---
 
 # 仓库操作

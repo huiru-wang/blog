@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-01-06T15:11:00Z
-title: jvm-参数调优相关
-postSlug: Jvm-参数调优相关
+title: 参数调优及命令
+postSlug: 参数调优及命令
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
   - jvm
 ogImage: ""
 description: Jvm参数/调优相关/MinorGC/FullGC/GC/jmap
+rank: 55
 ---
 
 ![](/images/heap.png?msec=1676139896889)

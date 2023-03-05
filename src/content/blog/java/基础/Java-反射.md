@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-21T08:39:00Z
-title: Java-反射
-postSlug: Java-反射
+title: 反射
+postSlug: 反射
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
  - 基础
 ogImage: ""
 description: Java反射
+rank: 15
 ---
 
 ## 反射对性能的影响

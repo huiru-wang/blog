@@ -9,8 +9,8 @@ category: WebServer
 tags:
  - cache
 ogImage: ""
-description:
- 缓存双写一致性
+description: 缓存双写一致性
+rank: 30
 ---
 
 ## 双写一致性

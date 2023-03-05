@@ -9,8 +9,8 @@ category: DevTools
 tags:
  - git
 ogImage: ""
-description:
- 回退文件/回退提交/git revert/git reset/git restore/暂存区
+description: 回退文件/回退提交/git revert/git reset/git restore/暂存区
+rank: 9
 ---
 
 # 1、回退提交

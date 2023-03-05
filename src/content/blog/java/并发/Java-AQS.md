@@ -1,15 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-19T12:01:53Z
-title: Java-AQS
-postSlug: Java-AQS
+title: AQS
+postSlug: AQS
 featured: false
 draft: false
 category: java
 tags:
   - 并发
 ogImage: ""
-description: AQS/Lock
+description: ""
+rank: 10
 ---
 
 # AQS

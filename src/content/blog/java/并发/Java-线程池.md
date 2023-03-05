@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-18T19:01:53Z
-title: Java-线程池
-postSlug: Java-线程池
+title: 线程池
+postSlug: 线程池
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
   - 并发
 ogImage: ""
 description: 线程池参数状态方法/ThreadPoolExecutor/线程池执行流程/实现线程池/为什么需要线程池
+rank: 7
 ---
 
 **实现线程池**：[Github: custom pool](https://github.com/huiru-wang/JavaCodeSnippet/tree/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/custompool)

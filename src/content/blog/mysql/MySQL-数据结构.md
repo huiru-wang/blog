@@ -9,8 +9,8 @@ category: DataBase
 tags:
  - mysql
 ogImage: ""
-description:
- MySQL数据类型/varchar/char
+description: MySQL数据类型/varchar/char
+rank: 20
 ---
 
 # 字符串类型

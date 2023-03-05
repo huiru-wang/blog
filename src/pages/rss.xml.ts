@@ -13,7 +13,6 @@ export async function get() {
       link: `posts/${slugify(data)}`,
       title: data.title,
       description: data.description,
-      pubDate: new Date(data.pubDatetime),
     })),
   });
 }

@@ -1,16 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-11T08:39:00Z
-title: Redis-解决方案演化
-postSlug: Redis-解决方案演化
+title: 解决方案演化
+postSlug: 解决方案演化
 featured: false
 draft: false
 category: DataBase
 tags:
  - redis
 ogImage: ""
-description:
- redis方案/架构演化
+description: redis方案/架构演化
+rank: 20
 ---
 
 1. 数据怕丢失 -> 持久化（RDB/AOF）

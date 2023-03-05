@@ -1,15 +1,16 @@
 ---
 author: huiru
 pubDatetime: 2022-02-19T13:41:53Z
-title: Java-Semaphore
-postSlug: Java-Semaphore
+title: Semaphore
+postSlug: Semaphore
 featured: false
 draft: false
 category: java
 tags:
   - 并发
 ogImage: ""
-description: Semaphore
+description: ""
+rank: 30
 ---
 示例：[Github: SemaphoreTest](https://github.com/huiru-wang/JavaCodeSnippet/blob/main/JavaBaseCode/src/test/java/com/snippet/javacodebase/SemaphoreTest.java)
 # Semaphore

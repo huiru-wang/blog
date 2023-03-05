@@ -9,8 +9,8 @@ category: bigData
 tags:
   - kafka
 ogImage: ""
-description:
-  Kafka生产者/ACK应答/消息不丢失/幂等
+description: Kafka生产者/ACK应答/消息不丢失/幂等
+rank: 30
 ---
 <img title="" src="/images/2023-02-05-13-58-02-image.png" alt="" data-align="left" width="756">
 # 投递的分区策略

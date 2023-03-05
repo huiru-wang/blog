@@ -10,6 +10,7 @@ tags:
  - mysql
 ogImage: ""
 description: 临时表
+rank: 30
 ---
 
 [MySQL-temporary-tables](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html)

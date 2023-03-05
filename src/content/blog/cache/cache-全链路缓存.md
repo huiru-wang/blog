@@ -11,6 +11,7 @@ tags:
 ogImage: ""
 description:
  cache/全链路缓存/浏览器缓存/客户端缓存/CDN缓存/代理服务器缓存/http缓存/本地存储/localStorage/cookie/sessionStorage/cache-control/nginx缓存
+rank: 5
 ---
 
 ## 缓存的目的和副作用

@@ -9,8 +9,8 @@ category: bigData
 tags:
   - kafka
 ogImage: ""
-description:
-  Kafka概念/Kafka结构/Kafka offset/AR/ISR/OSR/Leader选举
+description: Kafka概念/Kafka结构/Kafka offset/AR/ISR/OSR/Leader选举
+rank: 10
 ---
 
 # 基本结构

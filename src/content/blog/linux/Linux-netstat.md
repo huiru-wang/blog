@@ -9,8 +9,8 @@ category: DevTools
 tags:
   - linux
 ogImage: ""
-description:
-  Linux/netstat/端口/网络
+description: Linux/netstat/端口/网络
+rank: 20
 ---
 
 `netstat`是针对TCP/IP协议的一个网络工具，可以监控tcp、udp、unix的网络状态；

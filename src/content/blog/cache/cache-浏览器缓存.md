@@ -11,6 +11,7 @@ tags:
 ogImage: ""
 description:
  浏览器缓存/强制缓存/协商缓存/Cache-control/Expires/
+rank: 4
 ---
 
 ## 浏览器端缓存

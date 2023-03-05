@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-19T11:01:53Z
-title: Java-Lock/Synchronized
-postSlug: Java-Lock/Synchronized
+title: Lock/Synchronized
+postSlug: Lock/Synchronized
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
   - 并发
 ogImage: ""
 description: Java锁/可重入锁/Lock/ReenTrantLock/acquire/Synchronized
+rank: 19
 ---
 # 可重入锁
 > 当一个线程获取锁后，再次获取同一把锁，不会阻塞，锁状态累加，解锁时，释放相同的次数；

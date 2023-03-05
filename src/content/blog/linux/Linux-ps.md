@@ -9,6 +9,6 @@ category: DevTools
 tags:
   - linux
 ogImage: ""
-description:
-  Linux/ps
+description: Linux/ps
+rank: 30
 ---

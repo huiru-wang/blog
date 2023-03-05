@@ -9,8 +9,8 @@ category: bigData
 tags:
   - kafka
 ogImage: ""
-description:
-  Kafka配置
+description: Kafka配置
+rank: 17
 ---
 # kafka配置
 

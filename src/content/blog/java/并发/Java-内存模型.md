@@ -1,15 +1,15 @@
 ---
 author: huiru
-pubDatetime: 2022-02-16T08:36:00Z
-title: Java-内存模型
-postSlug: Java-内存模型
+pubDatetime: 2022-01-06T08:36:00Z
+title: 内存模型
+postSlug: 内存模型
 featured: false
 draft: false
 category: java
 tags:
  - 并发
-ogImage: ""
-description: 内存模型
+description: ""
+rank: 1
 ---
 
 ## JMM-Java Memory Model

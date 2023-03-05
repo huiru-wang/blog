@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-02-16T08:36:00Z
-title: Java-线程间通信方式
-postSlug: Java-线程间通信方式
+title: 线程间通信方式
+postSlug: 线程间通信方式
 featured: false
 draft: false
 category: java
@@ -10,6 +10,7 @@ tags:
  - 并发
 ogImage: ""
 description: 线程间通信/wait/notify/Condition/volatile/CountDownLatch
+rank: 40
 ---
 
 ## synchronized + wait + notify

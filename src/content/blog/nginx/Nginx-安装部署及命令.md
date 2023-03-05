@@ -10,6 +10,7 @@ tags:
   - nginx
 ogImage: ""
 description: nginx/安装/命令/
+rank: 2
 ---
 
 # 安装

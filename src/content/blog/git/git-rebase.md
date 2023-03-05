@@ -9,8 +9,8 @@ category: DevTools
 tags:
  - git
 ogImage: ""
-description:
- git rebase/合并多个提交/合并远端代码
+description: git rebase/合并多个提交/合并远端代码
+rank: 20
 ---
 
 # git rebase -i

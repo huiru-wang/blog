@@ -10,6 +10,7 @@ tags:
  - flink
 ogImage: ""
 description: Windows/事件处理时间窗口/自定义窗口触发/Trigger/超时关窗
+rank: 20
 ---
 
 [Flink - windows 官方文档](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)
