@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-3-06T09:39:00Z
-title: MySQL-常用SQL优化
-postSlug: MySQL-常用SQL优化
+title: MySQL-常用SQL及优化
+postSlug: MySQL-常用SQL及优化
 featured: false
 draft: false
 category: DataBase
@@ -27,3 +27,5 @@ select name from t_user order by id limit 10000000,10;
 ```
 
 3、业务上限制页数，比如最大100页，通过查询条件来筛选数据
+
+# 有则更新，无则插入
