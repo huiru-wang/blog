@@ -31,9 +31,9 @@ redis -cli -h [ip] -p [port] -a [password] --bigkeys
 
 **删除大key**：(可能短暂CPU飙高)
 
-1、底层删除
+1、Redis4.0之后异步删除，不阻塞主线程
 ```shell
-x unlink [key]
+unlink [key]
 ```
 2、通过配置惰性删除
 ```shell
