@@ -9,7 +9,7 @@ category: DataBase
 tags:
  - mysql
 ogImage: ""
-description: MySQL/InnoDB
+description: MySQL优化思路
 rank: 40
 ---
 

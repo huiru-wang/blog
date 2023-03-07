@@ -1,15 +1,15 @@
 ---
 author: huiru
 pubDatetime: 2022-3-02T13:39:00Z
-title: MySQL-事务
-postSlug: MySQL-事务
+title: InnoDB-事务
+postSlug: InnoDB-事务
 featured: false
 draft: false
 category: DataBase
 tags:
  - mysql
 ogImage: ""
-description: MySQL-事务
+description: InnoDB-事务/ACID/隔离级别/MVCC
 rank: 25
 ---
 

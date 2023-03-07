@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-3-03T13:39:00Z
-title: MySQL-InnoDB索引
-postSlug: MySQL-InnoDB索引
+title: InnoDB-索引
+postSlug: InnoDB-索引
 featured: false
 draft: false
 category: DataBase
@@ -12,6 +12,8 @@ ogImage: ""
 description: MySQL/InnoDB
 rank: 15
 ---
+[MySQL-InnoDB 官方](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html)
+
 # Indexes
 InnoDB的索引是InnoDB提供的一种B+树数据结构；
 

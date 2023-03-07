@@ -10,7 +10,7 @@ tags:
  - mysql
 ogImage: ""
 description: MySQL数据类型/varchar/char
-rank: 20
+rank: 4
 ---
 
 # 字符串类型
