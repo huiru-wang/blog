@@ -19,7 +19,7 @@ rank: 50
 - 唯一索引：uk_[column]_[column]
 - 普通联合索引：idx_[column]_[column]
 
-创建索引：
+**创建索引**：
 ```sql
 ALTER TABLE [table_name] ADD INDEX [index_name] (column, column, column);
 
@@ -31,7 +31,7 @@ CREATE INDEX [index_name] ON [table_name] (column, column, column);
 
 CREATE UNIQUE INDEX [index_name] ON [table_name] (column_list);
 ```
-删除索引：
+**删除索引**：
 ```sql
 DROP INDEX [index_name] ON [table_name]
 
@@ -39,7 +39,7 @@ ALTER TABLE [table_name] DROP INDEX [index_name]
 
 ALTER TABLE [table_name] DROP PRIMARY KEY
 ```
-建表时创建索引：
+**建表时创建索引**：
 ```sql
 CREATE TABLE IF NOT EXISTS t_xx
 (
@@ -48,6 +48,10 @@ CREATE TABLE IF NOT EXISTS t_xx
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8
   COLLATE = utf8_general_ci
+```
+**查看索引**：
+```sql
+SHOW INDEX FROM t_xx
 ```
 
 # 大数据量分页
