@@ -13,9 +13,9 @@ description: MySQL/InnoDB
 rank: 15
 ---
 ## Indexes
-InnoDB的索引是InnoDB提供的一种B+数数据结构；
+InnoDB的索引是InnoDB提供的一种B+树数据结构；
 
-目的：提高数据查询效率；
+目的：提高数据查询效率，就像书本的目录一样，根据文章标题(辅助索引)找到页码(主键)，再找到具体文章内容(row)；
 
 索引页默认：16K，由`innodb_page_size`设置；
 
