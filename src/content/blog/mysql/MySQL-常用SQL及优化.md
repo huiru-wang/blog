@@ -9,7 +9,7 @@ category: DataBase
 tags:
  - mysql
 ogImage: ""
-description: 常用SQL优化
+description: 创建索引/大分页/查询优化
 rank: 50
 ---
 
@@ -18,6 +18,7 @@ rank: 50
 - 主键：pk_[field]
 - 唯一索引：uk_[column]_[column]
 - 普通联合索引：idx_[column]_[column]
+
 创建索引：
 ```sql
 ALTER TABLE [table_name] ADD INDEX [index_name] (column, column, column);
@@ -48,6 +49,7 @@ CREATE TABLE IF NOT EXISTS t_xx
   DEFAULT CHARSET = utf8
   COLLATE = utf8_general_ci
 ```
+
 # 大数据量分页
 如：`limit 1000000, 10`
 
@@ -63,4 +65,9 @@ select name from t_user order by id limit 10000000,10;
 
 3、业务上限制页数，比如最大100页，通过查询条件来筛选数据
 
-# 有则更新，无则插入
+# 查询优化
+
+
+
+
+
