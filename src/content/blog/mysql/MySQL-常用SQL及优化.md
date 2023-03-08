@@ -12,6 +12,7 @@ ogImage: ""
 description: 创建索引/大分页/查询优化
 rank: 50
 ---
+[美团-SQL优化案例](https://tech.meituan.com/2014/06/30/mysql-index.html)
 
 # 索引
 命名：
