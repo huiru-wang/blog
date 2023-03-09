@@ -17,6 +17,21 @@ rank: 2
 
 1、官网下载包，编译安装：http://nginx.org/en/download.html
 
+所需依赖：
+```shell
+apt-get install gcc
+apt-get install pcre pcre-devel
+apt-get install zlib zlib-devel
+
+# 还需要什么执行 configure脚本会提示，并--prefix指定安装目录
+./configure --prefix=/opt/nginx
+```
+安装：
+```shell
+make
+make install
+```
+
 2、软件包安装
 
 ```shell
@@ -63,4 +78,11 @@ Options:
   -e filename   : set error log file (default: /var/log/nginx/error.log)
   -c filename   : 指定配置文件启动
   -g directives : set global directives out of configuration file
+```
+常用：
+```shell
+./nginx 启动
+./nginx -s stop 快速停止
+./nginx -s quit 优雅关闭，在退出前完成已经接受的连接请求
+./nginx -s reload 重新加载配置
 ```
