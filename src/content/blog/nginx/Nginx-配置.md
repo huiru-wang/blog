@@ -18,21 +18,9 @@ rank: 5
 - 全局配置
 - event：工作模式、连接数
 - http：http全局配置
+  - upstream：服务负载均衡配置
   - server：每个server为一个代理服务
     - location：路由相关配置
-  - upstream：服务负载均衡配置
-
-## 引入子配置文件
-
-```conf
--- nginx.conf
-   | -- default.conf
-   | -- server1.conf
-   | -- server2.conf
-
-# 全局配置中加入相对路径引入
-include server1.conf;
-```
 
 ## 全局配置
 
@@ -55,8 +43,66 @@ events {
 ## http全局配置
 
 ```conf
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
 
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    upstream cluster1{}
+    upstream cluster2{}
+    server{}
+    server{}
+}
 ```
+## upstream
+```shell
+upstream cluster {
+    server 172.25.96.1:9999 weight=1 down;  # 下线
+    server 172.25.96.1:9998 weight=2;
+    server 172.25.96.1:9997 weight=1 backup; # 备用，其他全down，请求back
+}
+```
+
+
+## server
+
+
+
+## location
+匹配到指定路径，进行转发
+
+匹配模式：
+- /api/xxx：通用的以path从前向后匹配；
+- =/：精准匹配；
+- ~：正则匹配，区分大小写；
+- ~*：正则匹配，不区分大小写；
+- ^~：非正则匹配，
+
+匹配顺序：
+1、多个**正则location**同时满足，则按顺序，先匹配则不会向后再匹配；
+2、多个**非正则location**同时满足，则全部匹配，最后选取匹配度最高的location转发；
+3、
+
+```shell
+location / {
+    proxy_pass http://cluster; # 这里指定upstream名称
+
+}
+```
+
 
 ## http负载均衡配置
 
@@ -137,4 +183,16 @@ http {
         # ..
     }
 }
+```
+
+## 引入子配置文件
+
+```conf
+-- nginx.conf
+   | -- default.conf
+   | -- server1.conf
+   | -- server2.conf
+
+# 全局配置中加入相对路径引入
+include server1.conf;
 ```
