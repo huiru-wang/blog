@@ -65,6 +65,7 @@ InnoDB的索引是InnoDB提供的一种B+树数据结构；
 - 唯一索引：uk_[column]_[column]
 - 普通联合索引：idx_[column]_[column]
 
+[创建索引](/posts/mysql-常用sql及优化.md)
 2、**最左前缀匹配**
 ```sql
 -- t表有索引：idx_a_b_c_d，下面sql只能用到索引：a_b
