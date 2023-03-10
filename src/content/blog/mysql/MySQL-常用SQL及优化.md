@@ -45,7 +45,7 @@ ALTER TABLE [table_name] DROP PRIMARY KEY
 CREATE TABLE IF NOT EXISTS t_xx
 (
  ....
- INDEX `idx_startTime_category` (`startTime`, `category`) USING BTREE
+ INDEX `idx_startTime_category` (`startTime`, `category`) USING BTREE -- 使用BTree索引
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8
   COLLATE = utf8_general_ci
