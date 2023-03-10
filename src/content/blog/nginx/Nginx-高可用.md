@@ -10,7 +10,7 @@ tags:
   - nginx
 ogImage: ""
 description: nginx高可用
-rank: 15
+rank: 25
 ---
 
 # keepalived

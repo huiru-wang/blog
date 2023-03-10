@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2021-12-03T09:22:53Z
-title: Nginx-安装部署及命令
-postSlug: Nginx
+title: nginx-安装部署及命令
+postSlug: nginx
 featured: false
 draft: false
 category: Server
@@ -37,6 +37,8 @@ make install
 ```shell
 apt-get install nginx
 service nginx start/restart/stop
+----------------------------------
+# 配置文件：/usr/local/nginx/conf
 ```
 
 3、docker 启动：
@@ -84,5 +86,5 @@ Options:
 ./nginx 启动
 ./nginx -s stop 快速停止
 ./nginx -s quit 优雅关闭，在退出前完成已经接受的连接请求
-./nginx -s reload 重新加载配置
+./nginx -s reload 重新加载配置，不会导致服务中断
 ```

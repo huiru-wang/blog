@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2021-11-13T09:22:53Z
-title: Nginx-防盗链
-postSlug: Nginx
+title: nginx-防盗链
+postSlug: nginx
 featured: false
 draft: false
 category: Server
@@ -10,7 +10,7 @@ tags:
   - nginx
 ogImage: ""
 description: 防盗链/http referer
-rank: 9
+rank: 50
 ---
 
 盗链：盗取别人链接，即直接调用并使用其他服务的资源；
