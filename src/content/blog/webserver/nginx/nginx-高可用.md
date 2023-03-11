@@ -5,7 +5,7 @@ title: nginx-高可用
 postSlug: nginx-高可用
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
   - nginx
 ogImage: ""

@@ -5,7 +5,7 @@ title: nginx-内置变量
 postSlug: nginx-内置变量
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
   - nginx
 ogImage: ""

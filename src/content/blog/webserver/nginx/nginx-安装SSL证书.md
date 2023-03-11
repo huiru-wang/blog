@@ -5,7 +5,7 @@ title: nginx-安装SSL证书
 postSlug: nginx-安装SSL证书
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
   - nginx
 ogImage: ""

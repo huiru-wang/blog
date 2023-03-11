@@ -5,7 +5,7 @@ title: nginx-安装部署及命令
 postSlug: nginx
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
   - nginx
 ogImage: ""

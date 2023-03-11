@@ -5,7 +5,7 @@ title: nginx-概览
 postSlug: nginx-概览
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
   - nginx
 ogImage: ""

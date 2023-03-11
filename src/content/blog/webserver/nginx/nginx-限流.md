@@ -5,7 +5,7 @@ title: nginx-限流
 postSlug: nginx-限流
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
   - nginx
 ogImage: ""

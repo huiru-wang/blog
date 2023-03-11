@@ -5,7 +5,7 @@ title: nginx-防盗链
 postSlug: nginx
 featured: false
 draft: false
-category: Server
+category: WebServer
 tags:
   - nginx
 ogImage: ""
