@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-06-21T18:22:00Z
-title: Service-服务器性能指标
-postSlug: Service-服务器性能指标
+title: 服务器性能指标
+postSlug: 服务器性能指标
 featured: false
 draft: false
 category: WebServer

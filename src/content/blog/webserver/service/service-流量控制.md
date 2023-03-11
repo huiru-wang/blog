@@ -1,8 +1,8 @@
 ---
 author: huiru
 pubDatetime: 2022-06-11T08:39:00Z
-title: Service-流量控制
-postSlug: Service-流量控制.
+title: 流量控制
+postSlug: 流量控制.
 featured: false
 draft: false
 category: WebServer
