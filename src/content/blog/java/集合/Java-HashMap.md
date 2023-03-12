@@ -14,3 +14,4 @@ rank: 2
 ---
 
 # HashMap
+![](/images/hashmap.jpeg)

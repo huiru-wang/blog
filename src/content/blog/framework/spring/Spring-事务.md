@@ -15,6 +15,13 @@ rank: 20
 
 [实际使用：Spring-Transaction-demo](https://github.com/huiru-wang/JavaCodeSnippet/tree/main/SpringTransaction)
 
+
+# 事务传播解决什么问题？
+
+Spring事务的传播机制：解决业务层面方法之间互相调用下的事务处理问题；
+- 多个方法共用一个事务，还是新建事务，还是不使用事务？；
+- 事务嵌套时，是挂起父事务，还是终止执行抛出异常？
+
 # 三大基础设施
 1、PlatformTransactionManager
 最顶层事务接口：约束了最基础的事务方法：
@@ -74,11 +81,9 @@ public interface PlatformTransactionManager extends TransactionManager {
 - 并发量大，事务执行过程中需要竞争锁；
 
 
-
 Spring中配置超时时间
 
 Spring中仅在执行SQL时，判断是否超时，如果执行完SQL了，同一个方法内，后续部分超时，不会回滚
-
 
 
 # 事务失效场景：

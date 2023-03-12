@@ -97,20 +97,7 @@ rank: 55
 
 
 ## G1
-| 参数                       | 作用                                      |
-| -------------------------- | ----------------------------------------- |
-| -XX:+UseG1GC               | 使用G1垃圾收集器                          |
-| -XX:G1HeapRegionSize=1m    | G1中Region大小                            |
-| -XX:G1NewSizePercent       | G1中新生代初始占比                        |
-| -XX:G1MaxNewSizePercent    | G1中新生代最大占比                        |
-| -XX:MaxGCPauseMillis=200ms | 默认200ms，GC触发的停顿大小               |
-| -XX:SurvivorRation=8       | Eden占新生代的8/10，剩余2/10,From/To 平分 |
 
-1、G1 收集器 MixedGC 参数：
-
-- -XX:InitiatingHeapOccupancyPercent：触发 MixedGC 的内存阈值；
-
-  默认老年代内存达到 45%触发
 
 ## 其他
 1、输出 JVM 默认参数配置：

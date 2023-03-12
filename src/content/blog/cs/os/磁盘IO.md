@@ -28,5 +28,5 @@ https://tech.meituan.com/2017/05/19/about-desk-io.html
 
 ### PageCache
 操作系统引入缓存层，缓存磁盘上的部分数据，当请求到达，数据如果在Cache中，并且未过期，则不需要读取磁盘，直接返回；
-
+- 默认4kb大小
 https://blog.csdn.net/qq_32099833/article/details/123150701
