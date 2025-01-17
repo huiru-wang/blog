@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './code-line.css';
+@import 'prism-themes/themes/prism-coldark-dark.css';
+
+@layer base {
+  :root {
+    --background: #f7f6f3;
+    --foreground: #171717;
+    --card: #C4C4C4;
+    --card-foreground: #171717;
+    --project: #C4C4C4;
+    --project-foreground: #171717;
+    --popover: #252d3b;
+    --popover-foreground: #C4C4C4;
+    --primary: #1a202c;
+    --primary-foreground: #ffffff;
+    --secondary: #ecd79b;
+    --secondary-foreground: #171717;
+    --muted: #edf2f7;
+    --muted-foreground: #718096;
+    --accent: #edf2f7;
+    --accent-foreground: #1a202c;
+    --border: #54636b;
+    --input: #e2e8f0;
+    --ring: #1a202c;
+    --radius: 0.75rem;
+
+    --sidebar-background: #f7fafc;
+    --sidebar-foreground: #2d3748;
+    --sidebar-primary: #1a202c;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #edf2f7;
+    --sidebar-accent-foreground: #1a202c;
+    --sidebar-border: #e2e8f0;
+    --sidebar-ring: #4299e1;
+
+    --underline-color: #1a202c;
+  }
+
+  .dark {
+    --background: #0d0d0e;
+    --foreground: #f2eeee;
+    --card: #765889;
+    --card-foreground: #ffffff;
+    --project: #C4C4C4;
+    --project-foreground: #f3e7e7;
+    --popover: #2d3748;
+    --popover-foreground: #ffffff;
+    --primary: #ffffff;
+    --primary-foreground: #1a202c;
+    --secondary: #d28674;
+    --secondary-foreground: #ffffff;
+    --muted: #4a5568;
+    --muted-foreground: #cbd5e0;
+    --accent: #4a5568;
+    --accent-foreground: #ffffff;
+    --border: #bdbcbc;
+    --input: #4a5568;
+    --ring: #63b3ed;
+
+    --sidebar-background: #2d3748;
+    --sidebar-foreground: #edf2f7;
+    --sidebar-primary: #ffffff;
+    --sidebar-primary-foreground: #1a202c;
+    --sidebar-accent: #4a5568;
+    --sidebar-accent-foreground: #edf2f7;
+    --sidebar-border: #4a5568;
+    --sidebar-ring: #63b3ed;
+
+    --underline-color: #63b3ed;
+  }
+
+  *,
+  ::before,
+  ::after {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+@layer components {
+  .pixel-card {
+    @apply border border-[var(--border)] bg-[var(--card)] text-[var(--card-foreground)];
+    user-select: none;
+    /* Prevent text selection */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: -4px 0 0 0 var(--border),
+      4px 0 1px 1px var(--border),
+      0 -4px 0 0 var(--border),
+      0 4px 1px 1px var(--border);
+  }
+
+  .pixel-card:active {
+    transform: translate(6px, 6px);
+  }
+
+  .nav-item {
+    @apply border-[1px] border-[var(--border)] shadow-[3px_3px_2px_0_var(--border)] bg-[var(--secondary)] text-[var(--secondary-foreground)] transition-colors px-4 py-2;
+    box-shadow: -2px 0 0 0 var(--border),
+      2px 0 1px 1px var(--border),
+      0 -2px 0 0 var(--border),
+      0 2px 1px 1px var(--border);
+  }
+
+  .nav-item:active {
+    transform: translate(6px, 6px);
+  }
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px var(--foreground);
+}
+
+.particle-z {
+  z-index: -1;
+}
+
+.katex-html {
+  @apply hidden
+}
+
+.toc-item-h2 {
+  @apply ml-4
+}
+
+::-webkit-scrollbar {
+  @apply w-[16px] h-[8px];
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[var(--muted)] rounded-sm;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[var(--primary)] rounded-[4px] border-2 border-solid border-[var(--muted)];
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[var(--primary)];
+}
+
+.funcy-borad {
+  background-image: linear-gradient(to right,
+      #f69165,
+      #e1a77a,
+      #c8d85d,
+      #54bb8d,
+      #539fc8,
+      #9b70db,
+      #d95eb4,
+      #dbae70);
+  background-size: 200%;
+  background-clip: text;
+  color: transparent;
+  animation: colorFlow 5s linear infinite;
+}
+
+@keyframes colorFlow {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 200%;
+  }
+}
+
+
+/* .pixel-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.pixel-cursor::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url('../../public/cursor/Handwriting.cur');
+  transition: transform 0.1s;
+}
+
+.pixel-cursor.clicking::before {
+  transform: scale(0.8);
+} */

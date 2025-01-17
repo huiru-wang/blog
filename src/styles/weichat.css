@@ -1,0 +1,24 @@
+.weichat-qr-code {
+    position: relative;
+}
+
+.weichat-qr-code::after {
+    content: url("../../public/weichat.jpg");
+    position: absolute;
+    top: -5rem;
+    left: -1rem;
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+    transform-origin: bottom right;
+    transform: scale(0);
+    opacity: 0;
+    -webkit-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.weichat-qr-code:hover::after {
+    transform: scale(0.25);
+    opacity: 1;
+}
