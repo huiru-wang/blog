@@ -34,12 +34,12 @@ TODO
 
 ![white](/docs/white-blogs.png)
 
-![markdownwhite](/examples/markdownwhite.png)
+![markdownwhite](/docs/black-markdown.png)
 
 <div style="display: flex;">
-<img src="examples/mobile1.jpg" width="30%" height="30%" center/>
-<img src="examples/mobile2.jpg" width="30%" height="30%" center/>
-<img src="examples/mobile.jpg" width="30%" height="30%" center/>
+<img src="docs/mobile-home.jpg" width="30%" height="30%" center/>
+<img src="docs/mobile-blogs.jpg" width="30%" height="30%" center/>
+<img src="docs/mobile-projects.jpg" width="30%" height="30%" center/>
 </div>
 
 

@@ -6,6 +6,10 @@ import Pokemon from '@/public/widgets/pokeball.png';
 import Sanji from "@/public/widgets/sanji.png";
 import WidgetImg from "@/components/WidgetImg";
 
+export const metadata = {
+    title: "Robin Blogs",
+    description: "Robinverse personal website",
+};
 
 export default async function Page() {
 

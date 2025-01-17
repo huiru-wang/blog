@@ -25,7 +25,7 @@ export default function Header() {
             <Avatar />
             <PixelatedNavbar />
             <Link
-                href="https://github.com/huiru-wang/nextjs-blog"
+                href="https://github.com/huiru-wang/blog"
                 target="_blank"
                 className="opacity-80 hover:opacity-100"
             >

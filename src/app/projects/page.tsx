@@ -4,6 +4,10 @@ import { press_start_2p } from "@/lib/fonts";
 import Pokemon from '@/public/widgets/pokeball.png';
 import Image from "next/image";
 
+export const metadata = {
+    title: "Robin Projects",
+    description: "Robinverse personal website",
+};
 export default function Home() {
 
     return (
