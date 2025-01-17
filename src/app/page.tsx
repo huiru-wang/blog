@@ -20,7 +20,7 @@ export default function Home() {
           className="mb-10 flex flex-col gap-6 text-xl relative z-20 md:text-2xl md:my-20 lg:text-3xl font-bold text-center font-sans tracking-tight"
         >
           <BlurFade delay={0.4} inView>
-            我是 Carl {" "}
+            我是 Robin {" "}
           </BlurFade>
           <BlurFade delay={2 * 0.4} inView>
             后端程序员 {" "}
