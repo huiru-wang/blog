@@ -28,7 +28,7 @@ export const getMdxContentBySlug = (slug: string) => {
     const pathSegment = slug?.split('_');
     const fileName = decodeURIComponent(pathSegment[pathSegment.length - 1]);
     pathSegment[pathSegment.length - 1] = fileName;
-    const targetMdx = pathSegment.join('/');
+    const targetMdx = pathSegment.join(separator);
     const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
     console.log(`targetMdxPath: ${targetMdxPath}`)
     if (!fs.existsSync(targetMdxPath)) {
