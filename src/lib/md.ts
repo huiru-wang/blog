@@ -30,6 +30,7 @@ export const getMdxContentBySlug = (slug: string) => {
     pathSegment[pathSegment.length - 1] = fileName;
     const targetMdx = pathSegment.join('/');
     const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
+    console.log(`targetMdxPath: ${targetMdxPath}`)
     if (!fs.existsSync(targetMdxPath)) {
         throw new Error(`File not found: ${targetMdxPath}`);
     }
@@ -73,6 +74,7 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
         }
     };
     await readDirRecursively(baseDir);
+    console.log(`baseDir: ${baseDir}`)
     // 降序
     result.sort((a, b) => {
         const dateA = new Date(a.frontmatter.publishedAt || 0).getTime();
