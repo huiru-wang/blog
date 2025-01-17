@@ -64,7 +64,7 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
                     const relativePath = path.relative(baseDir, filePath);
                     const slug = relativePath.replaceAll(separator, '_');
                     result.push({
-                        slug: slug,
+                        slug: encodeURIComponent(slug),
                         frontmatter: frontmatter,
                     });
                 } catch (error) {
