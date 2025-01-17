@@ -4,7 +4,7 @@
 
 前端初学者，很多地方不完善，欢迎指正。
 
-预览博客：[https://nextjs-blog-one-delta-32.vercel.app/](https://nextjs-blog-one-delta-32.vercel.app/)
+预览博客：[robinverse.me](https://robinverse.me/)
 
 TODO
 - SEO
@@ -30,9 +30,9 @@ TODO
 - **黑白主题**：支持黑白主题切换。
 - **响应式布局**：响应式布局，支持移动端访问。
 
-![white](/examples/white.png)
+![dark](/docs/black-home.png)
 
-![dark](/examples/markdown.png)
+![white](/docs/white-blogs.png)
 
 ![markdownwhite](/examples/markdownwhite.png)
 
@@ -47,16 +47,15 @@ TODO
 
 
 ```bash
-git clone https://github.com/your-repo/nextjs-blog.git
-cd nextjs-blog
+git clone https://github.com/huiru-wang/blog.git
+cd blog
 ```
 
 ```bash
 pnpm install
 ```
 
-在项目根目录创建 `.env` 文件，并根据需要配置以下环境变量：
-
+文件位置：
 ```env
 BLOG_DIR=blogs  # 博客文件存放目录，默认为 "blogs"
 ```
@@ -86,24 +85,31 @@ pnpm dev
 ## 文件结构
 
 ```
-nextjs-blog/
-├── examples/
-│   └── 博客文件.md/mdx
-├── public/
-│   └── ...静态资源
-├── src/
-│   ├── app/
-│   │   |── blogs/
-│   │   └── projects/
-│   ├── components/
-│   │   └── ...React、Markdown 组件
-│   ├── lib/
-│   │   └── md.ts  # MDX 解析逻辑
-│   ├── styles/
-│   │   └── ...样式文件
-│   ├── providers/
-│   │   └── ThemeProvider.tsx
-├── .env          # 环境变量配置
-├── package.json  # 项目依赖
-└── README.md     # 项目说明
+blog/
+    ├── blogs/
+    │   └── 博客文件.md/mdx
+    ├── public/
+    │   └── ...静态资源
+    ├── src/
+    │   ├── app/
+    │   │   |── blogs/
+    │   │   └── projects/
+    │   │   └── layout.tsx
+    │   │   └── page.tsx
+    │   │   
+    │   ├── components/
+    │   │   └── ...React、Markdown 组件
+    │   │  
+    │   ├── lib/
+    │   │   └── md.ts  # MDX 解析逻辑
+    │   │  
+    │   ├── styles/
+    │   │   └── ...样式文件
+    │   │  
+    │   ├── providers/
+    │   │   └── ThemeProvider.tsx
+    │   │  
+    ├── .env          # 环境变量配置
+    ├── package.json  # 项目依赖
+    └── README.md     # 项目说明
 ```

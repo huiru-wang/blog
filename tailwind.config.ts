@@ -84,6 +84,6 @@ export default {
   darkMode: 'class',
   plugins: [
     typography,
-    animate
+    animate,
   ],
 } satisfies Config;

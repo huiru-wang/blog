@@ -172,27 +172,3 @@
     background-position: 200%;
   }
 }
-
-
-/* .pixel-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.pixel-cursor::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  background-image: url('../../public/cursor/Handwriting.cur');
-  transition: transform 0.1s;
-}
-
-.pixel-cursor.clicking::before {
-  transform: scale(0.8);
-} */

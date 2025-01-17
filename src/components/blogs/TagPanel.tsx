@@ -53,8 +53,8 @@ export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
         <motion.div
             initial={{ y: 0, x: -50, opacity: 0 }}
             animate={{ y: 0, x: 0, opacity: 1 }}
-            className="mb-8">
-
+            className="mb-4 mx-4 sm:mx-0"
+        >
             {Object.entries(groupedByCategory).map(([category, tags]) => (
                 <div className="flex gap-4 m-2" key={category}>
                     <div
@@ -64,12 +64,12 @@ export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
                         {category}
                     </div>
 
-                    <div className="flex flex-wrap gap-4 ">
+                    <div className="flex flex-wrap gap-x-4 gap-y-2 ">
                         {
                             [...tags].map((tag) => (
                                 <div
                                     key={tag}
-                                    className={`underline cursor-pointer text-xl ${category === selectedCategory && tag === selectedTag ? 'text-shadow' : ''}`}
+                                    className={`underline cursor-pointer text-sm sm:text-xl ${category === selectedCategory && tag === selectedTag ? 'text-shadow' : ''}`}
                                     onClick={() => selected(category, tag)}
                                 >
                                     #{tag}

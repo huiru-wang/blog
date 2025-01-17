@@ -7,14 +7,14 @@ import Image from "next/image";
 export default function Home() {
 
     return (
-        <div className="flex flex-col px-4">
+        <div className="flex flex-col">
             <div className="flex items-center justify-start mb-4">
                 <Image src={Pokemon} width={40} height={40} alt="Pokemon" />
                 <h1 className={`${press_start_2p.className} text-2xl font-bold`}>
                     Dev Projects
                 </h1>
             </div>
-            <div className="grid grid-cols-1 gap-16">
+            <div className="grid grid-cols-1 gap-8 mx-4">
                 {
                     projects.map(project => {
                         return (

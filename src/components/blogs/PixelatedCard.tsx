@@ -14,7 +14,7 @@ export default function PixelatedCard({ slug, frontmatter }) {
 
     return (
         <Link href={`/blogs/${slug}`}>
-            <div className="pixel-card relative p-4 cursor-pointer h-32 sm:w-[500px]">
+            <div className="pixel-card relative p-4 cursor-pointer h-32 w-[360px] sm:w-[500px]">
                 <h2 className="text-xl font-bold truncate mb-2">{title}</h2>
                 <p className="text-sm" style={descriptionStyle}>{description}</p>
                 <time className="absolute bottom-3 block mt-2 text-xs">{publishedAt}</time>
