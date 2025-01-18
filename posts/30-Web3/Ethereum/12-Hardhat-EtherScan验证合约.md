@@ -56,7 +56,7 @@ https://sepolia.etherscan.io/address/0x30dC5995B8dF789db81BE9aaC312463f1998019d#
 ```
 
 访问sepolia.etherscan，查看对应的合约：
-![](/dev/images/web3-solidity-etherscan-verify.png)
+![](/images/web3-solidity-etherscan-verify.png)
 
 ## 脚本自动化验证合约
 - 添加验证的代码

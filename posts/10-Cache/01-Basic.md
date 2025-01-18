@@ -21,7 +21,7 @@ A cache is a high-speed data storage layer that storage a subset of data. Cachin
 <font color="#de7802">使用原则</font>：多读少写场景；多写场景不适合缓存；
 
 
-![](/dev/images/systemDesign-Cache.png)
+![](/images/systemDesign-Cache.png)
 
 Benefit:
 - Reduced Latency
@@ -39,7 +39,7 @@ Disadvantage:
 
 ## Where Can Caching Be Used
   
-![](/dev/images/cache-cachesystem.png)
+![](/images/cache-cachesystem.png)
 
 1. App/Browser: HTTP response can be cached by the browser. App can cache some static resources
 2. CDN: caches static web resources. The clients can retrieve data from a CDN node nearby.

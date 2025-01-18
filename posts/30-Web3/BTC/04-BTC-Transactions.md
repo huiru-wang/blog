@@ -51,7 +51,7 @@ However, if the transaction is trying to spend an output that has already been s
 
 # 发起一笔交易到确认的流程
 
-![](/dev/images/web3-fundation-consensus.png)
+![](/images/web3-fundation-consensus.png)
 
 ## 1. 构建交易
 

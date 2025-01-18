@@ -8,7 +8,7 @@ description: 区块链的共识机制
 ---
 
 
-![](/dev/images/web3-fundation-consensus.png)
+![](/images/web3-fundation-consensus.png)
 
 Blockchain is A Deterministic System. (确定性的系统)
 

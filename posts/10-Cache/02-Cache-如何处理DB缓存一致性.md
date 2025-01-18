@@ -59,7 +59,7 @@ description: 缓存一致性的原则，介绍强一致性策略和最终一致�
 
 可能发生不一致性的场景：
 
-![](/dev/images/cache-CacheAside.png)
+![](/images/cache-CacheAside.png)
 
 触发条件：
 - 前提：缓存已经失效，可能是正好过期，也可能是连续两次写；
@@ -74,7 +74,7 @@ description: 缓存一致性的原则，介绍强一致性策略和最终一致�
 
 延迟双删：延迟一定时间，再次触发删除缓存；降低数据不一致的可能性；但是延迟期间的数据不一致，仍然存在；
 
-![](/dev/images/cache-DoubleDelete.png)
+![](/images/cache-DoubleDelete.png)
 延迟策略：一般延迟1-3s即可；
 - <font color="#de7802">定时任务</font>：写线程执行完业务逻辑，删除缓存，返回之前开启一个异步线程，睡眠一段时间后再次删除缓存；
 - <font color="#de7802">延迟队列</font>：要借助中间件或者本地队列，
