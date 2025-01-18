@@ -1,4 +1,4 @@
-import { compileMarkdownWithTOC, getBlogContent, scanAndGet } from "@/lib/md";
+import { compileMarkdownWithTOC, getBlogContent } from "@/lib/md";
 import { notFound } from "next/navigation";
 import BlogTableOfContent from "@/components/blogs/BlogTableOfContent";
 import BlogContainer from "@/components/blogs/BlogContainer";
