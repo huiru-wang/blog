@@ -20,5 +20,5 @@ if pm2 list | grep -q "blog"; then
 else
     # 应用程序不在 pm2 中，启动它
     echo "===================== Starting application ====================="
-    pm2 start blog || { echo "Failed to start pm2 application. Exiting."; exit 1; }
+    pm2 start pnpm --name 'blog' -- start || { echo "Failed to start pm2 application. Exiting."; exit 1; }
 fi
