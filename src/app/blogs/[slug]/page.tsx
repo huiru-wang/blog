@@ -1,4 +1,4 @@
-import { compileMarkdownWithTOC, getBlogContent } from "@/lib/md";
+import { compileMarkdownWithTOC, getBlogContent, scanAndGet } from "@/lib/md";
 import { notFound } from "next/navigation";
 import BlogTableOfContent from "@/components/blogs/BlogTableOfContent";
 import BlogContainer from "@/components/blogs/BlogContainer";
@@ -26,7 +26,7 @@ export default async function Page({ params }) {
     try {
         const { slug } = await params;
 
-        const source = await getBlogContent(slug);
+        const source = await scanAndGet(slug);
 
         const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
 

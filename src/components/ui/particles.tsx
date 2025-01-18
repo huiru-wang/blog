@@ -35,6 +35,7 @@ interface ParticlesProps {
   staticity?: number;
   ease?: number;
   size?: number;
+  refresh?: boolean;
   color?: string;
   vx?: number;
   vy?: number;
@@ -76,6 +77,7 @@ const Particles: React.FC<ParticlesProps> = ({
   staticity = 50,
   ease = 50,
   size = 0.4,
+  refresh = false,
   color = "#ffffff",
   vx = 0,
   vy = 0,
@@ -118,15 +120,15 @@ const Particles: React.FC<ParticlesProps> = ({
       }
       window.removeEventListener("resize", handleResize);
     };
-  });
+  }, [color]);
 
   useEffect(() => {
     onMouseMove();
-  });
+  }, [mousePosition.x, mousePosition.y]);
 
   useEffect(() => {
     initCanvas();
-  });
+  }, [refresh]);
 
   const initCanvas = () => {
     resizeCanvas();

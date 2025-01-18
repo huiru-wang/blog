@@ -37,13 +37,19 @@ export const getBlogContent = async (slug: string) => {
         const pathSegment = decodedSlug?.split('_');
         const targetMdx = pathSegment.join(separator);
         const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
-        if (!fs.existsSync(targetMdxPath)) {
-            throw new Error(`Server File not found: ${targetMdxPath}`);
-        }
         postMdxContent = await fs.promises.readFile(targetMdxPath, 'utf8');
         blogMap.set(slug, postMdxContent);
     }
     return postMdxContent;
+}
+
+export const scanAndGet = async (slug: string) => {
+    const decodedSlug = decodeURIComponent(slug);
+    if (blogMap.has(decodedSlug)) {
+        return blogMap.get(slug);
+    }
+    const blogList = await getBlogMetadatas();
+    return blogList.find(item => item.slug === decodedSlug)?.content;
 }
 
 /**
@@ -54,7 +60,7 @@ export const getBlogContent = async (slug: string) => {
  * @returns {frontmatter, slug}[]
  */
 export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
-    const result: { slug: string, frontmatter: Frontmatter }[] = [];
+    const result: { slug: string, content: string, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);
         for (const file of files) {
@@ -65,7 +71,7 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
             } else if (stats.isFile() && (path.extname(file) === '.md' || path.extname(file) === '.mdx')) {
                 try {
                     const fileContent = await fs.promises.readFile(filePath, 'utf8');
-                    const { frontmatter } = await parseMdx(fileContent);
+                    const { content, frontmatter } = await parseMdx(fileContent);
                     if (!frontmatter || !frontmatter.title || !frontmatter.category || !frontmatter.tags) {
                         continue
                     }
@@ -73,7 +79,8 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
                     const slug = relativePath.replaceAll(separator, '_');
                     blogMap.set(slug, fileContent);
                     result.push({
-                        slug: encodeURIComponent(slug),
+                        slug: slug,
+                        content: content,
                         frontmatter: frontmatter,
                     });
                 } catch (error) {
@@ -97,7 +104,7 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
  * @param content 文件内容
  * @returns {content, frontmatter}
  */
-const parseMdx = async (content: string): Promise<{ content: unknown, frontmatter: Frontmatter }> => {
+const parseMdx = async (content: string): Promise<{ content, frontmatter: Frontmatter }> => {
 
     return compileMDX<Frontmatter>({
         source: content || "",
