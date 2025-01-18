@@ -27,20 +27,22 @@ const blogMap = new Map();
  * @returns {content, frontmatter}
  */
 export const getMdxContentBySlug = (slug: string) => {
+    let postMdxContent;
     if (blogMap.has(slug)) {
-        return blogMap.get(slug);
+        postMdxContent = blogMap.get(slug);
+    } else {
+        console.log(`Content Cache Missed: ${slug}`);
+        const pathSegment = slug?.split('_');
+        const fileName = decodeURIComponent(pathSegment[pathSegment.length - 1]);
+        pathSegment[pathSegment.length - 1] = fileName;
+        const targetMdx = pathSegment.join(separator);
+        const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
+        if (!fs.existsSync(targetMdxPath)) {
+            throw new Error(`File not found: ${targetMdxPath}`);
+        }
+        postMdxContent = fs.readFileSync(targetMdxPath, 'utf8');
     }
-    console.log(`Content Cache Missed: ${slug}`);
-    const pathSegment = slug?.split('_');
-    const fileName = decodeURIComponent(pathSegment[pathSegment.length - 1]);
-    pathSegment[pathSegment.length - 1] = fileName;
-    const targetMdx = pathSegment.join(separator);
-    const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
-    if (!fs.existsSync(targetMdxPath)) {
-        throw new Error(`File not found: ${targetMdxPath}`);
-    }
-    const postMdxContent = fs.readFileSync(targetMdxPath, 'utf8');
-    return postMdxContent;
+    return compileMarkdownWithTOC(postMdxContent);
 }
 
 /**
@@ -95,7 +97,7 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
  * @param content 文件内容
  * @returns {content, frontmatter}
  */
-export const parseMdx = async (content: string): Promise<{ content: unknown, frontmatter: Frontmatter }> => {
+const parseMdx = async (content: string): Promise<{ content: unknown, frontmatter: Frontmatter }> => {
 
     return compileMDX<Frontmatter>({
         source: content || "",
@@ -112,6 +114,13 @@ export const parseMdx = async (content: string): Promise<{ content: unknown, fro
     });
 }
 
+
+/**
+ * 解析markdown内容，并生成toc
+ * 
+ * @param content markdown内容
+ * @returns mdx及目录
+ */
 export const compileMarkdownWithTOC = async (content: string) => {
     let toc = "";
     const result = await compileMDX<Frontmatter>({
