@@ -9,7 +9,7 @@ import remarkMath from 'remark-math';
 import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
 
-const blogParentDir = process.env.BLOG_DIR || "posts";
+const blogParentDir = process.env.BLOG_DIR || "dev-notes";
 
 const separator = path.sep;
 
