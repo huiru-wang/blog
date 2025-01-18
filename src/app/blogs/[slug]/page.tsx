@@ -26,7 +26,7 @@ export default async function Page({ params }) {
     try {
         const { slug } = await params;
 
-        const source = await scanAndGet(slug);
+        const source = await getBlogContent(slug);
 
         const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
 

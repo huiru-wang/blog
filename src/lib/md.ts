@@ -31,9 +31,7 @@ export const getBlogContent = async (slug: string) => {
     let postMdxContent;
     if (blogMap.has(decodedSlug)) {
         postMdxContent = blogMap.get(decodedSlug);
-        console.log(`blogMap has slug: ${decodedSlug}`)
     } else {
-        console.log(`blogMap cache missed slug: ${decodedSlug}`)
         const pathSegment = decodedSlug?.split('_');
         const targetMdx = pathSegment.join(separator);
         const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
@@ -41,15 +39,6 @@ export const getBlogContent = async (slug: string) => {
         blogMap.set(slug, postMdxContent);
     }
     return postMdxContent;
-}
-
-export const scanAndGet = async (slug: string) => {
-    const decodedSlug = decodeURIComponent(slug);
-    if (blogMap.has(decodedSlug)) {
-        return blogMap.get(slug);
-    }
-    const blogList = await getBlogMetadatas();
-    return blogList.find(item => item.slug === decodedSlug)?.content;
 }
 
 /**
