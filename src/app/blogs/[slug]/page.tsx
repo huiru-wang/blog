@@ -26,6 +26,8 @@ export default async function Page({ params }) {
     try {
         const { slug } = await params;
 
+        console.log("slug: ", slug)
+
         const source = await getMdxContentBySlug(slug);
 
         const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
