@@ -15,6 +15,8 @@ const separator = path.sep;
 
 const mdxBaseDir = path.join(process.cwd(), blogParentDir);
 
+const blogMap = new Map();
+
 /**
  * 根据slug读取并解析md、mdx
  * 1. Slug切分为文件路径：如文件位置为：content/fold1/fold2/hello.mdx，则slug为：blogs/fold1_fold2_hello.mdx
@@ -25,16 +27,15 @@ const mdxBaseDir = path.join(process.cwd(), blogParentDir);
  * @returns {content, frontmatter}
  */
 export const getMdxContentBySlug = (slug: string) => {
-    console.error(`slug: ${slug}`)
+    if (blogMap.has(slug)) {
+        return blogMap.get(slug);
+    }
+    console.log(`Content Cache Missed: ${slug}`);
     const pathSegment = slug?.split('_');
-    console.error(`pathSegment: ${pathSegment}`)
     const fileName = decodeURIComponent(pathSegment[pathSegment.length - 1]);
-    console.error(`fileName: ${fileName}`)
     pathSegment[pathSegment.length - 1] = fileName;
     const targetMdx = pathSegment.join(separator);
-    console.error(`targetMdx: ${targetMdx}`)
     const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
-    console.error(`targetMdxPath: ${targetMdxPath}`)
     if (!fs.existsSync(targetMdxPath)) {
         throw new Error(`File not found: ${targetMdxPath}`);
     }
@@ -50,8 +51,7 @@ export const getMdxContentBySlug = (slug: string) => {
  * @returns {frontmatter, slug}[]
  */
 export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
-    const result: { slug: string, frontmatter: Frontmatter }[] = [];
-    console.error(`baseDir: ${baseDir}`);
+    const result: { slug: string, content: unknown, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);
         for (const file of files) {
@@ -62,14 +62,16 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
             } else if (stats.isFile() && (path.extname(file) === '.md' || path.extname(file) === '.mdx')) {
                 try {
                     const fileContent = await fs.promises.readFile(filePath, 'utf8');
-                    const { frontmatter } = await parseMdx(fileContent);
+                    const { content, frontmatter } = await parseMdx(fileContent);
                     if (!frontmatter || !frontmatter.title || !frontmatter.category) {
                         continue
                     }
                     const relativePath = path.relative(baseDir, filePath);
                     const slug = relativePath.replaceAll(separator, '_');
+                    blogMap.set(encodeURIComponent(slug), fileContent);
                     result.push({
                         slug: encodeURIComponent(slug),
+                        content: content,
                         frontmatter: frontmatter,
                     });
                 } catch (error) {
@@ -79,7 +81,6 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
         }
     };
     await readDirRecursively(baseDir);
-    console.error(`baseDir: ${baseDir}`)
     // 降序
     result.sort((a, b) => {
         const dateA = new Date(a.frontmatter.publishedAt || 0).getTime();
