@@ -8,7 +8,7 @@ publishedAt: 2023-02-07
 description: 介绍MySQL的架构，每一个关键组件的作用及工作方式简单介绍
 ---
 
-![](/images/database-MySQL-architecture.png)
+![](/dev/images/database-MySQL-architecture.png)
 
 
 Client：应用程序通常使用JDBC驱动，与MYSQL-Server交互；向MySQL服务器发送要执行的命令及SQL；

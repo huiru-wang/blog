@@ -22,7 +22,7 @@ Partition tolerance refers to the ability of a distributed system to continue op
 
 In actual distributed systems, partition tolerance (P) is often inevitable.
 
-![](/images/systemDesign-CAP-Partition.png)
+![](/dev/images/systemDesign-CAP-Partition.png)
 
 ## 1.2 Consistency
 
@@ -32,7 +32,7 @@ Consistency ensures all nodes in a distributed system have the same data at the 
 
 For example, in a database cluster, if a record's value is updated in one database server, any other server in the cluster that accesses that record should return the updated value.
 
-![](/images/systemDesign-CAP-Consistency.png)
+![](/dev/images/systemDesign-CAP-Consistency.png)
 
 ## 1.3 Availability
 
@@ -49,7 +49,7 @@ $$
 - 99.9% Availability => 8.76 hours of downtime
 - 99.99% Availability => 52.6 minutes of downtime
 - 99.999% Availability => 5 minutes of downtime
-![](/images/systemDesign-CAP-Availability.png)
+![](/dev/images/systemDesign-CAP-Availability.png)
 
 ## 1.4 Why only AP or CP
 

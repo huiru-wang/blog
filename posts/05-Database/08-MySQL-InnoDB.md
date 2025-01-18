@@ -8,7 +8,7 @@ publishedAt: 2023-07-11
 description: MySQL的InnoDB是如何工作的，B+Tree索引的结构、索引的分类以及什么是覆盖索引、回表、索引下推
 ---
 
-![](/images/database-MySQL-b+tree.png)
+![](/dev/images/database-MySQL-b+tree.png)
 # 为什么使用B+Tree索引
 
 ## 1. 适合做索引的数据结构特点
@@ -98,7 +98,7 @@ description: MySQL的InnoDB是如何工作的，B+Tree索引的结构、索引�
 
 ### 2. 联合索引
 
-![](/images/database-MySQL-UnionIndex.png)
+![](/dev/images/database-MySQL-UnionIndex.png)
 
 联合索引结构：
 - 多个索引列，以<font color="#de7802">Tuple</font>的形式存储；

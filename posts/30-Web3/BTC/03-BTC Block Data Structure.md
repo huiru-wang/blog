@@ -10,7 +10,7 @@ Reference: https://learnmeabitcoin.com/
 
 # Blockchain
 
-![btc-blockchain](/images/web3-btc-blockchain.png)
+![btc-blockchain](/dev/images/web3-btc-blockchain.png)
 
 Height: The height of a block indicates its position in the blockchain.
 
@@ -48,7 +48,7 @@ This process is actually to continuously verify the previous blocks containing t
 
 # Block Header
 
-![](/images/web3-btc-block.png)
+![](/dev/images/web3-btc-block.png)
 
 BlockHeader Code:
 
@@ -103,7 +103,7 @@ But what we also need is to be able to quickly and easily verify whetehr a trans
 
 ### How Merkle Proof works
 
-![](/images/web3-btc-merkletree.png)
+![](/dev/images/web3-btc-merkletree.png)
 
 So by using a merkle tree, we can find out if a transaction is part of a block without having to know every TXID in the block.
 
@@ -114,7 +114,7 @@ A lightweight node can verify a transaction without downloading the entire block
 
 These wallet just download and store block headers and use the merkle roots inside them to verify that a transaction has made it  in to a block.
 
-![](/images/web3-btc-merkleproof.png)
+![](/dev/images/web3-btc-merkleproof.png)
 
 ## Time
 

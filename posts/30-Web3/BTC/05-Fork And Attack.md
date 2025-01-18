@@ -14,10 +14,10 @@ description: BTC链中的硬分叉和软分叉、双花攻击
 >硬分叉：替换规则或代码，无法兼容旧版本；
 >软分叉：添加新的代码，可以兼容旧版本；
 ## Hard Fork
-![](/images/web3-btc-hardfork.png)
+![](/dev/images/web3-btc-hardfork.png)
 
 ## Soft Fork
-![](/images/web3-btc-softfork.png)
+![](/dev/images/web3-btc-softfork.png)
 
 
 

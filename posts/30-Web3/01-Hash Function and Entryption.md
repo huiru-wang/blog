@@ -19,8 +19,8 @@ description: Hash函数、非对称加密以及助记词、私钥、公钥和地
 # Phrase, Keys and Address
 
 助记词、私钥、公钥、地址：
-![](/images/web3-basic-phrase.png)
+![](/dev/images/web3-basic-phrase.png)
 
 
 如果通过非对称加密验证消息：
-![](/images/web3-basic-transaction.png)
+![](/dev/images/web3-basic-transaction.png)
