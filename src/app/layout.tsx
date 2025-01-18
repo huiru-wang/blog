@@ -28,7 +28,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </div>
 
           <ParticlesBackground />
-          {/* <PixelCursor /> */}
         </ThemeProvider>
       </body>
     </html>

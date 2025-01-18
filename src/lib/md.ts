@@ -26,23 +26,24 @@ const blogMap = new Map();
  * @param slug slug
  * @returns {content, frontmatter}
  */
-export const getMdxContentBySlug = (slug: string) => {
+export const getBlogContent = async (slug: string) => {
+    const decodedSlug = decodeURIComponent(slug);
     let postMdxContent;
-    if (blogMap.has(slug)) {
-        postMdxContent = blogMap.get(slug);
+    if (blogMap.has(decodedSlug)) {
+        postMdxContent = blogMap.get(decodedSlug);
+        console.log(`blogMap has slug: ${decodedSlug}`)
     } else {
-        console.log(`Content Cache Missed: ${slug}`);
-        const pathSegment = slug?.split('_');
-        const fileName = decodeURIComponent(pathSegment[pathSegment.length - 1]);
-        pathSegment[pathSegment.length - 1] = fileName;
+        console.log(`blogMap cache missed slug: ${decodedSlug}`)
+        const pathSegment = decodedSlug?.split('_');
         const targetMdx = pathSegment.join(separator);
         const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
         if (!fs.existsSync(targetMdxPath)) {
-            throw new Error(`File not found: ${targetMdxPath}`);
+            throw new Error(`Server File not found: ${targetMdxPath}`);
         }
-        postMdxContent = fs.readFileSync(targetMdxPath, 'utf8');
+        postMdxContent = await fs.promises.readFile(targetMdxPath, 'utf8');
+        blogMap.set(slug, postMdxContent);
     }
-    return compileMarkdownWithTOC(postMdxContent);
+    return postMdxContent;
 }
 
 /**
@@ -53,7 +54,7 @@ export const getMdxContentBySlug = (slug: string) => {
  * @returns {frontmatter, slug}[]
  */
 export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
-    const result: { slug: string, content: unknown, frontmatter: Frontmatter }[] = [];
+    const result: { slug: string, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);
         for (const file of files) {
@@ -64,16 +65,15 @@ export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
             } else if (stats.isFile() && (path.extname(file) === '.md' || path.extname(file) === '.mdx')) {
                 try {
                     const fileContent = await fs.promises.readFile(filePath, 'utf8');
-                    const { content, frontmatter } = await parseMdx(fileContent);
-                    if (!frontmatter || !frontmatter.title || !frontmatter.category) {
+                    const { frontmatter } = await parseMdx(fileContent);
+                    if (!frontmatter || !frontmatter.title || !frontmatter.category || !frontmatter.tags) {
                         continue
                     }
                     const relativePath = path.relative(baseDir, filePath);
                     const slug = relativePath.replaceAll(separator, '_');
-                    blogMap.set(encodeURIComponent(slug), fileContent);
+                    blogMap.set(slug, fileContent);
                     result.push({
                         slug: encodeURIComponent(slug),
-                        content: content,
                         frontmatter: frontmatter,
                     });
                 } catch (error) {

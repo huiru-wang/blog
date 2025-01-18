@@ -23,7 +23,6 @@ export default function ParticlesBackground() {
                 staticity={50}
                 ease={50}
                 size={0.4}
-                refresh={false}
                 color={color}
                 vx={0}
                 vy={0}

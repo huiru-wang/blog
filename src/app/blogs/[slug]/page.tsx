@@ -1,4 +1,4 @@
-import { compileMarkdownWithTOC } from "@/lib/md";
+import { compileMarkdownWithTOC, getBlogContent } from "@/lib/md";
 import { notFound } from "next/navigation";
 import BlogTableOfContent from "@/components/blogs/BlogTableOfContent";
 import BlogContainer from "@/components/blogs/BlogContainer";
@@ -10,11 +10,9 @@ export async function generateMetadata({ params }) {
 
     const { slug } = await params;
 
-    const response = await fetch(`http://127.0.0.1:3000/api?slug=${slug}`);
+    const source = await getBlogContent(slug);
 
-    const data = await response.text();
-
-    const { frontmatter } = await compileMarkdownWithTOC(data);
+    const { frontmatter } = await compileMarkdownWithTOC(source);
 
     return {
         title: frontmatter?.title,
@@ -28,11 +26,9 @@ export default async function Page({ params }) {
     try {
         const { slug } = await params;
 
-        const response = await fetch(`http://127.0.0.1:3000/api?slug=${slug}`);
+        const source = await getBlogContent(slug);
 
-        const data = await response.text();
-
-        const { content, frontmatter, toc } = await compileMarkdownWithTOC(data);
+        const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
 
         return (
             <>

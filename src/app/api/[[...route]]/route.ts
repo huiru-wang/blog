@@ -1,37 +1,19 @@
-import fs from 'fs';
-import path from 'path';
 import { NextRequest } from 'next/server';
-
-const blogParentDir = process.env.BLOG_DIR || "posts";
-
-const separator = path.sep;
-
-const mdxBaseDir = path.join(process.cwd(), blogParentDir);
-
-const blogMap = new Map();
+import { getBlogContent, getBlogMetadatas } from '@/lib/md';
 
 export async function GET(request: NextRequest) {
     const url = request.nextUrl;
     const searchParams = url.searchParams;
-    const slug = searchParams.get('slug');
-    if (!slug) {
-        return new Response(JSON.stringify({ data: null, message: "slug not found" }), { status: 400 });
-    }
-    let postMdxContent;
-    if (blogMap.has(slug)) {
-        postMdxContent = blogMap.get(slug);
-        console.log(`blogMap has slug: ${slug}`)
+    const action = searchParams.get('action');
+    if (action === 'BLOG_METADATA') {
+        const blogList = await getBlogMetadatas();
+        return new Response(JSON.stringify({ blogList: blogList }), { status: 200 });
     } else {
-        console.log(`blogMap cache missed slug: ${slug}`)
-        const decodedSlug = decodeURIComponent(slug);
-        const pathSegment = decodedSlug?.split('_');
-        const targetMdx = pathSegment.join(separator);
-        const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
-        if (!fs.existsSync(targetMdxPath)) {
-            throw new Error(`Server File not found: ${targetMdxPath}`);
+        const slug = searchParams.get('slug');
+        if (!slug) {
+            return new Response(JSON.stringify({ content: null }), { status: 400 });
         }
-        postMdxContent = fs.readFileSync(targetMdxPath, 'utf8');
-        blogMap.set(slug, postMdxContent);
+        const content = await getBlogContent(slug);
+        return new Response(JSON.stringify({ content: content }), { status: 200 });
     }
-    return new Response(postMdxContent, { status: 200 });
 }
