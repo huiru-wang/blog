@@ -11,8 +11,8 @@ import { motion } from "framer-motion";
 
 const navigationItems = [
     { name: "Home", href: "/" },
+    { name: "DevNotes", href: "/dev-notes" },
     { name: "Blogs", href: "/blogs" },
-    { name: "Projects", href: "/projects" },
 ];
 
 export default function Header() {
@@ -27,7 +27,7 @@ export default function Header() {
             <Link
                 href="https://github.com/huiru-wang/blog"
                 target="_blank"
-                className="opacity-80 hover:opacity-100"
+                className="opacity-80 hover:opacity-100 hidden md:block"
             >
                 <GithubIcon />
             </Link>

@@ -1,32 +1,40 @@
-import BlogList from "@/components/blogs/BlogList";
-import { getBlogMetadatas } from "@/lib/md";
+import ProjectModal from "@/components/projects/ProjectModal";
+import { projects } from "@/lib/projects";
 import { press_start_2p } from "@/lib/fonts";
-import Image from "next/image";
 import Pokemon from '@/public/widgets/pokeball.png';
-import Sanji from "@/public/widgets/sanji.png";
-import WidgetImg from "@/components/WidgetImg";
+import Image from "next/image";
 
 export const metadata = {
     title: "Robin Blogs",
     description: "Robinverse personal website",
 };
-
-export default async function Page() {
-
-    const blogMetadatas = await getBlogMetadatas();
+export default function Home() {
 
     return (
         <div className="flex flex-col">
-            <div className="flex items-center justify-start mb-2">
+            <div className="flex items-center justify-start mb-4">
                 <Image src={Pokemon} width={40} height={40} alt="Pokemon" />
                 <h1 className={`${press_start_2p.className} text-2xl font-bold`}>
                     Dev Blogs
                 </h1>
             </div>
-
-            <BlogList initialPostMetadatas={blogMetadatas} />
-
-            <WidgetImg src={Sanji} position="right" />
+            <div className="grid grid-cols-1 gap-8 mx-4">
+                {
+                    projects.map(project => {
+                        return (
+                            <ProjectModal
+                                key={project.title}
+                                redirect={project.redirect}
+                                img={project.img}
+                                title={project.title}
+                                description={project.description}
+                                publishedAt={project.publishedAt}
+                            />
+                        )
+                    })
+                }
+            </div>
         </div>
+
     );
 }

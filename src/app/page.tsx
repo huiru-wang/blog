@@ -9,7 +9,7 @@ import CareerTimeline from "@/components/home/CareerTimeline";
 import HyperText from "@/components/ui/hyper-text";
 
 export const metadata = {
-  title: "Robin Blog",
+  title: "Robin Website",
   description: "Robin's personal website",
 };
 

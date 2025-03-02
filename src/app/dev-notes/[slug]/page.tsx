@@ -1,4 +1,4 @@
-import { compileMarkdownWithTOC, getBlogContent } from "@/lib/md";
+import { compileMarkdownWithTOC, getDevNoteContent } from "@/lib/md";
 import { notFound } from "next/navigation";
 import BlogTableOfContent from "@/components/blogs/BlogTableOfContent";
 import BlogContainer from "@/components/blogs/BlogContainer";
@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
 
     const { slug } = await params;
 
-    const source = await getBlogContent(slug);
+    const source = await getDevNoteContent(slug);
 
     const { frontmatter } = await compileMarkdownWithTOC(source);
 
@@ -24,7 +24,7 @@ export default async function Page({ params }) {
     try {
         const { slug } = await params;
 
-        const source = await getBlogContent(slug);
+        const source = await getDevNoteContent(slug);
 
         const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
 

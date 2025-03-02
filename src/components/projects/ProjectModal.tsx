@@ -7,9 +7,10 @@ interface ProjectModalProps {
     img: string;
     title: string;
     description: string;
+    publishedAt: string;
 }
 
-export default function ProjectModal({ redirect, img, title, description }: ProjectModalProps) {
+export default function ProjectModal({ redirect, img, title, description, publishedAt }: ProjectModalProps) {
 
     return (
         <BlurFade
@@ -23,7 +24,7 @@ export default function ProjectModal({ redirect, img, title, description }: Proj
                         <div className="w-5 h-5 mr-2 border-4 border-black bg-green-500 rounded-full"></div>
                         <div className="w-5 h-5 mr-2 border-4 border-black bg-red-400 rounded-full"></div>
                     </div>
-                    <div className="flex-center">
+                    <div className="flex-center text-xl">
                         <div>{title}</div>
                     </div>
                 </div>
@@ -35,12 +36,18 @@ export default function ProjectModal({ redirect, img, title, description }: Proj
                     <p className='h-[6em] overflow-hidden overflow-ellipsis break-words overflow-y-auto line-clamp-3'>
                         {description}
                     </p>
-                    <Link
-                        className="border-4 border-black p-2 mt-4 hover:bg-black hover:text-white"
-                        href={redirect}
-                    >
-                        View project
-                    </Link>
+                    <div className="flex justify-between items-center w-full">
+                        <Link
+                            className="border-4 border-black p-2 mt-4 hover:bg-black hover:text-white"
+                            href={redirect}
+                        >
+                            View project
+                        </Link>
+                        <div>
+                            {publishedAt}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </BlurFade>

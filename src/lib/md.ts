@@ -9,11 +9,12 @@ import remarkMath from 'remark-math';
 import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
 
-const blogParentDir = process.env.BLOG_DIR || "dev-notes";
 
 const separator = path.sep;
 
-const mdxBaseDir = path.join(process.cwd(), blogParentDir);
+const devNoteBaseDir = path.join(process.cwd(), process.env.DEV_NOTES_DIR || "dev-notes");
+
+const blogBaseDir = path.join(process.cwd(), process.env.BLOG_DIR || "blogs");;
 
 const blogMap = new Map();
 
@@ -26,7 +27,7 @@ const blogMap = new Map();
  * @param slug slug
  * @returns {content, frontmatter}
  */
-export const getBlogContent = async (slug: string) => {
+export const getDevNoteContent = async (slug: string) => {
     const decodedSlug = decodeURIComponent(slug);
     let postMdxContent;
     if (blogMap.has(decodedSlug)) {
@@ -34,7 +35,32 @@ export const getBlogContent = async (slug: string) => {
     } else {
         const pathSegment = decodedSlug?.split('_');
         const targetMdx = pathSegment.join(separator);
-        const targetMdxPath = path.join(mdxBaseDir, `${targetMdx}`);
+        const targetMdxPath = path.join(devNoteBaseDir, `${targetMdx}`);
+        postMdxContent = await fs.promises.readFile(targetMdxPath, 'utf8');
+        blogMap.set(slug, postMdxContent);
+    }
+    return postMdxContent;
+}
+
+/**
+ * 根据slug读取并解析md、mdx
+ * 1. Slug切分为文件路径：如文件位置为：content/fold1/fold2/hello.mdx，则slug为：blogs/fold1_fold2_hello.mdx
+ * 解析时将"_"替换为"/"，找到对应的文件
+ * 2. Slug中的文件名需解码，可能还有URLEncode后的中文
+ * 
+ * @param slug slug
+ * @returns {content, frontmatter}
+ */
+export const getBlogContent = async (slug: string) => {
+    const decodedSlug = decodeURIComponent(slug);
+    console.log(slug, decodedSlug)
+    let postMdxContent;
+    if (blogMap.has(decodedSlug)) {
+        postMdxContent = blogMap.get(decodedSlug);
+    } else {
+        const pathSegment = decodedSlug?.split('_');
+        const targetMdx = pathSegment.join(separator);
+        const targetMdxPath = path.join(blogBaseDir, `${targetMdx}`);
         postMdxContent = await fs.promises.readFile(targetMdxPath, 'utf8');
         blogMap.set(slug, postMdxContent);
     }
@@ -48,7 +74,7 @@ export const getBlogContent = async (slug: string) => {
  * 
  * @returns {frontmatter, slug}[]
  */
-export const getBlogMetadatas = async (baseDir: string = mdxBaseDir) => {
+export const getBlogMetadatas = async (baseDir: string = devNoteBaseDir) => {
     const result: { slug: string, content: string, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);

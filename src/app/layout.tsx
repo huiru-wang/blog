@@ -21,7 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col items-center mx-auto max-w-3xl sm:max-w-4xl lg:max-w-5xl xl:max-w-6xl min-h-svh">
+          <div className="flex flex-col items-center mx-auto max-w-1xl sm:max-w-4xl lg:max-w-5xl xl:max-w-6xl min-h-svh">
             <Header />
             {children}
             <Footer />
