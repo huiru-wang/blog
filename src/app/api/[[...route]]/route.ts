@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { getBlogContent, getBlogMetadatas } from '@/lib/md';
+import { getDevNoteContent, getBlogMetadatas } from '@/lib/md';
 
 export async function GET(request: NextRequest) {
     const url = request.nextUrl;
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
         if (!slug) {
             return new Response(JSON.stringify({ content: null }), { status: 400 });
         }
-        const content = await getBlogContent(slug);
+        const content = await getDevNoteContent(slug);
         return new Response(JSON.stringify({ content: content }), { status: 200 });
     }
 }

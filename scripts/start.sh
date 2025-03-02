@@ -12,7 +12,7 @@ echo "===================== Rebuilding with pnpm ======================="
 pnpm install
 pnpm build
 
-# 重启 pm2 中的应用程序，假设你的应用名称是 myapp，根据实际情况修改
+# 重启 pm2 中的应用程序
 if pm2 list | grep -q "blog"; then
     # 应用程序已经在 pm2 中，重启它
     echo "===================== Restarting application ====================="
