@@ -9,60 +9,21 @@ import remarkMath from 'remark-math';
 import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
 
-
 const separator = path.sep;
 
-const devNoteBaseDir = path.join(process.cwd(), process.env.DEV_NOTES_DIR || "devNotes");
+const slugFileMap = new Map();
 
-const blogBaseDir = path.join(process.cwd(), process.env.BLOG_DIR || "blogs");;
-
-const blogMap = new Map();
-
-/**
- * 根据slug读取并解析md、mdx
- * 1. Slug切分为文件路径：如文件位置为：content/fold1/fold2/hello.mdx，则slug为：blogs/fold1_fold2_hello.mdx
- * 解析时将"_"替换为"/"，找到对应的文件
- * 2. Slug中的文件名需解码，可能还有URLEncode后的中文
- * 
- * @param slug slug
- * @returns {content, frontmatter}
- */
-export const getDevNoteContent = async (slug: string) => {
+export const getFileContent = async (slug: string, baseDir: string) => {
     const decodedSlug = decodeURIComponent(slug);
     let postMdxContent;
-    if (blogMap.has(decodedSlug)) {
-        postMdxContent = blogMap.get(decodedSlug);
+    if (slugFileMap.has(decodedSlug)) {
+        postMdxContent = slugFileMap.get(decodedSlug);
     } else {
         const pathSegment = decodedSlug?.split('_');
         const targetMdx = pathSegment.join(separator);
-        const targetMdxPath = path.join(devNoteBaseDir, `${targetMdx}`);
+        const targetMdxPath = path.join(baseDir, `${targetMdx}`);
         postMdxContent = await fs.promises.readFile(targetMdxPath, 'utf8');
-        blogMap.set(slug, postMdxContent);
-    }
-    return postMdxContent;
-}
-
-/**
- * 根据slug读取并解析md、mdx
- * 1. Slug切分为文件路径：如文件位置为：content/fold1/fold2/hello.mdx，则slug为：blogs/fold1_fold2_hello.mdx
- * 解析时将"_"替换为"/"，找到对应的文件
- * 2. Slug中的文件名需解码，可能还有URLEncode后的中文
- * 
- * @param slug slug
- * @returns {content, frontmatter}
- */
-export const getBlogContent = async (slug: string) => {
-    const decodedSlug = decodeURIComponent(slug);
-    console.log(slug, decodedSlug)
-    let postMdxContent;
-    if (blogMap.has(decodedSlug)) {
-        postMdxContent = blogMap.get(decodedSlug);
-    } else {
-        const pathSegment = decodedSlug?.split('_');
-        const targetMdx = pathSegment.join(separator);
-        const targetMdxPath = path.join(blogBaseDir, `${targetMdx}`);
-        postMdxContent = await fs.promises.readFile(targetMdxPath, 'utf8');
-        blogMap.set(slug, postMdxContent);
+        slugFileMap.set(slug, postMdxContent);
     }
     return postMdxContent;
 }
@@ -74,7 +35,7 @@ export const getBlogContent = async (slug: string) => {
  * 
  * @returns {frontmatter, slug}[]
  */
-export const getBlogMetadatas = async (baseDir: string = devNoteBaseDir) => {
+export const getDevNotesMetadatas = async (baseDir: string) => {
     const result: { slug: string, content: string, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);
@@ -92,7 +53,7 @@ export const getBlogMetadatas = async (baseDir: string = devNoteBaseDir) => {
                     }
                     const relativePath = path.relative(baseDir, filePath);
                     const slug = relativePath.replaceAll(separator, '_');
-                    blogMap.set(slug, fileContent);
+                    slugFileMap.set(slug, fileContent);
                     result.push({
                         slug: slug,
                         content: content,

@@ -14,17 +14,17 @@ export const projects = [
         "publishedAt": "2024-06-10"
     },
     {
+        "redirect": "/blogs/2023-12-01.md",
+        "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons//spring/spring-original.svg",
+        "title": "Business Check Service 资金一致性校验服务",
+        "description": "Business Check Service服务（BCP）是专门针对交易系统的一个旁路校验服务；通过交易链路中产生的日志，进行关联核对关键信息，保证每次交易链路的资金一致性；",
+        "publishedAt": "2023-12-01"
+    },
+    {
         "redirect": "/blogs/2023-05-07.md",
-        "img": "/images/hr-saas-esign-architecture-design.png",
+        "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons//spring/spring-original.svg",
         "title": "一站式故障管理",
         "description": "在已有告警平台的基础上，整合诊断工具，利用告警数据，为SRE提供一站式的故障诊断处理平台，旨在提高SRE故障识别精度，将故障处理流程规范化、效率化；",
         "publishedAt": "2023-05-07"
     },
-    {
-        "redirect": "/blogs/2022-12-01.md",
-        "img": "/images/hr-saas-esign-architecture-design.png",
-        "title": "Business Check Service 资金一致性校验服务",
-        "description": "Business Check Service服务（BCP）是专门针对交易系统的一个旁路校验服务；通过交易链路中产生的日志，进行关联核对关键信息，保证每次交易链路的资金一致性；",
-        "publishedAt": "2022-12-01"
-    }
 ]

@@ -5,22 +5,25 @@ import { useMemo, useState } from "react";
 import BlurFade from "@/components/ui/blur-fade";
 
 
-export default function BlogList({ initialPostMetadatas }) {
+export default function BlogList({ initialDevNotesMetadatas }) {
 
-    const [blogMetadatas, setBlogMetadatas] = useState(initialPostMetadatas || []);
+    const [blogMetadatas, setBlogMetadatas] = useState(initialDevNotesMetadatas || []);
 
     // 每次filter从全量数据中筛选
     const postMetadataFilter = (category: string, tag: string) => {
+
+        console.log(blogMetadatas);
+
         if (!category) {
-            setBlogMetadatas(initialPostMetadatas);
+            setBlogMetadatas(initialDevNotesMetadatas);
             return;
         }
-        const filtedItems = initialPostMetadatas.filter(post => post.frontmatter.category === category && (!tag || post.frontmatter.tags?.includes(tag)))
+        const filtedItems = initialDevNotesMetadatas.filter(post => post.frontmatter.category === category && (!tag || post.frontmatter.tags?.includes(tag)))
         setBlogMetadatas(filtedItems);
     };
 
     // frontmatter为文章元数据，使用初始化的全量数据缓存
-    const frontmatters = useMemo(() => initialPostMetadatas.map(post => post.frontmatter), [initialPostMetadatas]);
+    const frontmatters = useMemo(() => initialDevNotesMetadatas.map(post => post.frontmatter), [initialDevNotesMetadatas]);
 
     return (
         <div className="flex flex-col">
