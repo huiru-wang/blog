@@ -12,7 +12,7 @@ import remarkGfm from 'remark-gfm';
 
 const separator = path.sep;
 
-const devNoteBaseDir = path.join(process.cwd(), process.env.DEV_NOTES_DIR || "dev-notes");
+const devNoteBaseDir = path.join(process.cwd(), process.env.DEV_NOTES_DIR || "devNotes");
 
 const blogBaseDir = path.join(process.cwd(), process.env.BLOG_DIR || "blogs");;
 
