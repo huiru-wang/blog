@@ -27,7 +27,7 @@ export default function Header() {
             <Link
                 href="https://github.com/huiru-wang/blog"
                 target="_blank"
-                className="opacity-80 hover:opacity-100 hidden md:block"
+                className="opacity-80 hover:opacity-100"
             >
                 <GithubIcon />
             </Link>

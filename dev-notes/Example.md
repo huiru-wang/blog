@@ -1,4 +1,3 @@
-
 ---
 title: Nextjs Introduction
 category: Frontend
