@@ -26,7 +26,7 @@ function Socials() {
       </Link>
       <Link
         className="duration-500 opacity-60 hover:opacity-100 border-muted-foreground "
-        href="https://t.me/robin_xh"
+        href="https://t.me/robin_whr"
         target="_blank">
         <FaTelegramPlane size={25} />
       </Link>
