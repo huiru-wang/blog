@@ -16,8 +16,8 @@ export const projects = [
     {
         "redirect": "/blogs/03-Blog网站的构建.md",
         "img": "https://github.com/huiru-wang/blog/blob/main/docs/black-home.png",
-        "title": "Business Check Service 资金一致性校验服务",
-        "description": "一个后端程序员尝试学习前端，制作的基于 Next.js、 TailwindCSS、next-remote-mdx 的微像素风博客。本地多目录文件加载，支持md、mdx格式文件的渲染、黑白主题、响应式布局",
+        "title": "Nextjs TailwindCSS 博客网站",
+        "description": "初学前端练手项目，制作的基于 Next.js、 TailwindCSS、next-remote-mdx 的微像素风博客。本地多目录文件加载，支持md、mdx格式文件的渲染、黑白主题、响应式布局",
         "publishedAt": "2024-11-01"
     },
     {
