@@ -66,16 +66,16 @@ const data = [
         content: (
             <div>
                 <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-                    我在交易中台工作了差不多1年的时间，包括试用期在内。之后接手一个重构项目，我很喜欢这个项目，它很有价值并且对于工作不久的我来说，很有挑战。
+                    我在交易中台工作了差不多1年的时间。之后接手一个重构项目，我很喜欢这个项目，它很有价值并且对于工作不久的我来说，很有挑战。
                 </p>
                 <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-                    🎯 这个项目叫做BCP，他是一个专门针对交易系统的一个旁路校验服务；通过交易链路中产生的日志，关联核对关键信息，以此保证每次交易链路的资金一致性；用户可以在BCP平台上将业务中的日志进行关联，配置特定条件下触发特定的事件。
+                    🎯 这个项目叫做BCP，他是一个专门针对交易系统的一个旁路校验服务；通过交易链路中产生的日志，关联核对关键信息，以此保证每次交易链路的资金一致性。
                 </p>
                 <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-                    不过在BCP项目完工后，组织架构调整，我们整组迁移到现在的云眼部门，做监控告警方面的业务。我承认我确实对这样的业务不太感兴趣，那时候的我更期望接触商业化的业务，我还是坚持把手头的项目从0到1落地后。
+                    不过在BCP项目完工后，组织架构调整，我们整组迁移到现在的云眼部门，做监控告警方面的业务。我承认我确实对这样的业务不太感兴趣，那时候的我更期望接触商业化的业务。
                 </p>
                 <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-                    9月底，我提了离职，10月底我离开华为。
+                    在手头项目0-1上线后，23年9月底，我提了离职，10月底我离开华为。
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                     <Image
