@@ -121,7 +121,6 @@ const data = [
                         height={500}
                         className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
                     />
-                    hrm-saas-esign.png
                 </div>
             </div>
         ),
@@ -136,7 +135,7 @@ const data = [
                 <div className=" mb-5">
                     <Link
                         href="/blogs/04-HR-Saas电子签平台.md"
-                        className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-400 hover:bg-blue-700 text-white py-1 px-2 rounded"
                     >
                         HR Saas电子签平台构建
                     </Link>
@@ -144,7 +143,7 @@ const data = [
                 <div className=" mb-5">
                     <Link
                         href="/blogs/05-HR-Saas人事档案模块重构.md"
-                        className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-400 hover:bg-blue-700 text-white py-1 px-2  rounded"
                     >
                         人事平台花名册档案模块重构设计与实现
                     </Link>
@@ -155,7 +154,7 @@ const data = [
                 <div className=" mb-5">
                     <Link
                         href="/blogs/03-Blog网站的构建.md"
-                        className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-400 hover:bg-blue-700 text-white py-1 px-2 rounded"
                     >
                         Next.js TailwindCSS RemoteMDX 博客
                     </Link>
