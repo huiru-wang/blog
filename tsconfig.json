@@ -40,7 +40,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/lib/openai.js"  ],
   "exclude": [
     "node_modules"
   ]

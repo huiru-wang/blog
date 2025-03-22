@@ -9,7 +9,7 @@ export const projects = [
     {
         "redirect": "/blogs/05-HR-Saas人事档案模块重构.md",
         "img": "/images/hr-saas-roster-architecture.png",
-        "title": "HR Saas 人事平台花名册档案系统设计与实现",
+        "title": "HR Saas 人事平台花名册档案系统设计",
         "description": "由于历史原因和前期的产品快速迭代，人事业务中最核心的人事档案模块，代码开始变得越来越腐化，逐渐暴露出各种问题：\n 1. 新人使用、接手、迭代的成本越来越高；\n 2. 代码架构不合理，难以支撑更复杂的产品逻辑。 这是这个人事档案重构项目开启的一个背景；",
         "publishedAt": "2024-11-12"
     },

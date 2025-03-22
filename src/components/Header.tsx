@@ -48,7 +48,7 @@ function PixelatedNavbar() {
                                 {/* <div className="nav-item text-center text-black">
                                     {item.name}
                                 </div> */}
-                                <button className="px-2 py-0.5 border-2 border-[var(--border)] transition duration-200 shadow-[1px_1px_var(--border),2px_2px_var(--border),3px_3px_var(--border)] active:translate-x-1 active:translate-y-1">
+                                <button className="px-2 py-0.5 border-2 border-[var(--border)] transition duration-200 shadow-[1px_0px_var(--border),3px_3px_var(--border)] active:translate-x-1 active:translate-y-1">
                                     {item.name}
                                 </button>
                             </Link>

@@ -16,7 +16,7 @@ export default async function Page() {
     const devNotesMetadatas = await getDevNotesMetadatas(process.env.DEV_NOTES_DIR!);
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col select-none">
             <div className="flex items-center justify-start mb-2">
                 <Image src={Pokemon} width={40} height={40} alt="Pokemon" />
                 <h1 className={`${press_start_2p.className} text-2xl font-bold`}>

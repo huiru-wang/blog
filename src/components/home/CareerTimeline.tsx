@@ -10,9 +10,6 @@ const data = [
                 <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
                     我用了一年的时间，每天图书馆和宿舍2点一线，最后我如愿考上了南京理工大学的控制工程专业。2018.9月份我来到南京，开始了我最后3年的校园生活，也从这一年开始初步接触计算机领域。
                 </p>
-                <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-                    刚来到学习哦，跟师兄师姐讨论选课的问题，
-                </p>
             </div>
         )
     },
@@ -145,7 +142,7 @@ const data = [
                         href="/blogs/05-HR-Saas人事档案模块重构.md"
                         className="bg-blue-400 hover:bg-blue-700 text-white py-1 px-2  rounded"
                     >
-                        人事平台花名册档案模块重构设计与实现
+                        人事平台花名册档案重构
                     </Link>
                 </div>
                 <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
