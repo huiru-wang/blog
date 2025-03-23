@@ -69,7 +69,7 @@ export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
                             [...tags].map((tag) => (
                                 <div
                                     key={tag}
-                                    className={`underline cursor-pointer text-sm sm:text-xl ${category === selectedCategory && tag === selectedTag ? 'text-shadow' : ''}`}
+                                    className={`underline cursor-pointer text-sm sm:text-xl ${category === selectedCategory && tag === selectedTag ? 'text-[var(--tag-selected)]' : ''}`}
                                     onClick={() => selected(category, tag)}
                                 >
                                     #{tag}
