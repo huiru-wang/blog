@@ -53,7 +53,6 @@ export const getDevNotesMetadatas = async (baseDir: string) => {
                     }
                     const relativePath = path.relative(baseDir, filePath);
                     const slug = relativePath.replaceAll(separator, '_');
-                    slugFileMap.set(slug, fileContent);
                     result.push({
                         slug: slug,
                         content: content,

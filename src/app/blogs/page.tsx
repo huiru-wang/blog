@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export const metadata = {
     title: "Robin Blogs",
-    description: "Robinverse personal website",
+    description: "Robinverse Blogs website",
 };
 export default function Home() {
 

@@ -8,7 +8,7 @@ import WidgetImg from "@/components/WidgetImg";
 
 export const metadata = {
     title: "Robin Dev Notes",
-    description: "Robinverse personal website",
+    description: "Robinverse Dev Notes website",
 };
 
 export default async function Page() {
