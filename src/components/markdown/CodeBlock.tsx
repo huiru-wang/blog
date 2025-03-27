@@ -19,7 +19,6 @@ export default function CodeBlock({ children }) {
   useEffect(() => {
     if (codeRef.current) {
       const lineCount = codeRef.current.innerText.split('\n').length;
-      console.log('lineCount', lineCount);
       setIsCollapsed((pre) => pre || lineCount > 5);
     }
   }, [children])

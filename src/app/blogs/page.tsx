@@ -10,6 +10,8 @@ export const metadata = {
 };
 export default function Home() {
 
+    // TODO 从文件直接读取，不依赖：@/lib/projects
+
     return (
         <div className="flex flex-col select-none">
             <div className="flex items-center justify-start mb-4">

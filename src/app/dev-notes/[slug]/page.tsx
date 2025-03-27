@@ -23,8 +23,6 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
     try {
 
-        console.log(params);
-
         const { slug } = await params;
 
         const source = await getFileContent(slug, process.env.DEV_NOTES_DIR!);

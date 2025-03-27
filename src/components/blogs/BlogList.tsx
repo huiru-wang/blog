@@ -12,8 +12,6 @@ export default function BlogList({ initialDevNotesMetadatas }) {
     // 每次filter从全量数据中筛选
     const postMetadataFilter = (category: string, tag: string) => {
 
-        console.log(blogMetadatas);
-
         if (!category) {
             setBlogMetadatas(initialDevNotesMetadatas);
             return;
