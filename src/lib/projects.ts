@@ -14,18 +14,18 @@ export const projects = [
         "publishedAt": "2024-11-12"
     },
     {
+        "redirect": "/blogs/01-BCP资金一致性服务.md",
+        "img": "/images/projects-bcp-architec.png",
+        "title": "Business Check Service 资金一致性校验服务",
+        "description": "Business Check Service服务（BCP）是专门针对交易系统的一个旁路校验服务；通过交易链路中产生的日志，进行关联核对关键信息，保证每次交易链路的资金一致性；",
+        "publishedAt": "2023-12-01"
+    },
+    {
         "redirect": "/blogs/03-Blog网站的构建.md",
         "img": "/images/blog-home-page.png",
         "title": "Nextjs TailwindCSS 博客网站",
         "description": "初学前端练手项目，制作的基于 Next.js、 TailwindCSS、next-remote-mdx 的微像素风博客。本地多目录文件加载，支持md、mdx格式文件的渲染、黑白主题、响应式布局",
         "publishedAt": "2024-11-01"
-    },
-    {
-        "redirect": "/blogs/01-BCP资金一致性服务.md",
-        "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons//spring/spring-original.svg",
-        "title": "Business Check Service 资金一致性校验服务",
-        "description": "Business Check Service服务（BCP）是专门针对交易系统的一个旁路校验服务；通过交易链路中产生的日志，进行关联核对关键信息，保证每次交易链路的资金一致性；",
-        "publishedAt": "2023-12-01"
     },
     {
         "redirect": "/blogs/2023-05-07.md",
