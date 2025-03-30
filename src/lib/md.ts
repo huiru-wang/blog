@@ -8,6 +8,7 @@ import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
+import mdxMermaid from 'mdx-mermaid';
 
 const separator = path.sep;
 
@@ -110,7 +111,7 @@ export const compileMarkdownWithTOC = async (content: string) => {
         options: {
             parseFrontmatter: true,
             mdxOptions: {
-                remarkPlugins: [remarkGfm, remarkMath],
+                remarkPlugins: [remarkGfm, remarkMath, [mdxMermaid, { output: 'svg' }]],
                 rehypePlugins: [
                     [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
                     [rehypeToc, {
@@ -124,7 +125,7 @@ export const compileMarkdownWithTOC = async (content: string) => {
                 ],
             }
         },
-        components: components
+        components: components,
     });
     return { ...result, toc }
 }
