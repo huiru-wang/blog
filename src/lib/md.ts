@@ -111,7 +111,23 @@ export const compileMarkdownWithTOC = async (content: string) => {
         options: {
             parseFrontmatter: true,
             mdxOptions: {
-                remarkPlugins: [remarkGfm, remarkMath, [mdxMermaid, { output: 'svg' }]],
+                remarkPlugins: [
+                    remarkGfm,
+                    remarkMath,
+                    [
+                        mdxMermaid,
+                        {
+                            output: 'svg',
+                            mermaid: {
+                                theme: 'dark',
+                                darkMode: true,
+                                fontSize: 40,
+                                sequence: {
+                                }
+                            }
+                        }
+                    ]
+                ],
                 rehypePlugins: [
                     [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
                     [rehypeToc, {

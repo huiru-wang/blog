@@ -15,7 +15,6 @@ const components = {
     li: ({ children }) => <li className="m-0">{children}</li>,
     blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
     mermaid: Mermaid,
-    Mermaid,
     pre: ({ children }) => {
         return (<CodeBlock>{children}</CodeBlock>)
     },
