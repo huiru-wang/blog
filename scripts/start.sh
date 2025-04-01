@@ -51,7 +51,8 @@ pnpm build
 if pm2 list | grep -q "blog"; then
     # 应用程序已经在 pm2 中，重启它
     echo "===================== Restarting application ====================="
-    pm2 restart blog || { echo "Failed to restart pm2 application. Exiting."; exit 1; }
+    pm2 stop blog
+    pm2 start blog || { echo "Failed to restart pm2 application. Exiting."; exit 1; }
 else
     # 应用程序不在 pm2 中，启动它
     echo "===================== Starting application ====================="
