@@ -3,7 +3,7 @@
 }
 
 .weichat-qr-code::after {
-    content: url("../../public/weichat.jpg");
+    content: url("https://huiru-wang-images.oss-cn-beijing.aliyuncs.com/blog/weichat.jpg");
     position: absolute;
     top: -5rem;
     left: -1rem;
