@@ -8,12 +8,12 @@ const descriptionStyle: React.CSSProperties = {
     textOverflow: 'ellipsis',
 };
 
-export default function PixelatedCard({ slug, frontmatter }) {
+export default function PixelatedCard({ baseDir, slug, frontmatter }) {
 
     const { title, description, publishedAt } = frontmatter;
 
     return (
-        <Link href={`/dev-notes/${slug}`}>
+        <Link href={`/${baseDir}/${slug}`}>
             <div className="pixel-card relative p-4 cursor-pointer h-32 w-[360px] sm:w-[500px]">
                 <h2 className="text-xl font-bold truncate mb-2">{title}</h2>
                 <p className="text-sm" style={descriptionStyle}>{description}</p>

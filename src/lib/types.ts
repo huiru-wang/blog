@@ -5,4 +5,5 @@ export type Frontmatter = {
     keywords?: string;
     publishedAt?: string;
     description?: string;
+    coverImageUrl?: string;
 }

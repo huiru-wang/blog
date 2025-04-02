@@ -12,21 +12,13 @@ import mdxMermaid from 'mdx-mermaid';
 
 const separator = path.sep;
 
-const slugFileMap = new Map();
-
 export const getFileContent = async (slug: string, baseDir: string) => {
     const decodedSlug = decodeURIComponent(slug);
-    let postMdxContent;
-    if (slugFileMap.has(decodedSlug)) {
-        postMdxContent = slugFileMap.get(decodedSlug);
-    } else {
-        const pathSegment = decodedSlug?.split('_');
-        const targetMdx = pathSegment.join(separator);
-        const targetMdxPath = path.join(baseDir, `${targetMdx}`);
-        postMdxContent = await fs.promises.readFile(targetMdxPath, 'utf8');
-        slugFileMap.set(slug, postMdxContent);
-    }
-    return postMdxContent;
+    const pathSegment = decodedSlug?.split('_');
+    const targetMdx = pathSegment.join(separator);
+    const targetMdxPath = path.join(baseDir, `${targetMdx}`);
+    console.log(`Reading file: ${targetMdxPath}`)
+    return await fs.promises.readFile(targetMdxPath, 'utf8');
 }
 
 /**
@@ -36,8 +28,8 @@ export const getFileContent = async (slug: string, baseDir: string) => {
  * 
  * @returns {frontmatter, slug}[]
  */
-export const getDevNotesMetadatas = async (baseDir: string) => {
-    const result: { slug: string, content: string, frontmatter: Frontmatter }[] = [];
+export const getResourceMetadatas = async (baseDir: string) => {
+    const result: { slug: string, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);
         for (const file of files) {
@@ -48,7 +40,7 @@ export const getDevNotesMetadatas = async (baseDir: string) => {
             } else if (stats.isFile() && (path.extname(file) === '.md' || path.extname(file) === '.mdx')) {
                 try {
                     const fileContent = await fs.promises.readFile(filePath, 'utf8');
-                    const { content, frontmatter } = await parseMdx(fileContent);
+                    const { frontmatter } = await parseMdx(fileContent);
                     if (!frontmatter || !frontmatter.title || !frontmatter.category || !frontmatter.tags) {
                         continue
                     }
@@ -56,7 +48,6 @@ export const getDevNotesMetadatas = async (baseDir: string) => {
                     const slug = relativePath.replaceAll(separator, '_');
                     result.push({
                         slug: slug,
-                        content: content,
                         frontmatter: frontmatter,
                     });
                 } catch (error) {

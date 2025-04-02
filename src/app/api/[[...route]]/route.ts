@@ -1,12 +1,12 @@
 import { NextRequest } from 'next/server';
-import { getDevNotesMetadatas, getFileContent } from '@/lib/md';
+import { getResourceMetadatas, getFileContent } from '@/lib/md';
 
 export async function GET(request: NextRequest) {
     const url = request.nextUrl;
     const searchParams = url.searchParams;
     const action = searchParams.get('action');
     if (action === 'BLOG_METADATA') {
-        const devNotesList = await getDevNotesMetadatas(process.env.DEV_NOTES_DIR!);
+        const devNotesList = await getResourceMetadatas(process.env.DEV_NOTES_DIR!);
         return new Response(JSON.stringify({ devNotesList: devNotesList }), { status: 200 });
     } else {
         const slug = searchParams.get('slug');

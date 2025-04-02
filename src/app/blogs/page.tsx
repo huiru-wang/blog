@@ -1,16 +1,18 @@
-import ProjectModal from "@/components/projects/ProjectModal";
-import { projects } from "@/lib/projects";
 import { press_start_2p } from "@/lib/fonts";
 import Pokemon from '@/public/widgets/pokeball.png';
 import Image from "next/image";
+import { getResourceMetadatas } from "@/lib/md";
+import { Frontmatter } from "@/lib/types";
+import BlogCard from "@/components/blogs/BlogCard";
 
 export const metadata = {
     title: "Robin Blogs",
     description: "Robinverse Blogs website",
 };
-export default function Home() {
+export default async function Home() {
 
-    // TODO 从文件直接读取，不依赖：@/lib/projects
+    // 读取blog目录
+    const blogMetadatas: { slug: string, frontmatter: Frontmatter }[] = await getResourceMetadatas(process.env.BLOG_DIR!);
 
     return (
         <div className="flex flex-col select-none">
@@ -22,15 +24,16 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 gap-8 mx-4">
                 {
-                    projects.map(project => {
+                    blogMetadatas.map(({ slug, frontmatter }, index) => {
+                        slug = `/${process.env.BLOG_DIR!}/${slug}`;
                         return (
-                            <ProjectModal
-                                key={project.title}
-                                redirect={project.redirect}
-                                img={project.img}
-                                title={project.title}
-                                description={project.description}
-                                publishedAt={project.publishedAt}
+                            <BlogCard
+                                key={index}
+                                redirect={slug}
+                                title={frontmatter.title}
+                                description={frontmatter.description!}
+                                publishedAt={frontmatter.publishedAt!}
+                                img={frontmatter.coverImageUrl!}
                             />
                         )
                     })

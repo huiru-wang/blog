@@ -1,5 +1,5 @@
-import BlogList from "@/components/blogs/BlogList";
-import { getDevNotesMetadatas } from "@/lib/md";
+import PixelatedCardList from "@/components/blogs/PixelatedCardList";
+import { getResourceMetadatas } from "@/lib/md";
 import { press_start_2p } from "@/lib/fonts";
 import Image from "next/image";
 import Pokemon from '@/public/widgets/pokeball.png';
@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function Page() {
 
-    const devNotesMetadatas = await getDevNotesMetadatas(process.env.DEV_NOTES_DIR!);
+    const devNotesMetadatas = await getResourceMetadatas(process.env.DEV_NOTES_DIR!);
 
     return (
         <div className="flex flex-col select-none">
@@ -24,7 +24,7 @@ export default async function Page() {
                 </h1>
             </div>
 
-            <BlogList initialDevNotesMetadatas={devNotesMetadatas} />
+            <PixelatedCardList initialDevNotesMetadatas={devNotesMetadatas} />
 
             <WidgetImg src={Sanji} position="right" />
         </div>

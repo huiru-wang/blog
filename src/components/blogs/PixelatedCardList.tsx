@@ -37,7 +37,11 @@ export default function BlogList({ initialDevNotesMetadatas }) {
                             inView key={slug}
                             className="w-full"
                         >
-                            <PixelatedCard slug={slug} frontmatter={frontmatter} />
+                            <PixelatedCard
+                                baseDir={process.env.DEV_NOTES_DIR!}
+                                slug={slug}
+                                frontmatter={frontmatter}
+                            />
                         </BlurFade>
                     ))
                 }

@@ -4,13 +4,13 @@ import BlurFade from '../ui/blur-fade';
 
 interface ProjectModalProps {
     redirect: string;
-    img: string;
     title: string;
     description: string;
     publishedAt: string;
+    img: string;
 }
 
-export default function ProjectModal({ redirect, img, title, description, publishedAt }: ProjectModalProps) {
+export default function ProjectModal({ redirect, title, description, publishedAt, img }: ProjectModalProps) {
 
     return (
         <BlurFade
