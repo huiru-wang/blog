@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import BlurFade from '../ui/blur-fade';
 
-interface ProjectModalProps {
+interface BlogCardProps {
     redirect: string;
     title: string;
     description: string;
@@ -10,7 +10,7 @@ interface ProjectModalProps {
     img: string;
 }
 
-export default function ProjectModal({ redirect, title, description, publishedAt, img }: ProjectModalProps) {
+export default function BlogCard({ redirect, title, description, publishedAt, img }: BlogCardProps) {
 
     return (
         <BlurFade
