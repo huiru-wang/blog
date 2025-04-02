@@ -32,13 +32,14 @@ export default function PixelatedCardList({ initialDevNotesMetadatas }) {
             <div className="grid justify-center items-center lg:grid-cols-2 gap-x-8 gap-y-6">
                 {
                     blogMetadatas.map(({ slug, frontmatter }, index) => (
+
                         <BlurFade
                             delay={index * 0.05}
                             inView key={slug}
                             className="w-full"
                         >
                             <PixelatedCard
-                                baseDir={process.env.DEV_NOTES_DIR!}
+                                baseDir={"dev-notes"}
                                 slug={slug}
                                 frontmatter={frontmatter}
                             />
