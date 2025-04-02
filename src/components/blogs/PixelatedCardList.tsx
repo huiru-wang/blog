@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import BlurFade from "@/components/ui/blur-fade";
 
 
-export default function BlogList({ initialDevNotesMetadatas }) {
+export default function PixelatedCardList({ initialDevNotesMetadatas }) {
 
     const [blogMetadatas, setBlogMetadatas] = useState(initialDevNotesMetadatas || []);
 
