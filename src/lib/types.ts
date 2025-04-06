@@ -7,3 +7,12 @@ export type Frontmatter = {
     description?: string;
     coverImageUrl?: string;
 }
+
+export type MetaInfo = {
+    categories: Category[];
+}
+
+export type Category = {
+    name: string;
+    tags: string[];
+}

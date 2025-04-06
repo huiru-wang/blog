@@ -3,7 +3,7 @@ import BlockQuote from "./BlockQuote";
 import CodeBlock from "./CodeBlock";
 import InlineCode from "./InlineCode";
 import PopupImage from "./PopupImg";
-import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
+// import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
 
 const components = {
     // 需要目录跳转的标签，加上id，当前只需要2级
@@ -14,7 +14,7 @@ const components = {
     ol: ({ children }) => <ol className="m-2 my-0">{children}</ol>,
     li: ({ children }) => <li className="m-0">{children}</li>,
     blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
-    mermaid: Mermaid,
+    // mermaid: Mermaid,
     pre: ({ children }) => {
         return (<CodeBlock>{children}</CodeBlock>)
     },

@@ -1,33 +1,24 @@
 'use client';
-import { Frontmatter } from "@/lib/types";
+import { MetaInfo } from "@/lib/types";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 interface TagPanelProps {
-    frontmatters: Frontmatter[];
+    metaInfo: MetaInfo;
     onFilter: (category: string, tag: string) => void;
 }
 
-export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
+export default function TagPanel({ metaInfo, onFilter }: TagPanelProps) {
 
     const [selectedTag, setSelectedTag] = useState('');
 
     const [selectedCategory, setSelectedCategory] = useState('');
 
-    const groupedByCategory = frontmatters.reduce((acc, frontmatter) => {
-        const { category, tags } = frontmatter;
-        if (category) {
-            if (!acc[category]) {
-                acc[category] = new Set<string>();
-            }
-            if (tags) {
-                tags.forEach(tag => acc[category].add(tag));
-            }
-        }
-        return acc;
-    }, {} as Record<string, Set<string>>);
-
+    // 触发过滤事件
     const selected = (category: string, tag?: string) => {
+
+        console.log("filter", category, tag)
+
         if (isClear(category, tag)) {
             onFilter("", "");
             setSelectedTag("");
@@ -39,6 +30,7 @@ export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
         }
     }
 
+    // 判断是否清除
     const isClear = (category: string, tag?: string) => {
         if (category && !tag && selectedCategory === category) {
             return true;
@@ -55,22 +47,22 @@ export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
             animate={{ y: 0, x: 0, opacity: 1 }}
             className="mb-4 mx-4 sm:mx-0"
         >
-            {Object.entries(groupedByCategory).map(([category, tags]) => (
-                <div className="flex gap-4 m-2" key={category}>
+            {metaInfo?.categories?.map((category, index) => (
+                <div className="flex gap-4 m-2" key={index}>
                     <div
-                        className={`font-bold hidden lg:block border w-36 h-7 text-center cursor-pointer ${category === selectedCategory ? 'shadow-[5px_5px_2px_0_var(--border)]' : ''}`}
-                        onClick={() => selected(category, "")}
+                        className={`font-bold hidden lg:block border w-36 h-7 text-center cursor-pointer ${category.name === selectedCategory ? 'shadow-[5px_5px_2px_0_var(--border)]' : ''}`}
+                        onClick={() => selected(category.name, "")}
                     >
-                        {category}
+                        {category.name}
                     </div>
 
                     <div className="flex flex-wrap gap-x-4 gap-y-2 ">
                         {
-                            [...tags].map((tag) => (
+                            category.tags?.map((tag, index) => (
                                 <div
-                                    key={tag}
-                                    className={`underline cursor-pointer text-sm sm:text-xl ${category === selectedCategory && tag === selectedTag ? 'text-[var(--tag-selected)]' : ''}`}
-                                    onClick={() => selected(category, tag)}
+                                    key={index}
+                                    className={`underline cursor-pointer text-sm sm:text-xl ${category.name === selectedCategory && tag === selectedTag ? 'text-[var(--tag-selected)]' : ''}`}
+                                    onClick={() => selected(category.name, tag)}
                                 >
                                     #{tag}
                                 </div>
@@ -81,5 +73,4 @@ export default function TagPanel({ frontmatters, onFilter }: TagPanelProps) {
             ))}
         </motion.div>
     );
-
 }

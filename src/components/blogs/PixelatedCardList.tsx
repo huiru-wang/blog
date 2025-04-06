@@ -1,11 +1,10 @@
 'use client'
 import PixelatedCard from "@/components/blogs/PixelatedCard";
 import TagPanel from "@/components/blogs/TagPanel";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import BlurFade from "@/components/ui/blur-fade";
 
-
-export default function PixelatedCardList({ initialDevNotesMetadatas }) {
+export default function PixelatedCardList({ initialDevNotesMetadatas, metaInfo }) {
 
     const [blogMetadatas, setBlogMetadatas] = useState(initialDevNotesMetadatas || []);
 
@@ -20,13 +19,10 @@ export default function PixelatedCardList({ initialDevNotesMetadatas }) {
         setBlogMetadatas(filtedItems);
     };
 
-    // frontmatter为文章元数据，使用初始化的全量数据缓存
-    const frontmatters = useMemo(() => initialDevNotesMetadatas.map(post => post.frontmatter), [initialDevNotesMetadatas]);
-
     return (
         <div className="flex flex-col">
 
-            <TagPanel frontmatters={frontmatters} onFilter={postMetadataFilter} />
+            <TagPanel metaInfo={metaInfo} onFilter={postMetadataFilter} />
 
             {/* w-full保持grid容器充满当前父容器宽度，子元素w-full可以保持1:1比例，充满grid容器 */}
             <div className="grid justify-center items-center lg:grid-cols-2 gap-x-8 gap-y-6">

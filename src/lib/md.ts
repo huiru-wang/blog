@@ -8,16 +8,27 @@ import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
-import mdxMermaid from 'mdx-mermaid';
+// import mdxMermaid from 'mdx-mermaid';
 
 const separator = path.sep;
+
+/**
+ * 读取博客的meta信息
+ * 
+ * @param baseDir 文件目录
+ * @param filename 文件名
+ */
+export const getMetaInfo = async (baseDir: string, filename: string) => {
+    const metaInfoFile = path.join(baseDir, `${filename}`);
+    const data = await fs.promises.readFile(metaInfoFile, 'utf8');
+    return JSON.parse(data);
+}
 
 export const getFileContent = async (slug: string, baseDir: string) => {
     const decodedSlug = decodeURIComponent(slug);
     const pathSegment = decodedSlug?.split('_');
     const targetMdx = pathSegment.join(separator);
     const targetMdxPath = path.join(baseDir, `${targetMdx}`);
-    console.log(`Reading file: ${targetMdxPath}`)
     return await fs.promises.readFile(targetMdxPath, 'utf8');
 }
 
@@ -105,19 +116,19 @@ export const compileMarkdownWithTOC = async (content: string) => {
                 remarkPlugins: [
                     remarkGfm,
                     remarkMath,
-                    [
-                        mdxMermaid,
-                        {
-                            output: 'svg',
-                            mermaid: {
-                                theme: 'dark',
-                                darkMode: true,
-                                fontSize: 40,
-                                sequence: {
-                                }
-                            }
-                        }
-                    ]
+                    // [
+                    //     mdxMermaid,
+                    //     {
+                    //         output: 'svg',
+                    //         mermaid: {
+                    //             theme: 'dark',
+                    //             darkMode: true,
+                    //             fontSize: 40,
+                    //             sequence: {
+                    //             }
+                    //         }
+                    //     }
+                    // ]
                 ],
                 rehypePlugins: [
                     [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
