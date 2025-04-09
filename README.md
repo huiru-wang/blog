@@ -26,9 +26,6 @@ TODO
 - **Markdown目录**：为标题标签（如 `h1`, `h2`）添加 ID，支持目录跳转。
 - **Markdown Mermaid支持**：支持渲染`mermaid`图表；
 - **多级目录内容支持**：markdown文件从本地读取，默认加载`examples`下的文件，支持多级文件夹结构，自动组装slug，访问对应的blog时解析找到对应文件。
-- **Category/Tag筛选**：根据markdown `category` 和 `tag` 进行筛选过滤。
-- **自定义Markdown组件**：自定义 markdown渲染组件；
-- **黑白主题**：支持黑白主题切换。
 - **响应式布局**：响应式布局，支持移动端访问。
 
 ![dark](/docs/black-home.png)
