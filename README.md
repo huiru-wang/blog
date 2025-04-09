@@ -24,7 +24,7 @@ TODO
 - **Markdown/MDX 支持**：支持 `.md` 和 `.mdx` 文件格式。
 - **代码高亮**：使用 `rehype-prism-plus` 插件实现代码块高亮显示，支持单行代码高亮；
 - **Markdown目录**：为标题标签（如 `h1`, `h2`）添加 ID，支持目录跳转。
-- **Markdown Mermaid支持**：支持渲染`mermaid`图表；
+- **Markdown Mermaid支持**：支持渲染`mermaid`图表、跟随主题切换；
 - **多级目录内容支持**：markdown文件从本地读取，默认加载`examples`下的文件，支持多级文件夹结构，自动组装slug，访问对应的blog时解析找到对应文件。
 - **响应式布局**：响应式布局，支持移动端访问。
 
