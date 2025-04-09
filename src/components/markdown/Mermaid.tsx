@@ -10,16 +10,38 @@ type Props = {
 const Mermaid = ({ code }: Props) => {
     const { theme } = useTheme();
     const [svg, setSvg] = useState<string>("");
+    const [error, setError] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: theme === "dark" ? "dark" : "default",
-        });
-        mermaid.render("graphDiv", code).then((result) => {
-            setSvg(result.svg);
-        });
+        const renderMermaid = async () => {
+            try {
+                mermaid.initialize({
+                    startOnLoad: true,
+                    theme: theme === "dark" ? "dark" : "base",
+                    fontSize: 28,
+                });
+                const result = await mermaid.render("graphDiv", code);
+                setSvg(result.svg);
+                setError(null);
+            } catch (err) {
+                console.error("Mermaid rendering error:", err);
+                setError("Failed to render Mermaid diagram.");
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        renderMermaid();
     }, [code, theme]);
+
+    if (isLoading) {
+        return <div className="items-center justify-center text-red-300">Loading Mermaid Chart...</div>;
+    }
+
+    if (error) {
+        return <div className="text-red-300">{error}</div>;
+    }
 
     return (
         <div
