@@ -2,8 +2,8 @@ import { LinkPreview } from "../ui/link-preview";
 import BlockQuote from "./BlockQuote";
 import CodeBlock from "./CodeBlock";
 import InlineCode from "./InlineCode";
+import Mermaid from "./Mermaid";
 import PopupImage from "./PopupImg";
-// import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
 
 const components = {
     // 需要目录跳转的标签，加上id，当前只需要2级
@@ -14,9 +14,14 @@ const components = {
     ol: ({ children }) => <ol className="m-2 my-0">{children}</ol>,
     li: ({ children }) => <li className="m-0">{children}</li>,
     blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
-    // mermaid: Mermaid,
     pre: ({ children }) => {
-        return (<CodeBlock>{children}</CodeBlock>)
+        const lang = children.props.className || "";
+        if (lang.includes("language-mermaid")) {
+            const chart = parseMermaidToText(children);
+            return <Mermaid code={chart} />;
+        } else {
+            return <CodeBlock>{children}</CodeBlock>;
+        }
     },
     code: ({ children, className }) => {
         const match = /language-(\w+)/.exec(className || '');
@@ -28,6 +33,24 @@ const components = {
     },
     a: ({ children, href }) => <LinkPreview url={href}>{children}</LinkPreview>,
     img: (props) => <PopupImage {...props} />,
+}
+
+const parseMermaidToText = (children) => {
+    const charSnippetList: string[] = [];
+    const items = children.props.children;
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const codeSnippets = item.props.children;
+        for (let i = 0; i < codeSnippets.length; i++) {
+            const code = codeSnippets[i];
+            if (typeof code === "string") {
+                charSnippetList.push(code);
+            } else if (typeof code === "object" && code !== null && "props" in code) {
+                charSnippetList.push(code.props.children);
+            }
+        }
+    }
+    return charSnippetList.join('');
 }
 
 export default components;
