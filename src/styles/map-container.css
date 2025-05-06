@@ -4,6 +4,22 @@
   width: 100%;
 }
 
+.amap-layer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.amap-logo {
+  display: none !important;
+}
+
+.amap-copyright {
+  visibility: hidden !important;
+}
+
 .marker {
   top: 100px;
   left: 150px;

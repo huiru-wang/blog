@@ -11,7 +11,17 @@ export default function JourneyMap() {
     useEffect(() => {
         const coloringCityMap = {};
         journeyPoints.forEach(item => {
-            coloringCityMap[item.city] = item
+            const { city, SOC, depth } = item;
+            if (coloringCityMap[city]) {
+                const existingDepth = coloringCityMap[city].depth;
+                coloringCityMap[city].depth = Math.max(existingDepth, depth);
+            } else {
+                coloringCityMap[city] = {
+                    SOC: SOC,
+                    city: city,
+                    depth: depth,
+                };
+            }
         });
         const coloringCountries = new Set();
         journeyPoints.forEach(item => {
@@ -39,7 +49,7 @@ export default function JourneyMap() {
                                     if (coloringCityMap[props.NAME_CHN]) {
                                         const city = coloringCityMap[props.NAME_CHN];
                                         const depth = city.depth;
-                                        const rg = 255 - Math.floor(depth / 5 * 255);
+                                        const rg = 255 - Math.floor((depth - 5) / 5 * 255);
                                         return 'rgb(' + rg + ',' + rg + ',255)';
                                     }
                                     return "rgb(227,227,227)";

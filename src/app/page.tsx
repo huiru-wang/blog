@@ -7,6 +7,7 @@ import { Cover } from "@/components/ui/cover";
 import { press_start_2p } from "@/lib/fonts";
 import CareerTimeline from "@/components/home/CareerTimeline";
 import HyperText from "@/components/ui/hyper-text";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 export const metadata = {
   title: "Robin Website",
@@ -16,6 +17,7 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="w-full flex flex-col justify-center select-none">
+      <ParticlesBackground />
       <section>
         <BackgroundBeamsWithCollision
           className="mb-10 flex flex-col gap-6 text-xl relative z-20 md:text-2xl md:my-20 lg:text-3xl font-bold text-center font-sans tracking-tight"

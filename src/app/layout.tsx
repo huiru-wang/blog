@@ -4,7 +4,6 @@ import { roboto_mono } from "@/lib/fonts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import ParticlesBackground from "@/components/ParticlesBackground";
 
 export const metadata: Metadata = {
   title: "web developer portfolio",
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <Footer />
           </div>
 
-          <ParticlesBackground />
         </ThemeProvider>
       </body>
     </html>
