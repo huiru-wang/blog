@@ -1,7 +1,7 @@
 'use client';
 import ScrollProgress from "@/components/ui/scroll-progress";
 
-export default function BlogContainer({ content, frontmatter }) {
+export default function MarkdownContainer({ content, frontmatter }) {
     return (
         <section className="w-full flex flex-col items-center bg-[var(--background])]">
             <h1 className="text-3xl font-bold text-center">{frontmatter?.title}</h1>

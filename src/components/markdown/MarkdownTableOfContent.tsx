@@ -5,7 +5,7 @@
  * @param toc 嵌套目录
  * @returns 目录组件
  */
-export default function BlogTableOfContent(toc) {
+export default function MarkdownTableOfContent(toc) {
 
     return (
         <div className="hidden min-w-64 max-w-80 2xl:block fixed right-5 top-28 p-4 border border-gray-200 rounded shadow-[4px_4px_0_0_var(--border)]">

@@ -13,6 +13,7 @@ const navigationItems = [
     { name: "Home", href: "/" },
     { name: "DevNotes", href: "/dev-notes" },
     { name: "Blogs", href: "/blogs" },
+    { name: "Travel", href: "/travel" }
 ];
 
 export default function Header() {

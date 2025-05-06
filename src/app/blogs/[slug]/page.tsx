@@ -1,7 +1,8 @@
-import { compileMarkdownWithTOC, getFileContent } from "@/lib/md";
+import { getFileContent } from "@/lib/md";
+import { compileMarkdownWithTOC } from "@/lib/mdParser";
 import { notFound } from "next/navigation";
-import BlogTableOfContent from "@/components/blogs/BlogTableOfContent";
-import BlogContainer from "@/components/blogs/BlogContainer";
+import MarkdownTableOfContent from "@/components/markdown/MarkdownTableOfContent";
+import MarkdownContainer from "@/components/markdown/MarkdownContainer";
 import BackTop from "@/components/BackTop";
 
 export async function generateMetadata({ params }) {
@@ -30,8 +31,8 @@ export default async function Page({ params }) {
 
         return (
             <>
-                <BlogContainer content={content} frontmatter={frontmatter} />
-                <BlogTableOfContent toc={toc} />
+                <MarkdownContainer content={content} frontmatter={frontmatter} />
+                <MarkdownTableOfContent toc={toc} />
                 <BackTop />
             </>
         );
