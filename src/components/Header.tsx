@@ -25,13 +25,15 @@ export default function Header() {
         >
             <Avatar />
             <PixelatedNavbar />
-            <Link
-                href="https://github.com/huiru-wang/blog"
-                target="_blank"
-                className="opacity-80 hover:opacity-100"
-            >
-                <GithubIcon />
-            </Link>
+            <div className="hidden sm:block">
+                <Link
+                    href="https://github.com/huiru-wang/blog"
+                    target="_blank"
+                    className="opacity-80 hover:opacity-100"
+                >
+                    <GithubIcon />
+                </Link>
+            </div>
             <ModeToggle />
         </motion.div>
     );
@@ -40,7 +42,7 @@ export default function Header() {
 function PixelatedNavbar() {
 
     return (
-        <nav className={`${press_start_2p.className} flex-grow flex justify-center items-center text-[0.6rem] sm:text-[0.8rem] space-x-4 sm:space-x-12`}>
+        <nav className={`${press_start_2p.className} flex-grow flex justify-center items-center text-[0.6rem] sm:text-[0.8rem] space-x-2 sm:space-x-12`}>
             {
                 navigationItems.map(item => {
                     return (
