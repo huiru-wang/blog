@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 const navigationItems = [
     { name: "Home", href: "/" },
     { name: "DevNotes", href: "/dev-notes" },
-    { name: "Blogs", href: "/blogs" },
+    // { name: "Blogs", href: "/blogs" },
     { name: "Travel", href: "/travel" }
 ];
 

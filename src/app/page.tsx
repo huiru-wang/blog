@@ -37,7 +37,7 @@ export default function Home() {
             <span className="funcy-borad">Coding</span>
           </BlurFade>
           <BlurFade delay={4 * 0.4} inView>
-            正在努力成为全栈工程师 {" "}
+            正在努力成为更好的攻城狮 {" "}
           </BlurFade>
           <BlurFade delay={5 * 0.4} inView className={`${press_start_2p.className} text-[0.7rem] sm:text-[1rem] mt-4 `}>
             <Cover>Feel free to contact me!</Cover>
