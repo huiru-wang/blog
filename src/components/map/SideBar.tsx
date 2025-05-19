@@ -5,14 +5,23 @@ import { motion } from "framer-motion";
 export function SideBar({ title, travelLog, setShowSidebar }) {
     return (
         <motion.div
-            initial={{ y: 0, x: -10, opacity: 0 }}
-            animate={{ y: 0, x: 0, opacity: 1 }}
+            initial={{
+                y: window.innerWidth < 768 ? window.innerHeight : 0,
+                x: window.innerWidth < 768 ? 0 : -10,
+                opacity: 0,
+            }}
+            animate={{
+                y: 0,
+                x: 0,
+                opacity: 1,
+            }}
             transition={{
-                duration: 0.5, // 动画持续时间为 0.5 秒
-                ease: 'easeOut', // 使用 easeOut 缓动函数
+                duration: 0.5,
+                ease: 'easeOut',
             }}
             style={{ overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            className="hidden md:block h-full w-1/3 bg-orange-200 text-black overflow-y-auto rounded-l-2xl"
+            className="bg-orange-200 text-black overflow-y-auto rounded-t-2xl rounded-l-0 fixed bottom-0 left-0 z-50
+             w-full h-3/4 md:h-full md:w-1/2 md:rounded-l-2xl md:rounded-t-none md:static md:overflow-y-auto "
         >
             <div className="flex-shrink-0 border-b p-4 bg-orange-300 sticky top-0 z-10">
                 <div className="flex items-center justify-between">
