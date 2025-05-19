@@ -22,12 +22,16 @@ export const getMetaInfo = async (baseDir: string, filename: string) => {
     return JSON.parse(data);
 }
 
-export const getFileContent = async (slug: string, baseDir: string) => {
+export const getFileContent = async (baseDir: string, slug: string) => {
     const decodedSlug = decodeURIComponent(slug);
     const pathSegment = decodedSlug?.split('_');
     const targetMdx = pathSegment.join(separator);
-    const targetMdxPath = path.join(baseDir, `${targetMdx}`);
-    return await fs.promises.readFile(targetMdxPath, 'utf8');
+    try {
+        const targetMdxPath = path.join(baseDir, `${targetMdx}`);
+        return await fs.promises.readFile(targetMdxPath, 'utf8');
+    } catch {
+        return '';
+    }
 }
 
 /**

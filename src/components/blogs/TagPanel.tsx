@@ -17,8 +17,6 @@ export default function TagPanel({ metaInfo, onFilter }: TagPanelProps) {
     // 触发过滤事件
     const selected = (category: string, tag?: string) => {
 
-        console.log("filter", category, tag)
-
         if (isClear(category, tag)) {
             onFilter("", "");
             setSelectedTag("");

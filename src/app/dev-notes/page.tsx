@@ -18,7 +18,7 @@ export default async function Page() {
     const devNotesMetadatas = await getResourceMetadatas(process.env.DEV_NOTES_DIR!);
 
     // 服务端读取json元数据
-    const metaInfo: MetaInfo[] = await getMetaInfo(process.env.DEV_NOTES_DIR!, process.env.META_INFO!);
+    const metaInfo: MetaInfo[] = await getMetaInfo(process.cwd(), process.env.META_INFO!);
 
     return (
         <div className="flex flex-col select-none">

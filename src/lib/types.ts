@@ -1,3 +1,5 @@
+import { JSXElementConstructor, ReactElement } from "react";
+
 export type Frontmatter = {
     title: string;
     category: string;
@@ -10,9 +12,22 @@ export type Frontmatter = {
 
 export type MetaInfo = {
     categories: Category[];
+    travelMarkers: TravelMarker[];
 }
 
 export type Category = {
     name: string;
     tags: string[];
+}
+
+export type TravelMarker = {
+    title: string;
+    SOC: string;
+    city: string;
+    depth: number;
+    position: [number, number];
+    zooms: number[];
+    iconImg: string;
+    logFile?: string;
+    travelLog?: ReactElement<unknown, string | JSXElementConstructor<any>>;
 }

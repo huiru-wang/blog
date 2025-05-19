@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
 
     const { slug } = await params;
 
-    const source = await getFileContent(slug, process.env.BLOG_DIR!);
+    const source = await getFileContent(process.env.BLOG_DIR!, slug);
 
     const { frontmatter } = await compileMarkdownWithTOC(source);
 
@@ -25,7 +25,7 @@ export default async function Page({ params }) {
     try {
         const { slug } = await params;
 
-        const source = await getFileContent(slug, process.env.BLOG_DIR!);
+        const source = await getFileContent(process.env.BLOG_DIR!, slug);
 
         const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
 

@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
         if (!slug) {
             return new Response(JSON.stringify({ content: null }), { status: 400 });
         }
-        const content = await getFileContent(slug, process.env.DEV_NOTES_DIR!);
+        const content = await getFileContent(process.env.DEV_NOTES_DIR!, slug);
         return new Response(JSON.stringify({ content: content }), { status: 200 });
     }
 }

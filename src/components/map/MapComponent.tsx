@@ -1,33 +1,45 @@
 "use client"
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { renderToString } from 'react-dom/server';
 import "@/styles/map-container.css";
-import { journeyPoints } from '@/lib/data';
 import { MapMarker } from '@/components/map/MapMarker';
-export default function JourneyMap() {
+import { TravelMarker } from '@/lib/types';
+export default function MapComponent(
+    { travelMarkers, setShowSidebar, setSelectedMarker }:
+        {
+            travelMarkers: TravelMarker[],
+            setShowSidebar: (show: boolean) => void,
+            setSelectedMarker: (marker: TravelMarker) => void
+        }
+) {
 
     const mapRef = useRef(null);
 
-    useEffect(() => {
-        const coloringCityMap = {};
-        journeyPoints.forEach(item => {
+    // 染色城市
+    const coloringCityMap = useMemo(() => {
+        const map = {};
+        travelMarkers.forEach(item => {
             const { city, SOC, depth } = item;
-            if (coloringCityMap[city]) {
-                const existingDepth = coloringCityMap[city].depth;
-                coloringCityMap[city].depth = Math.max(existingDepth, depth);
+            if (map[city]) {
+                const existingDepth = map[city].depth;
+                map[city].depth = Math.max(existingDepth, depth);
             } else {
-                coloringCityMap[city] = {
+                map[city] = {
                     SOC: SOC,
                     city: city,
                     depth: depth,
                 };
             }
         });
-        const coloringCountries = new Set();
-        journeyPoints.forEach(item => {
-            coloringCountries.add(item.SOC);
-        });
+        return map;
+    }, [travelMarkers]);
 
+    // 染色国家
+    const coloringCountries = useMemo(() => {
+        return new Set(travelMarkers.map(item => item.SOC));
+    }, [travelMarkers]);
+
+    useEffect(() => {
         if (typeof window !== 'undefined') {
             import('@amap/amap-jsapi-loader').then(AMapLoader => {
                 AMapLoader.load({
@@ -86,14 +98,14 @@ export default function JourneyMap() {
                             ],
                         });
 
-                        journeyPoints.forEach(item => {
-                            const { Latitude, Longitude, iconImg, popupInfo, zooms } = item;
-                            const content = renderToString(<MapMarker iconImg={iconImg} popupInfo={popupInfo} />);
+                        travelMarkers.forEach(item => {
+                            const { position, iconImg, zooms, title } = item;
+                            const content = renderToString(<MapMarker iconImg={iconImg} />);
                             const marker = new AMap.Marker({
-                                position: new AMap.LngLat(Longitude, Latitude),
+                                position: new AMap.LngLat(position[0], position[1], true),
                                 zooms: zooms.length === 2 ? [zooms[0], zooms[1]] : [0, 0],
                                 content: content,
-                                title: "",    // 鼠标滑过点标记时的文字提示
+                                title: title,    // 鼠标滑过点标记时的文字提示
                                 anchor: 'bottom-center',
                                 clickable: true, // 是否可点击
                                 draggable: false, // 是否可拖动
@@ -102,13 +114,17 @@ export default function JourneyMap() {
                                     direction: "right"
                                 }
                             });
+                            marker.on('click', () => {
+                                setShowSidebar(true);
+                                setSelectedMarker(item);
+                            });
                             map.add(marker);
                         });
                     }
                 });
             });
         }
-    }, []);
+    }, [coloringCityMap, coloringCountries]);
 
     return (
         <div
