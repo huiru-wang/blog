@@ -8,6 +8,8 @@ import { press_start_2p } from "@/lib/fonts";
 import CareerTimeline from "@/components/home/CareerTimeline";
 import HyperText from "@/components/ui/hyper-text";
 import ParticlesBackground from "@/components/ParticlesBackground";
+import { TechIconCloud } from "@/components/home/TechIconCloud";
+import { AboutMe } from "@/components/home/AboutMe";
 
 export const metadata = {
   title: "Robin Website",
@@ -49,6 +51,10 @@ export default function Home() {
             <Socials />
           </BlurFade>
         </BackgroundBeamsWithCollision>
+      </section>
+      <section className="flex flex-wrap">
+        <AboutMe />
+        <TechIconCloud />
       </section>
       <section>
         <CareerTimeline />

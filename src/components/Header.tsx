@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 const navigationItems = [
     { name: "Home", href: "/" },
     { name: "DevNotes", href: "/dev-notes" },
-    // { name: "Blogs", href: "/blogs" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Travel", href: "/travel" }
 ];
 
@@ -23,7 +23,7 @@ export default function Header() {
             animate={{ y: 0, x: 0, opacity: 1 }}
             className="w-full m-4 flex items-center"
         >
-            <Avatar />
+            {/* <Avatar /> */}
             <PixelatedNavbar />
             <div className="hidden sm:block">
                 <Link
