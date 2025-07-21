@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import ModeToggle from "./ModeToggle";
-import Avatar from "./Avatar";
 import { press_start_2p } from "@/lib/fonts";
 import GithubIcon from "./icons/GithubIcon";
 import { motion } from "framer-motion";
