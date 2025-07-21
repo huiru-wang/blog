@@ -66,7 +66,7 @@ export const ResumeCard = ({
                                             <Badge
                                                 variant="secondary"
                                                 className="align-middle text-xs"
-                                                key={badge}
+                                                key={index}
                                             >
                                                 {badge}
                                             </Badge>
