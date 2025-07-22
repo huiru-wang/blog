@@ -12,6 +12,7 @@ import React from "react";
 interface ResumeCardProps {
     logoUrl: string;
     altText: string;
+    company: string;
     title: string;
     subtitle?: string;
     href?: string;
@@ -22,6 +23,7 @@ interface ResumeCardProps {
 export const ResumeCard = ({
     logoUrl,
     altText,
+    company,
     title,
     subtitle,
     href,
@@ -57,6 +59,10 @@ export const ResumeCard = ({
                 </div>
                 <div className="flex-grow ml-4 items-center flex-col group">
                     <CardHeader>
+                        {company}
+                        <div className="tabular-nums text-muted-foreground my-2">
+                            {period}
+                        </div>
                         <div className="flex">
                             <h3 className="inline-flex items-center justify-center font-semibold leading-none">
                                 {title}
@@ -82,9 +88,6 @@ export const ResumeCard = ({
                             </h3>
                         </div>
                         {subtitle && <div className="font-sans">{subtitle}</div>}
-                        <div className="tabular-nums text-muted-foreground">
-                            {period}
-                        </div>
                     </CardHeader>
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}

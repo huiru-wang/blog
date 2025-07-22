@@ -52,9 +52,10 @@ export default function Home() {
           </BlurFade>
         </BackgroundBeamsWithCollision>
       </section>
-      <section className="flex flex-wrap">
+      <section className="flex flex-wrap my-10">
         <AboutMe />
         <TechIconCloud />
+        <hr />
       </section>
       <section>
         <CareerTimeline />

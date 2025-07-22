@@ -8,7 +8,7 @@ export const languages = [
 
 export const EXPERIENCE = [
     {
-        company: "Alibaba",
+        company: "阿里巴巴-钉钉",
         badges: [],
         location: "OnSite",
         title: "服务端开发工程师",
@@ -21,7 +21,7 @@ export const EXPERIENCE = [
         ],
     },
     {
-        company: "Huawei",
+        company: "华为",
         badges: [],
         location: "OnSite",
         title: "SDE",
@@ -32,6 +32,18 @@ export const EXPERIENCE = [
             "- 消费者BG交易中台部门：负责开发对接海外交易渠道PayU、Paypal、Knet等",
             "- 负责BCP业务的开发和维护：准实时的交易链路旁路校验服务",
             "- 华为云云眼部门：负责故障生命周期管理业务的开发"
+        ],
+    },
+    {
+        company: "南京理工大学",
+        badges: [],
+        location: "OnSite",
+        title: "研究生",
+        logoUrl: "/icons/nust.svg",
+        start: "2018-09-01",
+        end: "2021-07-28",
+        description: [
+            "- 南京理工大学自动化学院控制工程"
         ],
     }
 ]
