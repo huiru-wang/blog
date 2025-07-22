@@ -29,7 +29,7 @@ export const EXPERIENCE = [
         start: "2021-08-20",
         end: "2023-10-28",
         description: [
-            "- 消费者BG交易中台部门：负责开发对接海外交易渠道PayU、Paypal、Knet等",
+            "- 终端BG交易中台部门：负责开发对接海外交易渠道PayU、Paypal、Knet等",
             "- 负责BCP业务的开发和维护：准实时的交易链路旁路校验服务",
             "- 华为云云眼部门：负责故障生命周期管理业务的开发"
         ],

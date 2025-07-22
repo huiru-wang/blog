@@ -59,8 +59,10 @@ export const ResumeCard = ({
                 </div>
                 <div className="flex-grow ml-4 items-center flex-col group">
                     <CardHeader>
-                        {company}
-                        <div className="tabular-nums text-muted-foreground my-2">
+                        <div className="font-semibold">
+                            {company}
+                        </div>
+                        <div className="tabular-nums text-muted-foreground my-1">
                             {period}
                         </div>
                         <div className="flex">

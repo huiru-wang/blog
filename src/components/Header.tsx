@@ -2,7 +2,7 @@
 import Link from "next/link";
 import ModeToggle from "./ModeToggle";
 import { press_start_2p } from "@/lib/fonts";
-import GithubIcon from "./icons/GithubIcon";
+import GithubIcon from "@/components/ui/GithubIcon";
 import { motion } from "framer-motion";
 
 // import GithubIcon from "@/public/icons/GithubIcon";
