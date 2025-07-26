@@ -33,7 +33,7 @@ export default async function Home() {
                                 title={frontmatter.title}
                                 description={frontmatter.description!}
                                 publishedAt={frontmatter.publishedAt!}
-                                img={frontmatter.coverImageUrl!}
+                                coverImg={frontmatter.coverImageUrl!}
                             />
                         )
                     })
