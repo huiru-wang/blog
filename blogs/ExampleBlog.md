@@ -5,8 +5,10 @@ tags:
   - Nextjs
 publishedAt: 2023-06-10
 description: Next.js is a popular JavaScript framework for building web applications. It's based on React and offers server-side rendering (SSR) and static site generation (SSG) capabilities.
-coverImageUrl: https://h8DxKfmAPhn8O0p3.public.blob.vercel-storage.com/docs/light/top-level-folders.png
+coverImageUrl: 
 ---
+
+https://h8DxKfmAPhn8O0p3.public.blob.vercel-storage.com/docs/light/top-level-folders.png
 
 # React Blog
 

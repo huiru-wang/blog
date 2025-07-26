@@ -7,10 +7,10 @@ interface BlogCardProps {
     title: string;
     description: string;
     publishedAt: string;
-    img: string;
+    coverImg: string;
 }
 
-export default function BlogCard({ redirect, title, description, publishedAt, img }: BlogCardProps) {
+export default function BlogCard({ redirect, title, description, publishedAt, coverImg }: BlogCardProps) {
 
     return (
         <BlurFade
@@ -28,11 +28,15 @@ export default function BlogCard({ redirect, title, description, publishedAt, im
                         <div>{title}</div>
                     </div>
                 </div>
-                <div
-                    className="w-full h-40 flex items-end border-b-5 bg-center bg-cover bg-no-repeat"
-                    style={{ backgroundImage: `url('${img}')` }}
-                >
-                </div>
+                {
+                    coverImg && (
+                        <div
+                            className="w-full h-40 flex items-end border-b-5 bg-center bg-cover bg-no-repeat"
+                            style={{ backgroundImage: `url('${coverImg}')` }}
+                        >
+                        </div>
+                    )
+                }
                 <div className="flex flex-col justify-between items-start flex-1 p-6">
                     <p className='h-[6em] overflow-hidden overflow-ellipsis break-words overflow-y-auto line-clamp-3'>
                         {description}
