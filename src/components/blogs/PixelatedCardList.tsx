@@ -25,7 +25,7 @@ export default function PixelatedCardList({ initialDevNotesMetadatas, metaInfo }
             <TagPanel metaInfo={metaInfo} onFilter={postMetadataFilter} />
 
             {/* w-full保持grid容器充满当前父容器宽度，子元素w-full可以保持1:1比例，充满grid容器 */}
-            <div className="grid justify-center items-center lg:grid-cols-2 gap-x-8 gap-y-6">
+            <div className="grid justify-center items-center lg:grid-cols-2 gap-x-8 gap-y-6 mb-10">
                 {
                     blogMetadatas.map(({ slug, frontmatter }, index) => (
 

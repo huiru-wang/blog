@@ -22,7 +22,7 @@ export default async function Home() {
                     Dev Blogs
                 </h1>
             </div>
-            <div className="grid grid-cols-1 gap-8 mx-4">
+            <div className="grid grid-cols-1 gap-8 mx-4 mb-10">
                 {
                     blogMetadatas.map(({ slug, frontmatter }, index) => {
                         slug = `/${process.env.BLOG_DIR!}/${slug}`;
