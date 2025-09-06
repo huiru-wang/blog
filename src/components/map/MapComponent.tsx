@@ -112,8 +112,6 @@ export default function MapComponent(
                                 anchor: 'bottom-center',
                                 clickable: true, // 是否可点击
                                 draggable: false, // 是否可拖动
-                                zoomEnable: true,
-                                scrollWheel: false,
                                 label: {          // 文本标注
                                     content: "",
                                     direction: "right"
