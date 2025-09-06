@@ -6,23 +6,5 @@
                 "MCP"
             ]
         }
-    ],
-    "travelMarkers": [
-        {
-            "title": "北京王府井：千年古街，现代繁华",
-            "SOC": "CHN",
-            "city": "北京市",
-            "depth": 6,
-            "position": [
-                116.407387,
-                39.904179
-            ],
-            "zooms": [
-                3,
-                15
-            ],
-            "iconImg": "https://www.eastchinatrip.com/wp-content/uploads/1.-%E7%8E%8B%E5%BA%9C%E4%BA%95%E5%A4%A7%E8%A1%97.webp",
-            "logFile": "北京_王府井.md"
-        }
     ]
 }
