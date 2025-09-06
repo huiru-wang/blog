@@ -1,7 +1,7 @@
 import "@/styles/map-container.css";
 import Image from "next/image";
 
-export function MapMarker({ iconImg }) {
+export function MapMarker({ iconImg }: { iconImg: string }) {
 
     return (
         <div className="marker">

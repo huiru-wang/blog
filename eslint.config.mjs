@@ -13,9 +13,12 @@ const eslintConfig = [
   ...compat.config({
     extends: ["next/core-web-vitals", "next/typescript"],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      'react/no-unescaped-entities': 'off',
-      '@next/next/no-page-custom-font': 'off',
+      // 允许使用 any 类型
+      "@typescript-eslint/no-explicit-any": "off",
+      // 允许未使用的变量
+      "@typescript-eslint/no-unused-vars": "warn",
+      // 允许 React Hook 依赖项警告
+      "react-hooks/exhaustive-deps": "warn",
     },
   }),
 ]

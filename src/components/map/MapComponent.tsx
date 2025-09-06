@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { renderToString } from 'react-dom/server';
 import "@/styles/map-container.css";
-import { MapMarker } from '@/components/map/MapMarker';
+import { MapMarker } from './MapMarker';
 import { TravelMarker } from '@/lib/types';
 export default function MapComponent(
     { travelMarkers, setShowSidebar, setSelectedMarker }:
@@ -17,7 +17,7 @@ export default function MapComponent(
 
     // 染色城市
     const coloringCityMap = useMemo(() => {
-        const map = {};
+        const map: Record<string, { SOC: string, city: string, depth: number }> = {};
         travelMarkers.forEach(item => {
             const { city, SOC, depth } = item;
             if (map[city]) {
@@ -43,7 +43,7 @@ export default function MapComponent(
         if (typeof window !== 'undefined') {
             import('@amap/amap-jsapi-loader').then(AMapLoader => {
                 AMapLoader.load({
-                    key: 'b21c0d603c52798b7947fe3ddc842e78',
+                    key: process.env.NEXT_PUBLIC_AMAP_KEY || '',
                     version: '2.0',
                 }).then(() => {
                     if (mapRef.current) {
@@ -54,7 +54,8 @@ export default function MapComponent(
                             depth: 2,
                             zooms: [4, 9],
                             styles: {
-                                'fill': function (props) {
+                                // @typescript-eslint/no-explicit-any
+                                'fill': function (props: any) {
                                     if (props.SOC !== "CHN") {
                                         return "rgb(227,227,227)";
                                     }
@@ -74,7 +75,7 @@ export default function MapComponent(
                             zooms: [1, 4],
                             styles: {
                                 'stroke-width': 0.8,
-                                'fill': function (d) {
+                                'fill': function (d: any) {
                                     if (coloringCountries.has(d.SOC)) {
                                         return '#41ae76';
                                     }
@@ -86,9 +87,9 @@ export default function MapComponent(
                         });
                         const map = new AMap.Map(mapRef.current, {
                             viewMode: '2D',
-                            center: [106.259126, 37.472641],
+                            center: [118.833954, 32.108711],
                             zooms: [3.5, 15],
-                            zoom: 4.5,
+                            zoom: 3.5,
                             features: ["bg", "point", "building"],
                             layers: [
                                 chinaDis,
@@ -96,6 +97,8 @@ export default function MapComponent(
                                 // @ts-expect-error: AMap.DistrictLayer.Country is not recognized by TypeScript
                                 AMap.createDefaultLayer(),
                             ],
+
+                            doubleClickZoom: false,
                         });
 
                         travelMarkers.forEach(item => {
@@ -109,12 +112,19 @@ export default function MapComponent(
                                 anchor: 'bottom-center',
                                 clickable: true, // 是否可点击
                                 draggable: false, // 是否可拖动
+                                zoomEnable: true,
+                                scrollWheel: false,
                                 label: {          // 文本标注
                                     content: "",
                                     direction: "right"
                                 }
                             });
                             marker.on('click', () => {
+                                setShowSidebar(true);
+                                setSelectedMarker(item);
+                            });
+
+                            marker.on('touchend', () => {
                                 setShowSidebar(true);
                                 setSelectedMarker(item);
                             });

@@ -13,7 +13,7 @@ import { AboutMe } from "@/components/home/AboutMe";
 
 export const metadata = {
   title: "Robin Website",
-  description: "Robin's personal website",
+  description: "Robin的个人技术和生活博客",
 };
 
 export default function Home() {
