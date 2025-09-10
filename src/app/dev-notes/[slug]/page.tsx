@@ -35,12 +35,6 @@ export default async function Page({ params }) {
         // 获取所有DevNotes文章用于相关文章推荐
         const allDevNotesArticles = await getAllDevNotesArticles();
 
-        console.log('Page Debug:', {
-            currentSlug: slug,
-            currentFrontmatter: frontmatter,
-            allDevNotesArticles: allDevNotesArticles,
-            allDevNotesArticlesLength: allDevNotesArticles.length
-        });
 
         return (
             <>

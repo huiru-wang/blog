@@ -34,25 +34,23 @@ export default function MarkdownTableOfContent(toc) {
         setIsVisible(!isVisible);
     };
 
-    const handleMouseEnter = () => {
-        if (!isVisible) {
-            setIsHovered(true);
-        }
+    const handleContainerMouseEnter = () => {
+        setIsHovered(true);
     };
 
-    const handleMouseLeave = () => {
-        if (!isVisible) {
-            setIsHovered(false);
-        }
+    const handleContainerMouseLeave = () => {
+        setIsHovered(false);
     };
 
     return (
-        <div className="fixed right-5 top-28 flex flex-col items-end">
+        <div
+            className="fixed right-5 top-28 flex flex-col items-end"
+            onMouseEnter={handleContainerMouseEnter}
+            onMouseLeave={handleContainerMouseLeave}
+        >
             {/* 目录切换图标 - 始终可见，位于右侧 */}
             <button
                 onClick={toggleVisibility}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
                 className="mb-2 p-2 bg-[var(--card)] border border-[var(--border)] rounded shadow-[2px_2px_0_0_var(--border)] hover:shadow-[3px_3px_0_0_var(--border)] transition-all duration-200 flex items-center justify-center text-[var(--card-foreground)]"
                 aria-label={isVisible ? "隐藏目录" : "显示目录"}
             >

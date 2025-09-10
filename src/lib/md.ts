@@ -102,6 +102,5 @@ const parseMdx = async (content: string): Promise<{ content, frontmatter: Frontm
         },
     });
 
-    console.log('parseMdx result frontmatter:', result.frontmatter);
     return result;
 }

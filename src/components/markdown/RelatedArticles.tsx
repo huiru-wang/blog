@@ -42,16 +42,12 @@ export default function RelatedArticles({ currentArticle, allArticles }: Related
         setIsVisible(!isVisible);
     };
 
-    const handleMouseEnter = () => {
-        if (!isVisible) {
-            setIsHovered(true);
-        }
+    const handleContainerMouseEnter = () => {
+        setIsHovered(true);
     };
 
-    const handleMouseLeave = () => {
-        if (!isVisible) {
-            setIsHovered(false);
-        }
+    const handleContainerMouseLeave = () => {
+        setIsHovered(false);
     };
 
     // 获取当前文章的tags
@@ -79,7 +75,6 @@ export default function RelatedArticles({ currentArticle, allArticles }: Related
             return dateA - dateB;
         });
 
-    console.log('RelatedArticles:', relatedArticles);
 
     // 在移动端隐藏相关文章列表
     if (isMobile) {
@@ -89,12 +84,14 @@ export default function RelatedArticles({ currentArticle, allArticles }: Related
     // 临时显示调试信息
     if (relatedArticles.length === 0) {
         return (
-            <div className="fixed left-5 top-28 flex flex-col items-start">
+            <div
+                className="fixed left-5 top-28 flex flex-col items-start"
+                onMouseEnter={handleContainerMouseEnter}
+                onMouseLeave={handleContainerMouseLeave}
+            >
                 {/* 相关文章切换图标 - 始终可见 */}
                 <button
                     onClick={toggleVisibility}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
                     className="mb-2 p-2 bg-[var(--card)] border border-[var(--border)] rounded shadow-[2px_2px_0_0_var(--border)] hover:shadow-[3px_3px_0_0_var(--border)] transition-all duration-200 flex items-center justify-center text-[var(--card-foreground)]"
                     aria-label={isVisible ? "隐藏相关文章" : "显示相关文章"}
                 >
@@ -160,12 +157,14 @@ export default function RelatedArticles({ currentArticle, allArticles }: Related
     }
 
     return (
-        <div className="fixed left-5 top-28 flex flex-col items-start">
+        <div
+            className="fixed left-5 top-28 flex flex-col items-start"
+            onMouseEnter={handleContainerMouseEnter}
+            onMouseLeave={handleContainerMouseLeave}
+        >
             {/* 相关文章切换图标 - 始终可见 */}
             <button
                 onClick={toggleVisibility}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
                 className="mb-2 p-2 bg-[var(--card)] border border-[var(--border)] rounded shadow-[2px_2px_0_0_var(--border)] hover:shadow-[3px_3px_0_0_var(--border)] transition-all duration-200 flex items-center justify-center text-[var(--card-foreground)]"
                 aria-label={isVisible ? "隐藏相关文章" : "显示相关文章"}
             >
