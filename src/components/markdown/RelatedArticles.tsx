@@ -17,7 +17,7 @@ interface RelatedArticlesProps {
 
 export default function RelatedArticles({ currentArticle, allArticles }: RelatedArticlesProps) {
     const [isMobile, setIsMobile] = useState(false);
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
     // 检测屏幕尺寸

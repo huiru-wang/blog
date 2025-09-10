@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
  * @returns 目录组件
  */
 export default function MarkdownTableOfContent(toc) {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
