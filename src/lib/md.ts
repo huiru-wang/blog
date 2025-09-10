@@ -28,8 +28,10 @@ export const getFileContent = async (baseDir: string, slug: string) => {
     const targetMdx = pathSegment.join(separator);
     try {
         const targetMdxPath = path.join(baseDir, `${targetMdx}`);
-        return await fs.promises.readFile(targetMdxPath, 'utf8');
-    } catch {
+        const content = await fs.promises.readFile(targetMdxPath, 'utf8');
+        return content;
+    } catch (error) {
+        console.error('getFileContent error:', error);
         return '';
     }
 }
@@ -86,7 +88,7 @@ export const getResourceMetadatas = async (baseDir: string) => {
  */
 const parseMdx = async (content: string): Promise<{ content, frontmatter: Frontmatter }> => {
 
-    return compileMDX<Frontmatter>({
+    const result = await compileMDX<Frontmatter>({
         source: content || "",
         options: {
             parseFrontmatter: true,
@@ -99,4 +101,7 @@ const parseMdx = async (content: string): Promise<{ content, frontmatter: Frontm
             }
         },
     });
+
+    console.log('parseMdx result frontmatter:', result.frontmatter);
+    return result;
 }

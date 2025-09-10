@@ -5,6 +5,21 @@ export default function MarkdownContainer({ content, frontmatter, textSize = 'te
     return (
         <section className="w-full flex flex-col items-center bg-[var(--background])] mb-10">
             <h1 className="text-3xl font-bold text-center">{frontmatter?.title}</h1>
+
+            {/* Tags 显示 */}
+            {frontmatter?.tags && frontmatter.tags.length > 0 && (
+                <div className="max-w-md sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl w-full flex flex-wrap gap-2 mt-4 mb-2">
+                    {frontmatter.tags.map((tag, index) => (
+                        <span
+                            key={index}
+                            className="px-3 py-1 text-sm bg-[var(--secondary)] text-[var(--secondary-foreground)] rounded-full border border-[var(--border)]"
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            )}
+
             <article className="max-w-md sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl flex flex-col items-center justify-start m-4 gap-8">
                 {
                     frontmatter?.description && (

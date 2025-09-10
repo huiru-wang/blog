@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import MarkdownTableOfContent from "@/components/markdown/MarkdownTableOfContent";
 import MarkdownContainer from "@/components/markdown/MarkdownContainer";
 import BackTop from "@/components/BackTop";
+import RelatedArticles from "@/components/markdown/RelatedArticles";
+import { getAllDevNotesArticles } from "@/lib/getDevNotesArticles";
 
 export async function generateMetadata({ params }) {
 
@@ -30,10 +32,24 @@ export default async function Page({ params }) {
 
         const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
 
+        // 获取所有DevNotes文章用于相关文章推荐
+        const allDevNotesArticles = await getAllDevNotesArticles();
+
+        console.log('Page Debug:', {
+            currentSlug: slug,
+            currentFrontmatter: frontmatter,
+            allDevNotesArticles: allDevNotesArticles,
+            allDevNotesArticlesLength: allDevNotesArticles.length
+        });
+
         return (
             <>
                 <MarkdownContainer content={content} frontmatter={frontmatter} />
                 <MarkdownTableOfContent toc={toc} />
+                <RelatedArticles
+                    currentArticle={{ slug, frontmatter }}
+                    allArticles={allDevNotesArticles}
+                />
                 <BackTop />
             </>
         );
