@@ -5,7 +5,6 @@ import MarkdownTableOfContent from "@/components/markdown/MarkdownTableOfContent
 import MarkdownContainer from "@/components/markdown/MarkdownContainer";
 import BackTop from "@/components/BackTop";
 import RelatedArticles from "@/components/markdown/RelatedArticles";
-import { getAllDevNotesArticles } from "@/lib/getDevNotesArticles";
 
 export async function generateMetadata({ params }) {
 
@@ -32,9 +31,7 @@ export default async function Page({ params }) {
 
         const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
 
-        // 获取所有DevNotes文章用于相关文章推荐
-        const allDevNotesArticles = await getAllDevNotesArticles();
-
+        // 不再需要 getAllDevNotesArticles()，相关文章通过 Context 获取
 
         return (
             <>
@@ -42,7 +39,6 @@ export default async function Page({ params }) {
                 <MarkdownTableOfContent toc={toc} />
                 <RelatedArticles
                     currentArticle={{ slug, frontmatter }}
-                    allArticles={allDevNotesArticles}
                 />
                 <BackTop />
             </>

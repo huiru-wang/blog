@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useArticles } from '@/contexts/ArticlesContext';
 
 /**
  * 将解析的markdown嵌套目录渲染为有层级关系的组件
@@ -8,14 +9,14 @@ import { useState, useEffect } from 'react';
  * @returns 目录组件
  */
 export default function MarkdownTableOfContent(toc) {
-    const [isVisible, setIsVisible] = useState(false);
+    const { tocVisible, setTocVisible } = useArticles();
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
     // 检测屏幕尺寸
     useEffect(() => {
         const checkScreenSize = () => {
-            setIsMobile(window.innerWidth < 1024); // lg断点
+            setIsMobile(window.innerWidth < 1280); // md断点
         };
 
         checkScreenSize();
@@ -26,12 +27,12 @@ export default function MarkdownTableOfContent(toc) {
     // 在移动端自动收起
     useEffect(() => {
         if (isMobile) {
-            setIsVisible(false);
+            setTocVisible(false);
         }
-    }, [isMobile]);
+    }, [isMobile, setTocVisible]);
 
     const toggleVisibility = () => {
-        setIsVisible(!isVisible);
+        setTocVisible(!tocVisible);
     };
 
     const handleContainerMouseEnter = () => {
@@ -52,10 +53,10 @@ export default function MarkdownTableOfContent(toc) {
             <button
                 onClick={toggleVisibility}
                 className="mb-2 p-2 bg-[var(--card)] border border-[var(--border)] rounded shadow-[2px_2px_0_0_var(--border)] hover:shadow-[3px_3px_0_0_var(--border)] transition-all duration-200 flex items-center justify-center text-[var(--card-foreground)]"
-                aria-label={isVisible ? "隐藏目录" : "显示目录"}
+                aria-label={tocVisible ? "隐藏目录" : "显示目录"}
             >
                 <svg
-                    className={`w-4 h-4 transition-transform duration-200 ${isVisible ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 transition-transform duration-200 ${tocVisible ? 'rotate-180' : ''}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -71,7 +72,7 @@ export default function MarkdownTableOfContent(toc) {
 
             {/* 目录内容 */}
             <div
-                className={`min-w-64 max-w-80 p-4 border border-[var(--border)] rounded shadow-[4px_4px_0_0_var(--border)] bg-[var(--card)] text-[var(--card-foreground)] transition-all duration-300 ${isVisible || isHovered
+                className={`w-72 p-4 border border-[var(--border)] rounded shadow-[4px_4px_0_0_var(--border)] bg-[var(--card)] text-[var(--card-foreground)] transition-all duration-300 ${tocVisible || isHovered
                     ? 'opacity-100 translate-y-0 pointer-events-auto'
                     : 'opacity-0 -translate-y-2 pointer-events-none'
                     }`}
