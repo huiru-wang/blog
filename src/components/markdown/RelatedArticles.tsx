@@ -53,21 +53,6 @@ export default function RelatedArticles({ currentArticle }: RelatedArticlesProps
         currentArticle.slug
     );
 
-    // 调试信息
-    console.log('RelatedArticles Debug:', {
-        currentSlug: currentArticle.slug,
-        currentTitle: currentArticle.frontmatter.title,
-        relatedArticles: relatedArticles.map(a => ({
-            slug: a.slug,
-            title: a.frontmatter.title,
-            isCurrent: a.isCurrentArticle
-        }))
-    });
-
-    // 在移动端隐藏相关文章列表
-    if (isMobile) {
-        return null;
-    }
 
     return (
         <div
@@ -96,39 +81,41 @@ export default function RelatedArticles({ currentArticle }: RelatedArticlesProps
                 </svg>
             </button>
 
-            {/* 相关文章内容 */}
-            <div
-                className={`w-72 p-4 border border-[var(--border)] rounded shadow-[4px_4px_0_0_var(--border)] bg-[var(--card)] text-[var(--card-foreground)] transition-all duration-300 ${relatedArticlesVisible || isHovered
-                    ? 'opacity-100 translate-y-0 pointer-events-auto'
-                    : 'opacity-0 -translate-y-2 pointer-events-none'
-                    }`}
-            >
-                <h3 className="text-lg font-bold mb-3 text-center">相关文章</h3>
+            {/* 相关文章内容 - 在移动端隐藏 */}
+            {!isMobile && (
                 <div
-                    className="space-y-2 max-h-96 overflow-y-auto custom-scrollbar"
-                    style={{
-                        scrollbarWidth: 'thin',
-                        scrollbarColor: 'var(--border) transparent'
-                    }}
+                    className={`w-72 p-4 border border-[var(--border)] rounded shadow-[4px_4px_0_0_var(--border)] bg-[var(--card)] text-[var(--card-foreground)] transition-all duration-300 ${relatedArticlesVisible || isHovered
+                        ? 'opacity-100 translate-y-0 pointer-events-auto'
+                        : 'opacity-0 -translate-y-2 pointer-events-none'
+                        }`}
                 >
-                    {relatedArticles.map((article) => {
-                        return (
-                            <Link
-                                key={article.slug}
-                                href={`/dev-notes/${article.slug}`}
-                                className={`block p-2 border border-[var(--border)] rounded hover:bg-[var(--accent)] transition-colors duration-200 ${article.isCurrentArticle
-                                    ? 'bg-[var(--accent)] font-semibold border-[var(--accent)] shadow-md'
-                                    : ''
-                                    }`}
-                            >
-                                <h4 className="text-sm line-clamp-1">
-                                    {article.frontmatter.title}
-                                </h4>
-                            </Link>
-                        );
-                    })}
+                    <h3 className="text-lg font-bold mb-3 text-center">相关文章</h3>
+                    <div
+                        className="space-y-2 max-h-96 overflow-y-auto custom-scrollbar"
+                        style={{
+                            scrollbarWidth: 'thin',
+                            scrollbarColor: 'var(--border) transparent'
+                        }}
+                    >
+                        {relatedArticles.map((article) => {
+                            return (
+                                <Link
+                                    key={article.slug}
+                                    href={`/dev-notes/${article.slug}`}
+                                    className={`block p-2 border border-[var(--border)] rounded hover:bg-[var(--accent)] transition-colors duration-200 ${article.isCurrentArticle
+                                        ? 'bg-[var(--accent)] font-semibold border-[var(--accent)] shadow-md'
+                                        : ''
+                                        }`}
+                                >
+                                    <h4 className="text-sm line-clamp-1">
+                                        {article.frontmatter.title}
+                                    </h4>
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }
