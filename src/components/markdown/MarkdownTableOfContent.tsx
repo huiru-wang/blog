@@ -78,7 +78,7 @@ export default function MarkdownTableOfContent(toc) {
                     }`}
             >
                 <nav>
-                    <h2 className="text-center text-base font-bold mb-2">Table of Contents</h2>
+                    <h2 className="text-center text-sm mb-2">Table of Contents</h2>
                     <TableOfContent props={toc.toc} />
                 </nav>
             </div>

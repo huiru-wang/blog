@@ -89,7 +89,7 @@ export default function RelatedArticles({ currentArticle }: RelatedArticlesProps
                         : 'opacity-0 -translate-y-2 pointer-events-none'
                         }`}
                 >
-                    <h3 className="text-lg font-bold mb-3 text-center">相关文章</h3>
+                    <h3 className="text-sm mb-3 text-center">Related Articles</h3>
                     <div
                         className="space-y-2 max-h-96 overflow-y-auto custom-scrollbar"
                         style={{

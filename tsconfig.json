@@ -39,8 +39,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "src/lib/openai.js"  ],
+    ".next/types/**/*.ts",
+    "src/lib/openai.js"
+  ],
   "exclude": [
     "node_modules"
   ]
