@@ -19,7 +19,6 @@ const Mermaid = ({ code }: Props) => {
                 mermaid.initialize({
                     startOnLoad: true,
                     theme: theme === "dark" ? "dark" : "base",
-                    fontSize: 28,
                 });
                 const result = await mermaid.render("graphDiv", code);
                 setSvg(result.svg);
@@ -45,7 +44,8 @@ const Mermaid = ({ code }: Props) => {
 
     return (
         <div
-            className={`${svg === "" ? "hidden" : "block"}`}
+            className={`${svg === "" ? "hidden" : "block"} ${theme === "dark" ? "bg-[var(--card)]" : "bg-slate-50"
+                } rounded-lg p-4 border border-[var(--border)]`}
             dangerouslySetInnerHTML={{ __html: svg }}
         ></div>
     );

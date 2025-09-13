@@ -21,36 +21,31 @@ export const compileMarkdownWithTOC = async (content: string) => {
         options: {
             parseFrontmatter: true,
             mdxOptions: {
+                // 解析插件
                 remarkPlugins: [
                     remarkGfm,
                     remarkMath,
-                    // [
-                    //     mdxMermaid,
-                    //     {
-                    //         output: 'svg',
-                    //         mermaid: {
-                    //             theme: 'dark',
-                    //             darkMode: true,
-                    //             fontSize: 40,
-                    //             sequence: {
-                    //             }
-                    //         }
-                    //     }
-                    // ]
                 ],
                 rehypePlugins: [
-                    [rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }],
-                    [rehypeToc, {
-                        headings: ['h1', 'h2'],
-                        customizeTOC: (tocHtml) => {
-                            toc = tocHtml;
-                            return false;
+                    [
+                        rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }
+                    ],
+                    // 生成目录
+                    [
+                        rehypeToc, {
+                            headings: ['h1', 'h2'],
+                            customizeTOC: (tocHtml) => {
+                                toc = tocHtml;
+                                return false;
+                            }
                         }
-                    }],
+                    ],
+                    // Katex支持
                     rehypeKatex,
                 ],
             }
         },
+        // 定制化markdown渲染
         components: components,
     });
     return { ...result, toc }
