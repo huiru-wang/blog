@@ -44,11 +44,11 @@ export const getFileContent = async (baseDir: string, slug: string) => {
  * 
  * @returns {frontmatter, slug}[]
  */
-export const getResourceMetadatas = async (baseDir: string) => {
+export const getResourceMetadatas = async (baseDir: string): Promise<{ slug: string, frontmatter: Frontmatter }[]> => {
     const cacheKey = `articles_${baseDir}`;
 
     // 尝试从缓存获取
-    const cached = articleCache.get(cacheKey);
+    const cached = articleCache.get<{ slug: string, frontmatter: Frontmatter }[]>(cacheKey);
     if (cached) {
         return cached;
     }

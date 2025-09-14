@@ -15,14 +15,26 @@ import { mdxCache } from './cache';
  * @param content markdown内容
  * @returns mdx及目录
  */
-export const compileMarkdownWithTOC = async (content: string) => {
-    // 使用内容hash作为缓存key
+export const compileMarkdownWithTOC = async (content: string, slug?: string): Promise<{
+    content: any;
+    frontmatter: any;
+    toc: string;
+}> => {
+    // 使用slug和内容hash组合作为缓存key，确保唯一性
     const contentHash = Buffer.from(content).toString('base64').slice(0, 16);
-    const cacheKey = `mdx_${contentHash}`;
+    const cacheKey = `mdx_${slug || 'unknown'}_${contentHash}`;
 
     // 尝试从缓存获取
-    const cached = mdxCache.get(cacheKey);
+    const cached = mdxCache.get<{
+        content: any;
+        frontmatter: any;
+        toc: string;
+    }>(cacheKey);
     if (cached) {
+        // 调试信息
+        if (process.env.NODE_ENV === 'development') {
+            console.log(`[MDX Cache] Hit: ${cacheKey}`);
+        }
         return cached;
     }
 
@@ -69,6 +81,11 @@ export const compileMarkdownWithTOC = async (content: string) => {
 
     // 缓存结果
     mdxCache.set(cacheKey, resultWithToc);
+
+    // 调试信息
+    if (process.env.NODE_ENV === 'development') {
+        console.log(`[MDX Cache] Cached: ${cacheKey}, Size: ${mdxCache.getStats().size}`);
+    }
 
     return resultWithToc;
 }

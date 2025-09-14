@@ -5,13 +5,16 @@ import MarkdownTableOfContent from "@/components/markdown/MarkdownTableOfContent
 import MarkdownContainer from "@/components/markdown/MarkdownContainer";
 import BackTop from "@/components/BackTop";
 
+// 禁用静态生成，确保每次请求都重新渲染
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }) {
 
     const { slug } = await params;
 
     const source = await getFileContent(process.env.BLOG_DIR!, slug);
 
-    const { frontmatter } = await compileMarkdownWithTOC(source);
+    const { frontmatter } = await compileMarkdownWithTOC(source, slug);
 
     return {
         title: frontmatter?.title,
@@ -27,7 +30,7 @@ export default async function Page({ params }) {
 
         const source = await getFileContent(process.env.BLOG_DIR!, slug);
 
-        const { content, frontmatter, toc } = await compileMarkdownWithTOC(source);
+        const { content, frontmatter, toc } = await compileMarkdownWithTOC(source, slug);
 
         return (
             <>

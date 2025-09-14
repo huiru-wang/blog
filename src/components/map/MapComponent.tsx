@@ -132,7 +132,7 @@ export default function MapComponent(
                 });
             });
         }
-    }, [coloringCityMap, coloringCountries]);
+    }, [coloringCityMap, coloringCountries, setSelectedMarker, setShowSidebar, travelMarkers]);
 
     return (
         <div

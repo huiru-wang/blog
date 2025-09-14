@@ -63,7 +63,7 @@ class MemoryCache {
 
         // 增加命中次数
         item.hits++;
-        return item.data;
+        return item.data as T;
     }
 
     private calculateSize(data: any): number {
@@ -112,6 +112,23 @@ class MemoryCache {
         this.currentSize = 0;
     }
 
+    // 清理特定模式的缓存
+    clearByPattern(pattern: string): void {
+        const keysToDelete: string[] = [];
+        for (const key of this.cache.keys()) {
+            if (key.includes(pattern)) {
+                keysToDelete.push(key);
+            }
+        }
+        keysToDelete.forEach(key => {
+            const item = this.cache.get(key);
+            if (item) {
+                this.currentSize -= item.size;
+                this.cache.delete(key);
+            }
+        });
+    }
+
     getStats() {
         return {
             size: this.cache.size,
@@ -134,8 +151,10 @@ class MemoryCache {
 export const articleCache = new MemoryCache(30 * 1024 * 1024, 10 * 60 * 1000); // 30MB, 10分钟
 export const mdxCache = new MemoryCache(20 * 1024 * 1024, 5 * 60 * 1000); // 20MB, 5分钟
 
-// 定期清理缓存
-setInterval(() => {
-    articleCache.clear();
-    mdxCache.clear();
-}, 30 * 60 * 1000); // 每30分钟清理一次
+// 定期清理缓存（仅在客户端或Node.js环境中）
+if (typeof window !== 'undefined' || typeof process !== 'undefined') {
+    setInterval(() => {
+        articleCache.clear();
+        mdxCache.clear();
+    }, 30 * 60 * 1000); // 每30分钟清理一次
+}
