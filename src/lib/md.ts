@@ -6,6 +6,7 @@ import { Frontmatter } from "./types";
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
+import { articleCache } from './cache';
 // import mdxMermaid from 'mdx-mermaid';
 
 const separator = path.sep;
@@ -44,6 +45,14 @@ export const getFileContent = async (baseDir: string, slug: string) => {
  * @returns {frontmatter, slug}[]
  */
 export const getResourceMetadatas = async (baseDir: string) => {
+    const cacheKey = `articles_${baseDir}`;
+
+    // 尝试从缓存获取
+    const cached = articleCache.get(cacheKey);
+    if (cached) {
+        return cached;
+    }
+
     const result: { slug: string, frontmatter: Frontmatter }[] = [];
     const readDirRecursively = async (currentDir) => {
         const files = await fs.promises.readdir(currentDir);
@@ -78,6 +87,10 @@ export const getResourceMetadatas = async (baseDir: string) => {
         const dateB = new Date(b.frontmatter.publishedAt || 0).getTime();
         return dateB - dateA;
     });
+
+    // 缓存结果
+    articleCache.set(cacheKey, result);
+
     return result;
 }
 

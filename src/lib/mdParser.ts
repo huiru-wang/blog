@@ -7,6 +7,7 @@ import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import rehypeToc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
+import { mdxCache } from './cache';
 
 /**
  * 解析markdown内容，并生成toc
@@ -15,6 +16,16 @@ import remarkGfm from 'remark-gfm';
  * @returns mdx及目录
  */
 export const compileMarkdownWithTOC = async (content: string) => {
+    // 使用内容hash作为缓存key
+    const contentHash = Buffer.from(content).toString('base64').slice(0, 16);
+    const cacheKey = `mdx_${contentHash}`;
+
+    // 尝试从缓存获取
+    const cached = mdxCache.get(cacheKey);
+    if (cached) {
+        return cached;
+    }
+
     let toc = "";
     const result = await compileMDX<Frontmatter>({
         source: content || "",
@@ -28,7 +39,12 @@ export const compileMarkdownWithTOC = async (content: string) => {
                 ],
                 rehypePlugins: [
                     [
-                        rehypePrismPlus, { ignoreMissing: true, showLineNumbers: true }
+                        rehypePrismPlus, {
+                            ignoreMissing: true,
+                            showLineNumbers: true,
+                            // 限制代码高亮范围，减少内存使用
+                            addResultClass: false
+                        }
                     ],
                     // 生成目录
                     [
@@ -48,5 +64,11 @@ export const compileMarkdownWithTOC = async (content: string) => {
         // 定制化markdown渲染
         components: components,
     });
-    return { ...result, toc }
+
+    const resultWithToc = { ...result, toc };
+
+    // 缓存结果
+    mdxCache.set(cacheKey, resultWithToc);
+
+    return resultWithToc;
 }
