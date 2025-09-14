@@ -41,3 +41,4 @@ dev-notes/
 blogs/
 public/images/
 prompt.md
+.env.local

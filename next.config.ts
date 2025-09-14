@@ -13,9 +13,8 @@ const nextConfig: NextConfig = {
         hostname: "**",
       },
     ],
-    // 优化图片处理，减少内存使用
-    formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+    // 禁用图片优化以减少构建时内存占用
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
