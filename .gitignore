@@ -37,8 +37,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-dev-notes/
-blogs/
 public/images/
+scripts/
+dist/
+
 prompt.md
+ecosystem.config.js
+next.config.ts
 .env.local
+.env.production
+meta.json

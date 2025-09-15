@@ -1,0 +1,16 @@
+{
+    "categories": [
+        {
+            "name": "Nextjs",
+            "tags": [
+                "Nextjs"
+            ]
+        },
+        {
+            "name": "React",
+            "tags": [
+                "React"
+            ]
+        }
+    ]
+}

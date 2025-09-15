@@ -29,10 +29,11 @@ export const getFileContent = async (baseDir: string, slug: string) => {
     const targetMdx = pathSegment.join(separator);
     try {
         const targetMdxPath = path.join(baseDir, `${targetMdx}`);
+        console.log('targetMdxPath:', targetMdxPath);
         const content = await fs.promises.readFile(targetMdxPath, 'utf8');
         return content;
     } catch (error) {
-        console.error('getFileContent error:', error);
+        console.error('getFileContent error:', baseDir, slug, decodedSlug, error);
         return '';
     }
 }

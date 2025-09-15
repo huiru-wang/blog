@@ -1,8 +1,7 @@
 module.exports = {
     apps: [{
         name: 'blog-app',
-        script: 'npm',
-        args: 'start',
+        script: './server.js',
         instances: 1, // 单实例，避免内存竞争
         exec_mode: 'fork', // 使用fork模式，更稳定
         max_memory_restart: '800M', // 内存超过800MB自动重启
@@ -15,7 +14,9 @@ module.exports = {
         env: {
             NODE_ENV: 'production',
             NODE_OPTIONS: '--max-old-space-size=800', // 限制Node.js堆内存
-            PORT: 3000
+            PORT: 3000,
+            DEV_NOTES_DIR: 'dev-notes',
+            BLOG_DIR: 'blogs'
         },
         // 内存监控
         monitoring: {

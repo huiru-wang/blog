@@ -2,9 +2,8 @@
 title: Nextjs Introduction
 category: Frontend
 tags:
-  - React
   - Nextjs
-publishedAt: 2023-06-10
+publishedAt: 2023-08-10
 description: Next.js is a popular JavaScript framework for building web applications. It's based on React and offers server-side rendering (SSR) and static site generation (SSG) capabilities.
 coverImageUrl: 
 ---

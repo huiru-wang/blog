@@ -2,6 +2,9 @@
   padding: 0px;
   margin: 0px;
   width: 100%;
+  /* 优化：启用硬件加速 */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .amap-layer {
@@ -10,6 +13,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  /* 优化：减少重绘 */
+  contain: layout style paint;
 }
 
 .amap-logo {
@@ -24,11 +29,14 @@
   top: 100px;
   left: 150px;
   cursor: pointer;
+  /* 优化：使用transform代替其他属性，启用硬件加速 */
   transition: transform 0.2s ease-in-out;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .marker:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) translateZ(0);
 }
 
 .marker-image {
@@ -38,12 +46,16 @@
   overflow: hidden;
   border: 2px solid #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  /* 优化：减少重绘 */
+  contain: layout style paint;
 }
 
 .marker-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* 优化：减少重绘 */
+  transform: translateZ(0);
 }
 
 .marker-pointer {
@@ -53,4 +65,12 @@
   border-right: 5px solid transparent;
   border-top: 15px solid #f4c6ac;
   margin: 0 auto;
+  /* 优化：减少重绘 */
+  transform: translateZ(0);
+}
+
+/* 优化：减少地图容器的重绘 */
+#container {
+  contain: layout style paint;
+  transform: translateZ(0);
 }

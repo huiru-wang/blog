@@ -45,6 +45,8 @@ const nextConfig: NextConfig = {
   },
   // 静态优化
   output: 'standalone',
+  // 如果需要CDN或子路径，取消注释下面这行
+  // assetPrefix: process.env.NODE_ENV === 'production' ? 'https://www.robinverse.me' : '',
   // 减少运行时内存
   onDemandEntries: {
     maxInactiveAge: 25 * 1000,
